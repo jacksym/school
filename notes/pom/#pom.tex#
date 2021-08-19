@@ -1,0 +1,1006 @@
+%St Andrews Notes Template
+\documentclass[10pt, a4paper, twocolumn]{article}
+
+%Formatting Packages
+\usepackage[a4paper, margin=0.5in]{geometry}
+%\usepackage[extreme]{savetrees}
+\usepackage{times}
+
+%Math Packages
+\usepackage{xparse}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{esint}
+\usepackage{physics}
+
+\newenvironment{definition}[1]{\par \noindent \textbf{#1}: \begin{itemize} \renewcommand{\labelitemi}{$\hookrightarrow$}}{\end{itemize}}
+\newcommand{\bd}{\begin{definition}}
+\newcommand{\ed}{\end{definition}}
+
+\newcommand{\deff}[1]{\par \noindent \textit{#1}: }
+\newcommand{\dbar}{\mathrm d \hspace*{-0.2em}\bar{}\hspace*{0.2em}}
+\newcommand{\arr}{\ensuremath{\longrightarrow\ }}
+\newcommand{\larr}{\ensuremath{\longleftarrow\ }}
+\newcommand{\intall}{\ensuremath{\int\limits_\text{all space}}}
+\newcommand{\intinf}{\ensuremath{\int\limits_{-\infty}^{+\infty}}}
+\newcommand{\n}{\par \noindent}
+\newcommand{\eps}{\ensuremath{\varepsilon _0}}
+
+\author{Jack Symonds}
+\title{Physics of Music}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+\deff{Helmholtz Resonators}
+hollow spheres with pinholes -- the volume of the sphere determines its resonance which is distinct
+
+Synthesizing sounds in the 19th century involved using a tuning fork to rapidly toggle a circuit. A pin attached to the tuning fork would dip into and out of liquid magnesium with a layer of alcohol on top to prevent sparking.
+
+This oscillating current can be applied to a coil of wire around a magnet which can drive another tuning fork. All of these tuning forks can be intercepted by a Helmholtz resonator so the apparatus can be "tuned." This is also how each harmonic was mixed. (no voltage control)
+
+For an $n^{\text{th}}$ harmonic,
+\begin{equation*}
+	L = \frac{n \lambda _0}{2}
+	\qquad f_n = \frac{nc_s}{2L} = nf_1
+	\qquad n = 1,2,3 \dots
+\end{equation*}
+
+\section{Beats and Fourier}
+
+\begin{equation*}
+\begin{matrix}
+	x _1 = A_1 e^{j (\omega t + \phi _1)}
+	\\ x _2 = A_2 e^{j (\omega t + \phi _2)}
+\end{matrix}
+\bigg\} \arr A e^{j(\omega t + \phi)}
+= \left( A_1 e ^{j \phi _1}
++ A_2 e^{j \phi _2} \right) e^{j \omega t}
+\end{equation*}
+
+from geometry, the cosine rule and Pythagorus, (think of end-to-end vectors in the complex plane)
+\[
+A = \sqrt{A_1 ^2 + A_2 ^2
++ 2 A_1 A_2 \cos ( \varphi _1 - \varphi _2)}
+\]
+\[ \tan \varphi = \frac{A_1 \sin \varphi _1
++ A_2 \sin \varphi _2}{A_1 \cos \varphi _1 + A_2 \cos \varphi _2}
+\]
+
+displacement for two vibrations of different frequency:
+\[ x = A_1 e^{j(\omega _1 t + \phi _1)}
++ A_2 e^{j(\omega _2 t + \phi _2)} \]
+
+If the frequencies are "harmonics" then the sum of their vibrations will be periodic witha  repetition rate equal to the "fundamental" frequency. If the two frequencies are not "harmonics" then the wave never repeats itself.
+
+\begin{equation*}
+\begin{aligned}
+\omega _2 = \omega _1 + \Delta \omega
+\arr x &= A_1 e^{j(\omega _1 t + \phi _1)}
++ A_2 e^{j(\omega _1 t + \Delta \omega t + \phi _2)}
+\\ &= [ A_1 e^{j \phi _1} + A_2 e^{j \phi _2)} ] e^{j \omega _1 t}
+\end{aligned}
+\end{equation*}
+
+comparing with the above:
+\[
+A = \sqrt{A_1 ^2 + A_2 ^2 +
+2 A_1 A_2 \cos ( \varphi _1 - \varphi _2 - \Delta \omega t)}
+\] 
+\[\tan \varphi = \frac{A_1 \sin \varphi _1 +
+A_2 \sin ( \varphi _2 + \Delta \omega t)}{A_1 \cos \varphi _1
++ A_2 \cos ( \varphi _2 + \Delta \omega t)}
+\]
+
+Thus, the equation for $A$ indicates that two sine waves close together in frequency combine to give a signal which resembles a single sine wave oscillating in amplitude.
+
+\subsection{Fourier Series}
+
+\deff{Fourier's Theorem}
+any periodic motion may be expressed as a sum of harmonic, sinusoidal frequency compnoents -- which are integer multiples of the repetition rate of the function.
+
+For a vibration of period $T$ represented by the function $f(t)$, the harmonic series is:
+\begin{equation*}
+\begin{split}
+f(t) = \frac12 A_0 + A_1 \cos \omega t + A_2 \cos 2 \omega t
++ \cdots + A_n \cos n \omega t + \cdots
+\\ + B_1 \sin \omega t + B_2 \sin 2 \omega t + \cdots
++ B_n \sin n \omega t + \cdots
+\end{split}
+\end{equation*}
+$A_n$ and $B_n$ are the amplitudes of the components and $\omega = 2 \pi /T$ is the angular frequency of the fundamental.
+
+\[ A_n = \frac2T \int _0 ^r f(t) \cos (n \omega t) \ \dd t 
+\qquad B_n = \frac2T \int _0 ^r f(t) \sin (n \omega t) \ \dd t \]
+
+\subsection{Fourier Transform}
+
+\deff{spectral density function}
+$g(w)$ is the continuous weighting of each angular frequency $w$ on a vibration function which turns out to be more complex and transient than a discrete sum of components
+ 
+%\[ f(t) = \intinf g(w) e ^{i w t} \ \dd w \]
+\[ f(t) = \int _{-\infty}^{+\infty} g(w) e ^{i w t} \ \dd w \]
+
+using the complex Fourier transform:
+\[ g(w) = \frac{1}{2\pi}
+\int _{-\infty}^{\infty} f(t) e ^{-jwt} \ \dd t \]
+
+spectral density of Dirac delta function:
+\[ g(w) = \frac{1}{2\pi}
+\int _{-\infty}^{\infty} \delta (t) e ^{-jwt} \ \dd t 
+= \frac{1}{2\pi} \]
+
+\section{Waves of a String}
+
+\deff{Taylor series expansion}
+\[ f(x + \dd x) = f(x) + \left( \pdv{f}{x} \right) _x \dd x
++ \frac12 \left( \pdv[2]{f}{x} \right) _x \dd x + \dots \]
+
+If a string under tension is displaced from equilibrium by a small amount, the tension in the string may be assumed not to change, but the string still experiences an unbalanced force due to the change in the direction of the tension.
+
+\begin{equation*}
+\begin{aligned}
+\dd f_y &= T \sin \theta(x+\dd x) - T\sin \theta (x)
+\\ &= \left[ T \sin \theta (x) +
+\left( \pdv{(T \sin \theta (x))}{x} \right) _x \dd x
++ \cdots \right] - T \sin \theta (x)
+\\ & = \left( \pdv{(T \sin \theta )}{x} \right) _x \dd x
+\qquad \larr \sin \theta \simeq \pdv{y}{x}
+\\ &= \pdv{\left( T \pdv{y}{x} \right)}{x} = T \pdv[2]{y}{x} \dd x
+\end{aligned}
+\end{equation*}
+
+applying this to Netwon's Second Law for this length of a string:
+\[ \dd f _y= \rho _L \dd x \pdv[2]{y}{t}
+= T \pdv[2]{y}{x} \dd x \]
+
+This equation yields the "wave-equation" where $c = \sqrt{T/\rho _L} $
+
+\subsection{The General Solution and Wave Motion}
+
+general solutions to the wave equation:
+\[ y(x,t) = y_1 (ct - x) + y_2 (ct + x) \]
+
+Possible arbitrary functions include $\log (ct \pm x)$, and $\exp [j \omega (t \pm x/c)]$ but not functions which include $X$ and $T$ separately such as $x^2 + ct^2$
+
+$y_1 (ct - x)$ is a travelling wave of arbitrary shape travelling to the right and $y_2 (ct + x)$ is another travelling to the right instead. If the string is rigidly fixed at one end then the travelling waves must be 4euqal and opposite at that point at all times. This means that when a wave is incident on the end then it is reflected back the same shape but opposite displacement.
+
+\subsection{Simple Harmonic Solutions}
+
+\begin{equation*}
+\begin{aligned}
+y(x,t) &= A \sin \frac{\omega}{c} (ct -x)
++ B \cos \frac{\omega }{c} (ct - x)
++ C \sin \frac{\omega}{c} (ct + x)
++ D \cos \frac{\omega}{c} (ct +x)
+\\ &= A \sin (\omega t - kx)
++ B \cos (\omega t - kx)
++ C \sin (\omega t - kx) + D \cos (\omega t - kx)
+\end{aligned}
+\end{equation*}
+
+\subsection{Standing Waves}
+
+For a string fixed at both ends, at $x= 0$ and $x=L$, the terms for the negative and positive direction motion must be equal and opposite in magnitude.
+
+\begin{equation*}
+\begin{aligned}
+y(x,t) &= A[\sin(\omega t - kx ) - \sin (\omega t + kx)]
++ B[\cos(\omega t - kx )
+	\\ & \qquad - \cos (\omega t + kx)]
+\\ & \qquad \sin (x \pm y) = \sin x \cos y \pm \cos x \sin y
+\\ & \qquad \cos (x \pm y) = \cos x \cos y \pm \sin x \sin y
+\\ &= 2A \sin (kx) \cos (\omega t)
+- 2 B \sin (kx) \sin (\omega t)
+\\ &= 2[A \cos (\omega t) - B \sin (\omega t)] \sin (kx)
+\end{aligned}
+\end{equation*}
+
+This equation illustrates the properties of a standing wave because it is a sine shape fixed in space with an time-varying amplitude. Since the string is fixed at $x=L$ then $\sin (kL) = 0$ and so $k = n \pi /L $. The string can thus support an infinite number of sinusoidal modes or harmonics, each with $n$ half wavelengths of a sine wave on the string.
+
+\section{Membranes}
+
+For a thin, flexible membrane element under tension $F$, let the displacement $y$ be a function of the position coordinates $x$ and $z$. So the net force on the element in the $y$ direction due to the curvature of the mebrane along the $x$ dimension is:
+
+\[ \textstyle F \ \dd z \left[
+\left( \pdv{y}{x} \right) _{x + \dd x}
+- \left( \pdv{y}{x} \right) _x \right]
+= F \pdv[2]{y}{x} \dd x\ \dd z \]
+
+\[ \textstyle F \ \dd x \left[
+\left( \pdv{y}{z} \right) _{z + \dd z}
+- \left( \pdv{y}{z} \right) _z \right]
+= F \pdv[2]{y}{z} \dd x\ \dd z \]
+
+adding these together and applying Netwon's Second Law:
+
+\[ F \left( \pdv[2]{y}{x} + \pdv[2]{y}{z} \right) \dd x \ \dd z
+= \rho _s \dd x \dd z \pdv[2]{y}{t} \]
+
+\[ \pdv[2]{y}{x} + \pdv[2]{y}{z} \frac{1}{c^2} \pdv[2]{y}{t}
+\qquad c= \sqrt{\frac{F}{\rho _s}} \]
+
+\[ \laplacian{y} = \frac{1}{c^2} \pdv[2]{y}{t}
+\qquad \laplacian = \pdv[2]{x} + \pdv[2]{z} \]
+
+solutions:
+\[ y = \Psi e^{j \omega t} \]
+
+$\Psi$ depends only on position and is the mode shape for standing waves.
+
+\[ \therefore \laplacian{\Psi} + k^2 \Psi = 0 \]
+\larr \emph{Helmholtz equation} or \emph{time independent wave equation}
+
+\subsection{Rectangular Membrane with Fixed Rim}
+
+For a freely vibrating rectangular membrane fixed at its edges at $ x=0, x=L_x, z=0, \text{ and} z=L_z $, the solution to the Helmholtz equation is separable:
+
+\[ \vb \Psi (x,z) = \vb X (x) \vb Z (z) \] 
+
+\[ \frac1X \pdv[2]{X}{x} + \frac1Z \pdv[2]{Z}{z} + k^2 = 0 \]
+
+\[ \pdv[2]{X}{x} + + k_x^2 X = 0 \qquad \pdv[2]{Z}{z} + + k_z^2 Z = 0 \qquad k_x^2 + k_z^2 = k^2
+\]
+
+general solution:
+\begin{equation*}
+\begin{aligned}
+y(x,z,t) &= \vb A \sin (k_x x + \phi _x )
+\sin (k_z z + \phi _z ) e^{j \omega t}
+\\ &= \vb A \sin (k_x x) \ \sin (k_z z) \ e^{j \omega t}
+\qquad k_x = n \pi /L_x \qquad k_z = m \pi / L_z
+\end{aligned}
+\end{equation*}
+
+The rectangular membrane thus holds standing waves which split it into a rectangular grid of nodal lines.
+
+using $\omega = ck$ and $f = \omega/2 \pi $,
+
+\[ f_{nm} = \frac{c}{2} \sqrt{ \qty(\frac{n}{L_x})^2 +
+\qty(\frac{m}{L_z})^2 } \]
+
+\subsection{Circular Membrane with Fixed Rim}
+
+Laplacian operator in cylindrical coordinates:
+\[ \laplacian = \pdv[2]{r} + \frac1r \pdv{r} +
+\frac{1}{r^2} \pdv[2]{\theta} \]
+
+The spatial part of the solution to the Helmholtz equation will also be separable: (the boundary condition will be $\vb R (a) = 0$)
+
+\[ \vb \Psi (r, \theta) = \vb R (r) \vb \Theta (\theta) \]
+
+\[ \frac{r^2}{\vb R}
+\left( \pdv[2]{\vb R}{r} + \frac1r \pdv{\vb R}{r} \right)
++ k^2 r^2
+= - \frac{1}{\vb \Theta} \pdv[2]{\vb \Theta}{\theta}
+\quad = m^2 \]
+
+angular solution:
+\[ \vb \Theta (\theta ) = \cos (m \theta + \gamma ) \]
+
+Since $ \vb \Theta (\theta ) = \vb \Theta (\theta + 2 \pi)$ this means that $m$ must be a positive integer, meaning that there are $m$ equally spaced "nodal diamters."
+
+radial solution: \quad (Bessel's equation)
+\[ \vb R (r) = \vb A J_m (kr) \]
+
+$ \vb A $ is a constant and $J_m$ is the Bessel function of the first kind of order $m$. The "wave-number" $k$ is chosen such that $\vb R (r) $ is zero at $r=a$. Bessel functions are oscillatory with an amplitude which decreases with distance from the origin. As the Bessel functions have an infinite number of zeros, there will be an infinite nubmer of ways of satisfying $\vb R (r)$ and these correspond to an ingere number of "nodes at fixed radius" or "nodal circles".
+
+\section{Waves in Air}
+\subsection{the continuity equation}
+
+There are two ways of looking at fluid motion: the Lagrangian method which specifies particle trajectories in fluid flows and the Eulerian method which specifies the field of the variables involved in the fluid motion. Deriving the wave equation for waves in air, we will use the Lagrangian method.
+
+For a small mass ($\dd m$) element of air of volume $\dd V_0 = \dd x\ \dd y\ \dd z $ which moves as a pressure wave passes. For a change of volume from $(x,y,z)$ to $(x+\xi, y+\eta, z + \zeta)$
+
+\begin{equation*}
+\begin{aligned}
+\dd V &= \qty(1+\pdv{\xi}{x})\dd x\
+\qty(1+\pdv{\eta}{y})\dd y\
+\qty(1+\pdv{\zeta}{z})\dd z\
+\\&= \qty(1+\pdv{\xi}{x})
+\qty(1+\pdv{\eta}{y})
+\qty(1+\pdv{\zeta}{z}) \dd V_0
+\end{aligned}
+\end{equation*}
+
+Because the element follows the mass, $\dd m$ is constant and $\rho _0 \ \dd V_0 = \rho \ \dd V$.
+\[\dv{V_0}{V} = \frac{\rho}{\rho _0} = 1+s
+\qquad s\text{ is the fractional condensation} \]
+
+\[ \qty(1+\pdv{\xi}{x}) \qty(1+\pdv{\eta}{y})
+\qty(1+\pdv{\zeta}{z}) (1+s) =1 \]
+
+If the waves are small in amplitude then the derivatives and $s$ are $\ll 1$.
+
+\[\therefore 1+\pdv{\xi}{x}+\pdv{\eta}{y}+\pdv{\zeta}{z}
++ s \approx 1 \]
+
+\[\pdv{\xi}{x}+\pdv{\eta}{y}+\pdv{\zeta}{z}
+= \div{\vb d} = -s
+\qquad \vb d = \xi\hat i+\eta\hat j+\zeta\hat k \]
+
+\subsection{the elasticity and force equations}
+
+Let $P$ be the pressurein the fluid, with the mean atmospheric pressure labelled as $P_0$ and a small acousitc pressure which resutls from a density change labelled as $p$.
+
+\[p = \qty(\pdv{P}{\rho})_0\dd p = \qty(\pdv{P}{\rho})_0
+\rho _0 s \]
+
+$x$-direction force from unbalanced pressures on opposite surfaces of the element:
+
+\[\dd F_x = -\qty(\pdv{P}{x})\dd x \times \dd y\ \dd z
+=-\qty(\pdv{p}{x})\dd V_0 \]
+
+Assuming small amplitude motion, then Newton's laws give:
+\[\dd F_x = -\qty(\pdv{p}{x})\dd V_0
+\approx \dd m \pdv[2]{\xi}{t}
+\qquad \pdv{p}{x}=-\rho _0 \pdv[2]{\xi}{t} \]
+
+\[\therefore \grad p = -\rho _0\pdv[2]{\vb d}{t} \]
+
+\subsection{wave equation in air}
+
+\[\div{\grad p} = \laplacian{p}=-\rho _0
+\pdv[2]{t}\qty(\div{\va d})
+= \rho \pdv[2]{s}{t} \]
+
+\[\pdv[2]{p}{t} = \qty(\pdv{P}{\rho})_0\rho _0
+\pdv[2]{s}{t} = \qty(\pdv{P}{\rho})_0\laplacian p \]
+
+This is of the form of the wave equation:
+\[\pdv[2]{p}{t} = c^2\laplacian p
+\qquad c = \qty(\pdv{P}{\rho})_0^{\tfrac12} \]
+
+Assuming adiabatic pressure changes, then $PV^\gamma$ is constant where $\gamma = C_P/C_V$ is the ratio of heat capacities.
+
+\[\rho _0\ \dd V_0 = \rho \ \dd V
+\qq{\arr} \frac{P}{P_0}=\dv{V_0^\gamma}{V^\gamma}
+= \frac{\rho ^\gamma}{\rho _0^\gamma} \]
+
+\[\qty(\pdv{P}{\rho})_0=P_0\gamma
+\frac{\rho_0^{\gamma -1}}{\rho _0^\gamma}
+=\frac{P_0\gamma}{\rho _0}
+\qq{\arr} c= \sqrt{\frac{P_0\gamma}{\rho _0}} \]
+
+At standard atmoshperic pressure and density this is 343 m/s at $T=18^\circ \text{C}$. The speed of sound in air increases with temperature (as the density decreases) and also varies with humidity.
+
+\subsection{energy density}
+
+kinetic energy of a volume element $m=\rho _0V_0$ with an acoustic particle velocity of $u$ (velocity of the mass element):
+
+\[K =\tfrac12 mu^2 = \tfrac12 \rho _0u^2V_0\]
+
+
+\begin{equation*}
+\begin{aligned}
+\dd V &= -\frac{V_0}{\rho _0} \dd \rho
+\\&\qquad p = \rho _0c^2s \qquad s = \frac{\rho}{\rho _0}-1
+\\&=-\frac{V_0}{\rho _0c^2}\dd p
+\end{aligned}
+\end{equation*}
+
+potential energy:
+\begin{equation*}
+\begin{aligned}
+P &= -\int _{V_0}^{V}p\ \dd V
+\\&=-\int _{V_0}^Vp \qty(-\frac{V_0}{\rho _0c^2}\ \dd p)
+\\ &=\frac12\frac{p^2}{\rho _0 c^2}V_0
+\end{aligned}
+\end{equation*}
+
+instantaneous energy density in Joules per cubic meter:
+\[\therefore
+\epsilon = \frac12 \rho _0 \left(
+u^2 + \frac{p^2}{\rho _0^2c^2} \right) \]
+
+\section{plane and spherical waves}
+\subsection{plane waves}
+Plane waves occur if we have motion only along one axis. The solution is the sum of a plane wave traveling in opposite directions
+The acousitc particle velocity of the mass element is the time derivatice of the displacement of the mass element of air (in the $x$-direction) $\xi$.
+
+\[\vb u = -\int \frac{1}{\rho _0} \pdv{p}{x} \dd t
+=\frac{\vb A}{\rho _0 c}e^{j(\omega t - kx)}
+-\frac{\vb B}{\rho _0 c}e^{j(\omega t + kx)} \]
+
+\subsection{average energy and intensity level}
+
+A wave travelling in the $+x$ direction has an acoustic particle velocity oscillation in phase with the pressure oscillation with the amplitude given by $u=p/\rho _0 c$. 
+
+\[ \epsilon = \frac12 \rho _0 \left(
+u^2 + \frac{p^2}{\rho _0^2c^2} \right)
+=\frac{p^2}{\rho _0 c^2} \]
+
+\[\bar \epsilon =\frac{p_e^2}{\rho _0 c^2}
+\qquad p_e \text{ is root mean square pressure} \]
+
+average energy flow across a unit area per unit itme:
+
+\[I = \bar\epsilon c = \frac{p_e^2}{\rho _0c} \]
+
+quietest sound humans can hear:
+$I_0 = 10^{-12} \text{ Wm}^{-2}$
+intensity level in decibels:
+\[\text{IL} = 10\ \log \qty(\frac{I}{I_0}) \]
+
+sound pressure level:
+\[p_0 = \sqrt{I_0\rho _0c} = 20\ \mu\text{Pa}
+\qq{\arr} \text{SPL}=20\ \log\qty(\frac{p_e}{p_0}) \]
+
+\subsection{spherical waves}
+
+wave equation in spherical polars for $p$ as a function of $r$ only:
+
+\[\pdv[2]{p}{r}+\frac2r\pdv{p}{r} = \frac{1}{c^2}\pdv[2]{p}{t} \]
+
+\[\vb p = \frac{\vb A}{\vb r}
+\exp\qty(j(\omega t - kr)) \]
+
+\[\grad p = -\rho _0\pdv[2]{\vb d}{t}
+\qq{\arr} \pdv{p}{r} = -\rho _0\pdv[2]{\xi}{t} \]
+
+\[u=\left( \frac{\frac1r+jk}{j\omega \rho _0} \right)p\]
+
+\subsection{specific impedance}
+
+\deff{specific acousic impedance}
+$Z_s = p/u$
+
+For plane waves travelling in the $\pm x$-direction, substituting in gives:
+\[ Z_s = \rho c \qquad Z_s = -\rho _0 c \]
+
+$\rho _0c$ is 415 Pa s/m for standard temperature and pressure.
+
+specific acoustic impedance for spherical waves:
+
+\[Z_s = \frac{j\omega \rho _0}{\frac1r+jk}
+= \rho _0c \left(\frac{k^2r^2}{1+k^2r^2}
++j\frac{kr}{1+k^2r^2} \right) \]
+
+\subsection{sources}
+
+The simplest source in terms of transmitting spherical waves is a pulsating sphere. (radius $a$).
+
+radial speed of the sphere at the surface:
+
+\[\vb u _a = u_0 e^{j(\omega t-ka)} \]
+
+For low enough frequencies $ka \ll 1$ (i.e. $\lambda \gg a$) then the specific acoustic impedance at the surface is:
+
+\[Z_s(r=a) \approx jka\rho _0 c
+\quad\text{velocity and pressure at $r=a$ are $\pi/2$ out of phase}
+\]
+
+\[u_a \approx \frac{-jp_a}{ka\rho _0c} \]
+
+\[\vb A = jka^2\rho _0 cu_0=jkQ\rho _0c/4\pi
+\qquad Q=4\pi a^2u_0\text{ is the source strength} \]
+
+pressure radiated:
+\[p=\frac{jkQ\rho _0c}{4\pi r}e^{j(\omega t-kr)}\]
+
+\section{waves in air columns}
+\subsection{volume velocity and acoustic impedance}
+
+pressure of plane wave in $+x$-direction:
+\[\vb p_i =\vb A e^{j(\omega t-kx)}\]
+
+acoustic particle velocity:
+\[u = \frac{p}{Z_s}=\frac{p}{\rho _0c}
+\qq{\arr} \vb U = S\vb u\quad
+\text{ is volume velocity in pipe} \]
+
+acoustic impedance:
+\[\vb Z = \frac{\vb p}{\vb U}\]
+
+\subsection{reflection by a change in impedance}
+
+\[\vb p _r = \vb B e^{j(\omega t+kx)}\]
+
+At $x<0$ the acousitic impedance is the sum of teh pressures divided by the sum of teh volume velocities.
+
+\[\vb Z = \frac{\vb p_i+\vb p_r}{\vb U_i+\vb U_r}
+=\frac1S\left(
+\frac{\vb p_i+\vb p_r}{\frac{\vb p_i}{\rho _0c}
+-\frac{\vb p_r}{\rho _0c}} \right) \]
+
+\[\vb Z(x=0)=\vb Z_0
+=\frac{\rho _0c}{S}\qty(\frac{\vb A+\vb B}{\vb A-\vb B})\]
+
+\[\frac{\vb B}{\vb A} = \frac{\vb Z_0-\frac{\rho _0c}{s}}
+{\vb Z_0 + \frac{\rho _0c}{s}}\]
+
+In general the impedanc eis complex, which allows for the wave travelling to the $+x$-direction to have any pahse in relatoin to the incident wave.
+
+\[\frac{\vb B}{\vb A}
+= \frac{(R_0-\rho _0c/S)+jX_0}{(R_0+\rho _0c/S)+jX_0} \]
+
+\subsection{power reflection and transmission}
+
+\[ R_\pi = \abs{\frac{\vb B}{\vb A}}^2
+= \frac{(R_0-\rho _0c/S)^2+X_0^2}
+{(R_0+\rho _0c/S)^2+X_0^2} \]
+
+power transmission coefficent:
+\[T_\pi = 1-R_\pi
+= \frac{4R_0\rho _0c/S}{(R_0+\rho _0c/S)^2 + X_0^2}\]
+
+\subsection{ideal closed end}
+
+We set the terminating impedance such that the volume velocity is zero so that $Z_0=R_0=\infty$, making $A=B$ so that the pressure wave is reflected back in phase. We will arbitrarily choose the phase to be zero at $x=0$, $t=0$ sot aht $A$ is real. The pipe thus contains the sum of travelling waves of equal amplitude propagating in the positive and negative $x$ directions making standing waves.
+\[\vb p
+= A\left(e^{j(\omega t-kx)} + e^{j(\omega t+kx)} \right)
+=2A\ \cos(kx) e^{j\omega t}\]
+
+physically measurable acoustic pressure:
+\[p = \Re(\vb p) = 2A\ \cos (kx)\ \cos (\omega t)\]
+
+volume velocity:
+\[\vb U
+= A_u \left(e^{j(\omega t-kx)} - e^{j(\omega t+kx)} \right)
+=-2jA_u\ \sin (kx)e^{j\omega t} \]
+
+\[A_u = A\frac{S}{\rho _0 c}
+\qquad U =\Re(\vb U) = 2A_u\ \sin (kx)\ \sin (\omega t)\]
+
+The pressure and volume velocity are found to be $\pi/2$ out of phase in time. The pressure has an anti-node at the closed end while the volume velocity has a node at the closed end.
+
+\subsection{ideal open end}
+
+The opposite case is $Z_0=0$, when we find that the acoustic pressure must be zero at $x=0$. The condition 9impolied that $A=-B$ meaning that the pressure wave is reflected back with the same magnitude but $\pi$ out of phase givng the acousitc pressure as a standing wave:
+
+\[\vb p
+= A\left(e^{j(\omega t-kx)} + e^{j(\omega t+kx)} \right)
+=-2jA\ \sin (kx) e^{j\omega t}\]
+\[p = \Re(\vb p) = 2A\ \sin(kx)\ \sin(\omega t)\]
+
+volume velocity:
+\[\vb U
+= A_u \left(e^{j(\omega t-kx)} - e^{j(\omega t+kx)} \right)
+= 2A_u \ \cos(kx)e^{j\omega t} \]
+
+\[U =\Re(\vb U) = 2A_u\ \cos (kx)\ \cos(\omega t)\]
+
+The pressure thus has a node at the open end while the volume velocity has an anti-node.
+
+\section{radiation from a pipe}
+\subsection{real and imaginary impedance}
+
+Acoustic impedance along the pipe is the ratio of pressure and volume velocity for ideal open end.
+
+\[ Z(x) = -j\frac{\rho _0 c}{S}\tan (kx) \]
+
+An imaginary acoustic impedance indicates standing waves and in fact the imaginary part of a complex impedance is large it there are standing waves present. A real acoustic impedance gives rise to travelling waves and in fact the real part of a complex impedance is large if a lot of energy is begin transmitted out of a system rather than being reflected to give standing waves.
+
+\subsection{radiation impedance and end correction}
+
+Realistic musical sound comes from sound diffraction at the opening.
+
+radiation impedance for the open end of a pipe with an unflanged end:
+
+\[Z_\mathrm{rad}\approx\frac{\rho _0c}{S}
+\left(\frac14 (ka)^2 + j(0.6ka)\right) \]
+
+$a$ is the radius of the pipe in the limit where the osurce is much smaller than a wavelength ($ka\ll 1$). In this limit the impedance matches the ideal open end condition of zero only at the zero of frequency and that the imnaginary prat of the impedance is larger than the real part. Therefore, the bulk of the enrgy is reflected from the open end and the smaller real part is responsible for transmission of energy out of the end of the instrument to give sound.
+
+radiation impedance for a flanged open end pipe (recorder):
+
+\[Z_\mathrm{rad}\approx\frac{\rho _0c}{S}
+\left(\frac12 (ka)^2 + j(0.8ka)\right) \]
+
+Equating imaginary parts of the ideal and full radiation impedance gets the correct standing wave shapes for an unflanged tube.
+
+\[ \tan (kL_c) \approx 0.6ka
+\larr ka \ll 1 \arr L_c \approx 0.6a\]
+
+Therefore, the pipe witha n iddeal opend end at $x=0$ has the same standing wave patterns as a pipe with an unflanged end at $x=-L_c$. $L_c$ is ks the length correction and indicates that the presure node at an unflanged end actually lies a distance of $0.6\cdot a$ beyond the end of the pipe.
+
+The length correction is found to depend on frequency. As frequency increases, the real part becomes larger so that at $ka =2$ the real part is larger than the imaginary part.
+
+\subsection{power reflection and transmission}
+
+power reflection and transmission for $ka \ll 1$:
+\[ R_\pi = \frac {\qty( 0.25 (ka)^2 -1)^2 + (0.6ka)^2}
+{\qty( 0.25 (ka)^2 +1)^2 + (0.6ka)^2} \]
+
+\[ T_\pi = 1-R_\pi =
+\frac{(ka)^2}{\qty( 0.25 (ka)^2 +1)^2 + (0.6ka)^2}
+\approx (ka)^2 \]
+
+The power transmission if proportional to frequency squared. Going up an octave doubles the frequency and quadruples the power transmission coefficient. (6 dB per octave increase).
+
+\section{cross-section changes and branches}
+
+For a pipe that steps thicker at $x=0$, the pressure and the volume velocity must be continuous over the discontinuity due to the fact that mass of the air must be conserved. Therefore, the acoustic impedance must always be the same on the two sides of a discontinuity.
+
+A wave of magnitude $\vb A$ goes into the junction, gets partially reflected ($\vb B$) and partially transmitted ($\vb C$). Because there are only forward going wves in the pipe on the right of the discontinuity, the impedance there is $\rho _0 c/S_2$. The reflection coefficient in a pipe of cross-section $S_1$ at an impedance of $\vb Z-0$:
+
+
+\begin{equation*}
+\begin{aligned}
+\frac{\vb B}{\vb A} &=
+\frac{\vb Z_0 - \rho _0c/S_1} {\vb Z_0 + \rho _0c/S_1}
+\qquad = \frac{\rho _0 c}{S_2}
+\\&= \frac{S_1/S_2 -1}{S_1/S_2 +1}
+\end{aligned}
+\end{equation*}
+
+By assuming plane wave propagation in both pipes we are clearly ignoring the efects of diffraction so this theory will not work unless the tube radius in both pipes is small compared to a wavelength.
+
+\subsection{branches}
+
+For a pipe that splits into branches,
+\par continuity of pressure \arr
+$\vb p_i + \vb p_r =\vb p_1 =\vb p_2$. 
+\par continuity of volume \arr
+$\vb U_i + \vb U_r = \vb U_1 + \vb U_2$
+
+\[\therefore
+\frac{\vb U_i+\vb U_r}{\vb p_i+\vb p_r}
+=\frac{\vb U_1}{\vb p_1} +\frac{\vb U_2}{\vb p_2}\]
+
+acoustic impedance:
+\[\frac{1}{\vb Z_0}
+= \frac{1}{\vb Z_1} + \frac{1}{\vb Z_2} \]
+
+\subsection{short side branch}
+
+For a pipe of cross-section $S_1$ as a hsort side branch of acoustic impedance $\vb Z_b$ in an otherwise cylindrical tube of area $S=S_0=S_2$:
+
+\[\frac{1}{\vb Z_0} = \frac{1}{\vb Z_b}+\frac{S}{\rho _0c}
+=\frac{\rho _c/S+\vb Z_b}{\vb Z_b \rho _0c/S}\]
+
+\[\vb Z_0 = \frac{\vb Z_b \rho _0c/S}{\rho _0c/S}\]
+
+reflection coefficient:
+
+\begin{equation*}
+\begin{aligned}
+\frac{\vb B}{\vb A}
+&= \frac{\vb Z_0-\rho _0 c/S}{\vb Z_0+\rho _0 c/S}
+\\&=\frac{-\rho _0c/2S}{\rho _0 c/2S + \vb Z_b}
+\\&=\frac{-\rho _0c/2S}{\rho _0c/2S+R_b+jX_b}
+\end{aligned}
+\end{equation*}
+
+\[\therefore R_\pi
+=\frac{(\rho _0c/2S)^2}{(\rho _0c/2S+R_b)^2+X_b^2}\]
+
+$\vb p_2$ (renamed $\vb C$) is the wave transmitted down the main tube. By continuity of pressure $\vb A+\vb B=\vb C$:
+
+\[\frac{\vb C}{\vb A} = 1 +\frac{\vb B}{\vb a}
+=\frac{R_b + jX_b}{\rho _0c/2S + R_b +jX_b}\]
+
+fraction of the power transmitted down the main pipe:
+\[T_{\pi m} = \qty(\frac{\vb C}{\vb A})
+\qty(\frac{\vb C}{\vb A})^*
+=\frac{R_b^2 + X_b^2}
+{\qty(\rho _0c/2S + R_b)^2 +X_b^2}\]
+
+power transmitted out along the side branch by conserbation of energy:
+
+\[T_{\pi b} = 1-R_\pi-T_{\pi m}
+=\frac{R_b\rho _0c/S}{(\rho _0c/2S+R_b)^2+X_b^2}\]
+
+\subsection{side holes}
+
+For a closed side hole of volume $V$,
+\[\vb Z_\mathrm{closed} \approx -j\qty(\frac{\rho _0c^2}
+{\omega V})\]
+
+The branch impedance is imagniary and indicates that there is no transmission of sound through the side hole.
+
+power tranmission coefficient for transmission down the main tube:
+
+\[T_{\pi m} \approx
+\left[1+\qty(\frac{\omega V}{2cS})^2\right]^{-1} \]
+
+A closed tone hole therefore acts as a low pass filter because more or less all the energy is transmitted when $\omega \ll 2cS/V$ whilte more or less all the energy is reflected when $\omega \gg 2cS/V$.
+
+For an open side hole of area $\pi a^2$,
+
+\[\vb Z_\mathrm{open} \approx
+\frac{\rho _0\omega ^2}{2\pi c}
++j\qty(\frac{\omega \rho _0t_e}{\pi a^2})\]
+
+$t_e = t+1.6a$ is the effective length of the side branch due to length correction effects. The impedance is complex, implying that the wave is partially reflected and transmitted at the open hole. For musical instruments the imaginary part is always larger than the real part over the audible spectrum.
+
+\[T_{\pi m} \approx
+\left[1+\qty(\frac{\pi a^2c}
+{2S\omega t_e})^2\right]^{-1} \]
+
+An open tone hole therefore acts as a high pass filter because much energy is tranmitted when $\omega \gg \pi a^2c/2St_e$ while much energy is reflected when $\omega \ll \pi a^2c/2St_e$.
+
+cut-off frequency:
+
+\[f_c=\frac{a^2c}{4\pi r^2t_e}\]
+
+Opening a tone hole makes the pipe appear to have an open end at around the position of the tone hole for frequencies below the cut-off frequency. This is used to shorted the length of standing waves in the tube giving rise to a harmonic series with higher frequency and therefore higher pitch.
+
+\section{input impedance and losses}
+
+\subsection{projecting the impedance along a pipe}
+
+acoustic pressure for forward and backword pressure waves:
+\[\vb p = \vb A e^{j(\omega t-kx)}
++ \vb B e^{j(\omega t+kx)} \]
+
+volume velocity:
+\[ \vb U= \frac{S}{\rho _0c}\left(
+\vb A e^{j(\omega t-kx)}
+- \vb B e^{j(\omega t+kx)} \right)\]
+
+pressure at plane 0 in terms of plane 1:
+\begin{equation*}
+\begin{aligned}
+\vb p^{(0)}&= \left( \vb A e^{-jk(x_1-d)}
++ \vb B e^{jk(x_1-d)} \right)\ e^{j\omega t}
+\\&=\big(
+\left( \vb Ae^{-jkx_1}+\vb Be^{jkx_1}\right) \cos (kd)
+\\&\qquad + \left( \vb Ae^{-jkx_1}+\vb Be^{jkx_1}\right)
+j\sin (kd)\big)\ e^{j\omega t}
+\\&=\cos (kd)\vb p^{(1)}+j\sin (kd)Z_c\vb U^{(1)}
+\qquad Z_c=\rho _c/S
+\end{aligned}
+\end{equation*}
+
+similarly:
+\[\vb U^{(0)}=j\sin (kd) \vb Z_c^{-1}\vb p^{(1)}
++\cos(kd)\vb U^{(1)}\]
+
+\[\vb Z^{(0)} =
+\frac{\cos (kd)\vb Z^{(1)}+j\sin (kd)Z_c}
+{j\sin(kd)Z_c^{-1}\vb Z^{(1)}+\cos(kd)} \]
+This is the impedance of one end of a cylindrical pipe from the impedance at the other, which can approximate complex geometries with a series of concentric cylinders.
+
+If both ends of the tuype are open then both are of known impedance and the method doesn't work.
+
+\subsection{input impedance}
+
+The impedance at the mouthpiece is the input impedance tnad gives the amont of pressure that can e produced by a given volume velocity produced by the excitation mechanism.
+A peak value for the input impedance will indicate that vibrating the reed or lip reed will produce a strong pressure standing wve. The input impedance will depend on tfrequency and will have peaks at resonance frequencies of the instrument which correspond to the playable harmonics.
+
+input impedance for an ideal open end $\vb Z^{(1)}=0$:
+
+\[\vb Z^{(0)}(f)=j\frac{\rho _0c}{S}\tan(kL)
+=j\frac{\rho _0c}{S}\tan\qty(\frac{2\pi L}{c}f)\]
+
+resonant frequencies:
+\[f=\frac{2n-1}{4}\frac{c}{L}\]
+
+\subsection{losses and absorption}
+
+The wave number will be complex and the two terms produce and oscillation with decaying amplitude.
+\[\vb k=k-j\alpha\]
+absorption coefficient in free space for 50\% humidity:
+\begin{equation*}
+\begin{aligned}
+\alpha &\approx 4\times 10^{-7}\ f
+& 100 \text{ Hz} <&f<1\text{ kHz}
+\\ \alpha &\approx 1\times 10^{-10}\ f
+& 2 \text{ kHz} <&f<100\text{ kHz}
+\end{aligned}
+\end{equation*}
+
+It's high for high frequencies in large spaces and accounts for the way that sound at 10 kHz is absorbed at about 0.1 dB per meter.
+
+Loss of energy within a resonating air column happend by radiation out of open ends and side holes. Also by acoustic absorption by the tube walls. 
+
+absorption coeffienct at standard temperature and pressure:
+
+\[\alpha =2.93\times 10^{-5}\frac{\sqrt f}{a}\]
+
+\section{the ear and loudness level}
+
+audible frequency range: 20 Hz to 20 kHz
+(amplitude of 1/10 diameter of hydrogen molecule)
+
+The pinna is the 'horn' that feeds into the auditory canal ($L\sim$2.5 cm, $2a\sim$0.7 cm), which resonates with a gain of 20 dB. Appreciable gains happen from 2 to 6 kHz.
+
+On the inside of theear drum is the middle ear, an air cavity ($V\sim 2\text{ cm}^3$). In the middle ear are the three bones (ossicles): hammer (malleus), anvil (incus) and stirrup (stapes). Along with their muscles and ligaments. They transfer energy of the ear drum vibration into the inner ear which is fluid-filled, by the stapes pressing in and out on the oval window -- a sealed window in the side of the inner ear. Because the oval window is 30 times smaller than the ear drum and because of the lever action of the ossicles, they provide an impedance match to maximize the transfer of energy from the air to the fluid in the inner ear.
+
+Inner ear vibrations set off the basiler membrane in the cochlea. The membrane has 30,000 hair cells that flex from vibrations, triggering electrical impulses from nerve endings. They trigger more frequently for loud sounds.
+
+\subsection{basiler membrane displacement}
+
+The triangular, 3.5 cm basilar membrane does a mechanical frequency analysis to differentiate between frequencies. It is narrowest at the base and 5 times wider at the apex. It gradually varies in thickness (thinnest at the apex), and there is a 10x decrease in stiffness from the base to the apex. 
+
+The basilar membrane responds to a sine wave presure by vibrating like a waving flag with the peak amplitude of vibration at a position along the membran'es length determined by the frequency of the sine wave. Low frequencies lead to a peak vibration near the apex. The amplitude of peak displacement rises slowly with distance and dies off quickly after the maximum.
+
+\subsection{thresholds}
+
+The threshold of audibility is the minimum perceptible free-field intensity level of a sine wave lasting 1 second presented to both ears and is a function of frequency.
+
+Sensitivity is greatest around 4 kHz while the minimum power required to hear a sound at 30 Hz is nearly a million times greater.
+
+\subsection{loudness level in Phons}
+
+All sounds of the same loudness as a tone at a given number for the intensity level will have the same number of Phons. A sound at 60 dB at 1 kHz has loudness level in Phons of 60 dB and our sound at 88 dB at 30 Hz will also have a loudness level in Phons of 60 dB as it shares an equal loudness.
+
+\subsection{critical bandwidth}
+
+Due to the finite region over which the basilar membrane responds to a pure tone vibration, two sound will interact strongly if their frequencies lie close enough together. If the vibrations of the basilar membrane due to the two tones overlap they are said to lie within one critical bandwidth.  The ear acts as a set of parallel frequency filter and phenomena such as beating, roughness and masking are observed between any two pure tones within the same critical bandwidth.
+
+
+\section{perception of music}
+\subsection{stero and direction perception}
+
+Stereophonic sound perception happens through either (or both) an intensity difference between the ears or a time delay.
+
+Stero sound reproduction is normally achieved using loudspeakers approximately six feet apart.
+
+The most satisfactory stero image will be achieved when the cue from timing and level are in agreement (signals arrive first and loudest to the left ear for sound generated to our left etc.). this is effectively achieved using two directional or "cardioid microphones placed in a similar configuration to our ears: typically several inches apart and pointing outwards by 45$^\circ$ to their common axis.
+
+Placing microphones apart introduces destructive interference for sound directions and wavelengths where the two microphones record the opposite phase. So we place the microphones pointing outwards but so close together that they are effectively in the same place, although this looses us the timing information and lessens some of the convincing nature stereo image.
+
+\subsection{intervals between harmonics}
+
+Two pitched musical sounds will sound particularly consonant if their harmonic series coincide at some shared harmonics. The ratios 7:6 and so on sound much rougher due to the fact that the fundamentals lie closer than one critical band.
+
+\begin{tabular}{|c|c|}
+\hline frequency ratio & just intonation interval
+\\ \hline 2:1 & Octave
+\\ \hline 3:2 & Perfect Fifth
+\\ \hline 4:3 & Perfect Fourth
+\\ \hline 5:4 & Major Third
+\\ \hline 6:5 & Minor Third \\ \hline
+\end{tabular}
+
+\subsection{piano keys and scales} you should know this
+\subsection{the cycle of fifths and temperament}
+Going up the circle of fifths all the way gives goes through seven octaves.
+
+\[2^7=128 \qq{but} \qty(\frac32)^{12}=129.74633789...\]
+
+Temperaments are tuning methods to solve this problem that it is impossible to tune all of the notes on a piano so that all the fifths obey the just intonation ratioss (and still preserve the octave at 2:1).
+
+Today's standard temperament is equal temperament. All the intervals of a fifth should have the same frequency ratio and that the octave always has a frequency ratio of 2. This impolies that a cycle of fifths is equal to seven octaves and thus produces a factor equal to 128.
+
+\begin{tabular}{|c|c|}
+\hline
+frequency ratio to 6 s.f. & equal temperament interval
+\\ \hline $2^{1/12}=1.05946$& Minor Second
+\\ \hline $2^{2/12}=1.12246$& Major Second
+\\ \hline $2^{3/12}=1.18921$& Minor Third
+\\ \hline $2^{4/12}=1.25992$& Major Third
+\\ \hline $2^{5/12}=1.33480$& Perfect Fourth
+\\ \hline $2^{6/12}=1.41421$& Augmented Fourth
+\\ \hline $2^{7/12}=1.49831$& Perfect Fifth
+\\ \hline $2^{8/12}=1.58740$& Minor Sixth
+\\ \hline $2^{9/12}=1.68179$& Major Sixth
+\\ \hline $2^{10/12}=1.78180$& Minor Seventh
+\\ \hline $2^{11/12}=1.88775$& Major Seventh
+\\ \hline 2 & Minor Second \\ \hline
+\end{tabular}
+
+\[\text{pitch difference (cents)}
+= 1200\frac{\log\qty(f/f_0)}{\log 2}\]
+
+\section{reverberation}
+\subsection{reverberation and growth of sound}
+
+Echoes happen. Pulses of echoes die down with wall absorbtion. Sustained sounds have rising amplitudes with reverb blend.
+
+Exponential decay when sustained sound ceases.
+
+\subsection{reverberation time}
+
+\deff{reverberation time} the time taken for a reverberant field to decay by 60 dB -- depends on frequency
+Unnecessary to measure full decay; just double 30 dB decay to avoid background noise level
+
+time taken for a sound to decay by $x$ dB:
+\[t = \frac{x}{60}T_r\]
+
+\subsection{energy in diffuse sound}
+
+The energy in a volume elemenet $\dd V$ is $\varepsilon\ \dd V$ where $\varepsilon$ is the average acoustic eenrgy density.
+
+\[\dd E = \varepsilon\ \dd V \frac{\dd S\ \cos\theta}
+{4\pi r^2}\]
+
+\begin{equation*}
+\begin{aligned}
+\int _R\dd E &= \frac{\varepsilon\ \dd S}{4\pi}
+\int _R \frac{\cos\theta}{r^2}\ \dd V
+\\&= \frac{\varepsilon\ \dd S}{4\pi}
+\int _R \frac{\cos\theta}{r^2}
+r^2\sin\theta\ \dd r\ \dd \theta \ \dd \phi
+\\&= \frac{\varepsilon\ \dd S\ \dd r}{4\pi}2\pi
+\int _0^{\pi/2}\cos \theta \ \sin\theta\ \dd \theta
+\\&= \frac{\varepsilon\ \dd S\ \dd R}{4}
+\end{aligned}
+\end{equation*}
+
+\[\frac{\varepsilon\ \dd S\ \dd r}{4}
+\frac{c}{\dd r} = \frac{\epsilon c\ \dd S}{4}\]
+
+energy per unit area incident on wall:
+\[I=\frac{\varepsilon c}{4}\]
+
+\subsection{absorption}
+\deff{absorption coefficient}
+the ratio of the absorbed to the incident sound, $\alpha$ ranging from 0 (perfect) to 1 (open window)
+
+total absorption for a room:
+\[A=\sum _i\alpha _iS_i\]
+
+\subsection{Sabine Formula}
+rate of energy absorption is the sum of teh intensity of the field multiplied by the total absorption:
+\[IA = \frac{\varepsilon cA}{4}\]
+\begin{equation*}
+\begin{aligned}
+-\dv{t}(\varepsilon V)&=-V\dv{\varepsilon}{t}
+\\ \dv{\varepsilon}{t}&=-\frac{\varepsilon cA}{4V}
+\end{aligned}
+\end{equation*}
+
+\[\therefore
+\varepsilon = \eps \exp(-\frac{Ac}{4V}t)
+\qquad I = I_0 \exp(-\frac{Ac}{4V}t)\]
+
+$\varepsilon = \eps$ and $I=I_0$ at $t=0$.
+
+change in intensity level with time:
+
+\[\Delta IL(t) =10\log(\frac{I}{I_0})
+\approx\frac{10}{2.3}
+\ln(\exp(-\frac{Ac}{4V}t))
+=-\frac{1.09Ac}{V}t\]
+
+\[-60 \approx -\frac{1.09Ac}{V}T_r\]
+Savine formula:
+\[T_r \approx \frac{55V}{Ac}
+\approx \frac{0.16V}{A}\]
+
+\section{synthesis}
+\subsection{additive synthesis}
+In the 19\textsuperscript{th} century, Helmholtz thought that sounds are found to consist of a combination of pure tone components.
+
+Telharmonium and the Hammond Organ used rotating metal cylinders or cogs.
+
+\subsection{subtractive synthesis}
+Bob Moog in 1964 started with a chunk of marble of a complex waveform, and filtered and chiseled his way through it.
+
+Triangle, saw-tooth, square wave, and pulse waves were generated using analogue transistor based circuits called Voltage Controlled Oscillators (VCO). They are filtered with VCF's whose loudness is controlled with a VCA which are set to follow an envelope.
+
+\subsection{digital synthesis}
+The Prophet-5 uses a microprocessor for storing sttings nad for tuning. Roland's 1984 Juno-106.
+
+\subsection{frequency modulation synthesis (FM)}
+Using low-frequency oscillators (LFOs) to oscillate oscillators. Carrier frequencies and modulation frequencies abound.
+
+\subsection{physical modeling synthesis}
+In the case of a string instrument, the displacement of the string at all points along the instrument are held in computer memory and the laws of physics are used to see how the string will vibrate.
+
+\subsection{wavetable synthesis and sampling}
+The basis of wave table syntesis is the lookup table, which containt the data ofr one typical cycle of a wave for a specific instrument. They can be looped and enveloped.
+
+Sampling is sampling.
+
+\section{Case Study: the violin}
+
+\subsection{The Bow}
+
+\subsection{The Strings}
+Strings are G$_3$, D$_4$, A$_4$, E$_5$.
+
+Tensions vary from 34.8 N to 84.0 N.
+
+frequency of the $n^\text{th}$ mode:
+\[f_n=\frac{\omega}{2\pi}
+=\frac{kc}{2\pi}
+=\frac{nc}{2L}
+=\frac{n}{2L}\sqrt{\frac{T}{\rho _L}}\]
+
+The bow is wide compared to the size of the nodal region. The proportion of the harmonics in the spectrum of a violin is, however, predominantly dtermined by the resonances of the wood and air in the body.
+
+\section{case study: guitar}
+
+Fourier coefficients of a pulse wave:
+
+\[A_n=\frac{1}{n\pi} \sin(\frac{2n\pi}{a})
+\qq{and} B_n=\frac{1}{n\pi}(1-\cos(\frac{2n\pi}{a}))\]
+
+\end{document}

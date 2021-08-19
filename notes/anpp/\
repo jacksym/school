@@ -1,0 +1,220 @@
+%St Andrews Notes Template
+\documentclass[10pt, a4paper, twocolumn]{article}
+
+%Formatting Packages
+\usepackage[a4paper, margin=0.5in]{geometry}
+\usepackage[extreme]{savetrees}
+\usepackage{times}
+
+%Math Packages
+\usepackage{xparse}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{esint}
+\usepackage{physics}
+
+\newcommand{\deff}[1]{\par \noindent \textit{#1}: }
+\newcommand{\dbar}{\mathrm d \hspace*{-0.2em}\bar{}\hspace*{0.2em}}
+\newcommand{\arr}{\ensuremath{\longrightarrow\ }}
+\newcommand{\larr}{\ensuremath{\longleftarrow\ }}
+\newcommand{\intall}{\ensuremath{\int\limits_\text{all space}}}
+\newcommand{\intinf}{\ensuremath{\int\limits_{-\infty}^{+\infty}}}
+\newcommand{\n}{\par \noindent}
+
+\author{Jack Symonds}
+\title{Atomic, Nuclear, and Particle Physics}
+\date{}
+
+\begin{document}
+\maketitle
+
+\chapter{Atomic Physics}
+\section{Hydrogen Atom}
+\subsection{Bohr model}
+
+\emph{Bohr's postulates}
+\begin{enumerate}
+\item an electron in an atom moves in a circular orbit for which the angular momentum $m _0 v r $ is an integer multiple of $\hbar$
+\item an electron in one of these orbits is stable. But if it discontinuously changes its orbit from one where energy is $E_i$ to one where energy is $Ef$, energy is emitted or absrorbed in photons satisfying: $E_i - E_f = h\nu$ where $\nu$ is the photon frequency.
+\end{enumerate}
+
+\[ m_0 v r = n \hbar
+\qquad F = \frac{1}{4 \pi \epsilon _0} \frac{Ze^2}{r^2}
+= \frac{m_0 v ^2}{r} \]
+
+\[\therefore r_n = 4 \pi \epsilon _0
+\frac{n^2 \hbar ^2}{m_0 Z e^2} \]
+
+\[ E = \frac{m_0v^2}{2} - \frac{1}{4 \pi \epsilon _0}
+\frac{Ze^2}{r} \]
+
+energy levels: ($E<0$ because bound state)
+\[ E_n = -\frac{1}{(4 \pi \epsilon _0)^2}
+\frac{m_0 Z^2 e^4}{2 n^2 \hbar ^2} \]
+
+\deff{Bohr radius}
+\[ a_0 = \frac{4 \pi \epsilon _0 \hbar ^2}{m _0 e^2}
+= 0.0529 \text{ nm} \]
+
+\deff{Rydberg energy}
+\[ R_y = \frac{m_0e^4}{(4 \pi \epsilon _0)^22\hbar ^2}
+= 13.6 \text{ eV} \]
+
+\[ r_n = \frac{n^2}{Z} a_0 \qquad E_n
+= -\frac{Z^2}{n^2} R_y \]
+
+Increasing the atomic number $Z$ gets smaller radii and more negative energies. This makes sense because the larger nuclear charge leads to a more strongly bound system.
+
+\subsubsection{Rydberg Formula}
+
+\[ E_i = - \frac{R_y}{n_i^2}
+\qquad E_f = -\frac{R_y}{n_f^2} \]
+
+\[h \nu = R_y
+\left( \frac{1}{n_f^2} - \frac{1}{n_i^2} \right)
+\arr
+\frac{1}{\lambda} = \frac{\nu}{c} = \frac{R_y}{hc}
+\left( \frac{1}{n_f^2} - \frac{1}{n_i^2} \right) \]
+\deff{Rydberg constant}
+\[R_\infty = \frac{R_y}{hc} = 1.0974 \times 10^7
+\text{ m}^{-1} \]
+\[ \frac1\lambda  = R_\infty
+\left( \frac{1}{n_f^2} - \frac{1}{n_i^2} \right) \]
+
+\subsection{hydrogen atom eigenfunctions}
+\[ \Psi _{n,l,m_l} (r, \theta, \phi)
+= R_{n,l} (r) \ Y_{l, m_l} (\theta , \phi) \]
+
+$n$ is the principal quantum number (same as in the Bohr model), $l$ is the angular momentum quantum number and $m_l$ is the magnetic quantum number.
+
+\[E_n = -\frac{-13.6eV}{n^2}\]
+All hydrogen energy levels are degenerate with degeneracy of $n^2$. This is because the expression for the enrgy levels $E_n = -Z^2R_y/n^2$ depends on $n$, but not on $m$ or $m_l$.
+
+The degeneracy in $m_l$ comes from the fact that states with same $n$ and $l$, but different $m_l$, only differ by the orientation of their angular momentum $\vec l$ relative to the $z$-axis. Because we are in a central potential $V \propto -1/r$, intuitively the enrgy does not depend on the orientation of $\vec l$.
+
+The degeneracy in $l$ is a special characteristic that is specific to the $-1/r$ potential.
+
+Hydrogen orbitals refer to the probaility density
+ $|\Psi _{n,l,m_l}(r,\theta , \phi)|^2$
+ associated to state
+$\Psi _{n,l,m_l}(r,\theta , \phi)$. The dependence more specifically is
+\[ Y_{l,m_l}(\theta, \phi) = f(\theta ) e^{im_l \phi} \]
+$\phi$ eneters the wavefunction only via the phase $e^{im_l\phi}$, and so there is no dependence on $\phi$ of the probability density. This means that there is cylindric symmetry about the $z$-axis in all the plots.
+
+\section{alkali atoms}
+
+Hamitonian for $N$ electrons:
+\[ H = \sum_{i=1}^N
+\left(\frac{p_i^2}{2m_0}-\frac{Ze^2}{4\pi \epsilon _0 r_i}
+\right)
++ \sum _{i>j} \frac{e^2}{4\pi \epsilon _0 r_{ij}} \]
+
+When this Schr\"{o}dinger's equation is solved numerically, The individual electrons' states are given by $n$, $l$, and $m$. (still orbitals). And the corresponding energy levbels are strongly modified due to the electron-electron repulsion.
+
+spectroscopic notation:
+\[ \begin{matrix}
+l=&0&1&2&3&4&\ldots \\
+\phantom{1=}&s&b&d&f&g&\ldots \end{matrix} \]
+
+\deff{Pauli exclusion principle}
+No two electrons have the same set of quantum numbers.
+
+Once we have fixed our \emph{orbital} quantum numbers 
+$n$, $l$, and $m_l$
+, we can still allocate \emph{two} electrons to the orbital: one with spin up and the other with spin down.
+
+Ground-state electron configuration is how electrons are allocated to orbitals. For example for sodium,
+$ Na\ (Z=11):$ the ground state is $1s^22s^22p^63s$
+
+alkali atoms:
+\[\begin{matrix}
+\phantom{Z=} & Li & Na & K & Rb & Cs & Fr
+\\ Z= & 3 & 11 & 19 & 37 & 55 &87 \end{matrix} \]
+
+Each of these have a valence electron.
+\subsection{energy levels of the valence electrons in alkali atoms}
+
+At large distance $r$, we have $V(r) \approx \frac{-e^2}{4 \pi \epsilon _0 r}$. This is because the closed shells screen the valence electron from the nuclear charge.
+\emph{screening effect} \arr The net charge seen by the valence electron is $+ze - (Z-1)e = +e$
+
+At short distance $r$, $V(r) \approx \frac{-Ze^2}{4\pi \epsilon _0 r} $, which is the \emph{unscreened} nuclear potential. (This is an application of Gauss' law)
+
+For intermediate distances, there is no longer a $1/r$ potential and there is no longer a $l$-degeneracy. So the $l$-degeneracy is \emph{lifted}. 
+
+Energy levels in the alkalis will have enrgy levels that depend on both $n$ and $l$, but there is no exact solution for $E_{n,l}$. (numeric methods)
+
+\n The dependence of $E_{n,l}$ on $l$:
+\begin{itemize}
+\item For elliptical Bohr orbits, orbits with small angular momentum $\vec l$ penetrate the closed shells and experience more of the unscreened potential nuclear charge. The unscreened nuclear potential is more attractive than the screened one, hence small values of $\vec l$ give more negative energies.
+\item For radial probability densities of the valence electron in different $l$ states, it is the behaviour at short distance $r$ that determines the dependence of the energy on $l$.
+\end{itemize}
+
+\n empirical formula for $E_{n,l}$
+
+\[ E_{n,l} = \frac{-13.6 \text{ eV}}
+{[n- \Delta (n,l)]^2}
+\qquad \Delta (n,l) \text{\emph{: quantum defect}} \]
+
+\subsection{radial probability density}
+
+Probability density at distance $r$ from nucleus, having integrated over the angles $\theta$ and $\phi$:
+\[\text{\emph{radial probability density}}
+= r^2 \abs{R_{nl}}^2 \]
+element of volume in spherical polar coordinates:
+\[\dd V = r^2 \dd r\ \sin \theta \ \dd \theta \ \dd \phi
+\]
+\begin{equation*}
+\begin{aligned}
+\underbrace{\int _0^\pi \int _0^{2\pi}}
+_{\substack{\text{by definition}\\ 0 \leq \theta \leq \pi
+\\ 0 \leq \phi \leq 2 \pi}}
+\abs{\Psi _{nlm}}^2 r^2 \ \dd r
+\ \sin \theta \ \dd \theta \ \dd \phi &=
+\int _0^\pi \int _0^{2\pi}
+\underbrace{\abs{R_{nl}}^2 r^2 \dd r\ }
+_{\substack{\text{do not depend}
+\\ {\text{on } \theta, \phi}}}
+\abs{Y_{lm}}^2 \sin \theta \ \dd \theta \ \dd \phi
+\\ &= \abs{R_{nl}}^2 r^2 \dd r\ 
+\underbrace{\int _0^\pi \int _0^{2\pi} \abs{Y_{ln}}^2
+\sin \theta \ \dd \theta \ \dd \phi}_{=1}
+\end{aligned}
+\end{equation*}
+
+$\abs{R_{nl}}^2r^2\dd r$ is therefore the probability of finding the electron in the shell. And the \emph{radial probability density} is $\abs{R_{nl}}^2r^2$ because we are retaining only the information on the distance ("radius"), having integrated over the angles.
+
+\section{the Helium atom}
+
+\subsection{the term notation $^{2S+1}L$}
+
+A term sybol which gives the total orbital angular momentum $\vec L = \vec l _l + \vec l _2 + \ldots$ and the total spin $\vec S = \vec s_1 + \vec s_2 + \ldots $.
+
+electron configuration in helium:
+\[ L = l_1 + l_2, l_1 + l_2 -1, \ldots, |l_1-l_2| \]
+\begin{equation*}
+\begin{array}{llll}
+\text{Configuration} & \text{total spin }S
+& \text{total orbital an. mom. }\vb L & \text{term symbol}
+\\ 1s^2 & 0 & 0 & ^1S
+\\ 1s^12s^1 & 0,1 & 0 & ^1S, ^3S
+\\ 1s^12p^1 & 0,1 & 1 & ^1P, ^3P
+\end{array}
+\end{equation*}
+
+There is no optical tranistion between singlet terms and triplet terms because of the selection rule $\Delta S = 0$ for optical transitions. The singlet helium is called \emph{parahelium}, and the triplet helium is called \emph{orthohelium}. 
+
+\deff{symmetry energy}
+the difference in energy between the singlet term and the triplet term that arise from a given electorn configuration
+It comes from the different symmetry of the spatial wavefunctions for the singlet and triplet state: in a triplet state, the spin wavefunction is symmetric and the space wvefunction is antisymmetric with respect to electron exchange, while in a singlet state teh spin wavefunction is antisymmetric and the space wavefunction is symmetric.
+
+Given that an antisymmetric space wavefunction vanishes if the two electrons are in the same place, the probability for the two electrons begin tin the same place vanishes, and it becomes small when the electrons approach each toer. 
+
+The electron-electron repulsion
+$e^2/4 \pi \epsilon _0 |\vec r_1-\vec r_2|$
+is smaller in this case, leading to a lower energy for the triplet state. In other words, the electron-electron repulsion takes a lower expectation value for the triplet term than for the singlet term.
+
+Classically, the total orbital angular momentum $\vec L$ must be a conserved quantity, given that all the interactions that we are considering are internal to the atom. In quantum mechanics, this is equivalent ot saying that $\vec L$ commutes with the atomic Hamiltonian $H$, and that $H$ and $\vec L$ share a complete set of simultaneous eigenfunctions. this is the underlying justification of the term notation, where the eenrgy levels are characterized by the $L$ quantum number.
+
+
+
+\end{document}

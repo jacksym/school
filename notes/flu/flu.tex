@@ -1,0 +1,448 @@
+%St Andrews Notes Template
+\documentclass[10pt, a4paper, twocolumn]{article}
+
+%Formatting Packages
+\usepackage[a4paper, margin=0.5in]{geometry}
+%\usepackage[extreme]{savetrees}
+\usepackage{times}
+
+%Math Packages
+\usepackage{xparse}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{esint}
+\usepackage{physics}
+\usepackage{cancel}
+
+\newcommand{\deff}[1]{\par \noindent \textit{#1}: }
+\newcommand{\dbar}{\mathrm d \hspace*{-0.2em}\bar{}\hspace*{0.2em}}
+\newcommand{\pfs}{\ensuremath{\varepsilon _0}}
+\newcommand{\arr}{\ensuremath{\longrightarrow\ }}
+\newcommand{\larr}{\ensuremath{\longleftarrow\ }}
+\newcommand{\intall}{\ensuremath{\int\limits_\text{all space}}}
+\newcommand{\intinf}{\ensuremath{\int\limits_{-\infty}^{+\infty}}}
+\newcommand{\eps}{\ensuremath{\varepsilon _0}}
+\newcommand{\n}{\par \noindent}
+
+\author{Jack Symonds}
+\title{Fluids}
+\date{}
+
+\begin{document}
+\maketitle
+\section{introduction}
+\subsection{continuum assumption}
+
+\deff{fluid element}
+a patch over which we define local variables
+\begin{enumerate}
+
+\item A fluid element $L_{el}$ is small enough that we can ignore systematic varations across it:
+\[L_{el}\ll L_\mathrm{scale}
+\approx\frac{q}{\abs{\grad q}}\]
+
+$q$ is any quantity and $L_{el}$ is a length scale over which $q$ varies by order unity.
+
+\item A fluid element is large enough that it contains enough particles that you can ignore fluctuations due to a finite number of particles.
+\[nL_{el}^3\gg 1\]
+$n$ is the number density (m$^-3$).
+
+\item A fluid element is large enough that consituent particles "know" about local conditions through colliding with each other:
+\[L_{el}\gg\lambda\]
+$\lambda$ is the mean free path.
+\end{enumerate}
+
+$\therefore$ all quantities are constant throughout a fluid element.
+(temp, pressure, density)
+
+\section{relating Eulerian and Lagrangian descriptions}
+
+\[\dv{Q}{t}
+=\frac{Q(t+\delta t)-Q(t)}{\delta t}
+\qq{\arr}
+\dv{Q(r,t)}{t}
+=\frac{Q(\vb r+\delta \vb r,t+\delta t
+-Q(\vb r,t)}{\delta t}
+\]
+
+\begin{equation*}
+\begin{aligned}
+Q(\vb r+\delta \vb r,t+\delta t)
+-Q(\vb r,t)
+&=
+\underbrace{Q(\vb r,t+\delta t)
+-Q(\vb r,t)}
+_\text{variation in $t$ at fixed $\vb r$}
++
+\underbrace{Q(\vb r+\delta \vb r,t+\delta t)
+-Q(\vb r,t+\delta t)}
+_\text{variation in $\vb r$ at fixed $t+\delta t$}
+\\&=\delta t\pdv{Q}{t}+\ldots
++\delta \vb r\cdot \grad Q +\ldots
+\\&\approx
+\eval{\pdv{Q}{t}}_t
+\delta t+\delta\vb r\cdot
+\eval{\grad{Q}}_{t+\delta t}
+\\&\approx
+\eval{\pdv{Q}{t}}_t
+\delta t+\delta\vb r\cdot
+\bqty{\grad Q +\delta t\pdv{t} \grad Q}_t
+\end{aligned}
+\end{equation*}
+
+\[\therefore
+\dv{Q}{t}\approx
+\pdv{Q}{t}+\frac{\delta\vb r}{\delta t}
+\cdot \grad Q\]
+
+\deff{streamline}
+a curve that has $\vb u$ in the tangential direction: where mass element travels to in a steady flow ($\pdv{t}=0$)
+
+\begin{equation*}
+\begin{aligned}
+\frac{\dd x}{u_x}=\frac{\dd y}{u_y}
+&\Rightarrow
+u_y\dd x-u_x \dd y=0
+\\&\Rightarrow
+\pdv{\psi}{x}\dd x+
+\pdv{\psi}{y}\dd y = \dd \psi =0
+\end{aligned}
+\end{equation*}
+
+Hence the stream function $\psi$ is constant on a streamline, but differs for different stream lines.
+
+\section{flows through surfaces}
+\subsection{Gauss' theorem}
+
+For a box of volume $\Delta x\Delta y\Delta z$, the $x$-component of $\vb u$ at the center of the 'front' and 'back' face is:
+\begin{equation*}
+\begin{aligned}
+u_b&\approx u_x-\frac{\Delta x}{2}\pdv{u_x}{x}
+\\u_f&\approx u_x+\frac{\Delta x}{2}\pdv{u_x}{x}
+\end{aligned}
+\end{equation*}
+
+\[\text{volume crossing back face per time}
+=\underbrace{\pqty{u_x-\frac12\pdv{u_x}{x}\Delta x}}
+_\text{distance moved/sec}
+\underbrace{\Delta y\Delta z}
+_\text{area of face}\]
+
+How much fluid is transported through a surface area $A$ is the flux through the surface $A=\Delta y\Delta z$.
+
+\[\text{volume crossing front face per time}
+=\underbrace{\pqty{u_x+\frac12\pdv{u_x}{x}\Delta x}}
+_\text{distance moved/sec}
+\underbrace{\Delta y\Delta z}
+_\text{area of face}\]
+
+\[\therefore\text{net vol/sec flowing in $x$-direction}
+=\pdv{u_x}{x}\Delta x\Delta y\Delta z\]
+
+\[\therefore\text{total net vol/sec}
+=(\div \vb u)\Delta x\Delta y\Delta z\]
+
+\[\text{total flux}
+=\iiint_V \div \vb u \ \dd V
+\]
+
+\[\text{volume that flows through $\dd S$ each second}
+=(\vb u\cdot \vb n)\dd S\]
+
+\[\text{total flux}
+=\oiint _S \vb u\cdot \vb{\dd S}
+\qquad \dd \vb S = \vb n\ \dd S
+\]
+
+In the absence of sources or sinks of mass,
+the total rate at which mass (density $\rho$) flows through the surface $S$:
+\begin{equation*}
+\begin{aligned}
+-\sum _i\rho\vb u\cdot \dd \vb S_i
+&=-\int _S\rho\vb u\cdot \dd \vb S
+\\&=-\int _V\div{(\rho\vb u)} \dd V &
+\\&&=\pdv{t}\int _V \rho\dd V
+\end{aligned}
+\end{equation*}
+
+\[\therefore
+\int _V\pqty{\pdv{\rho}{t}+\div{(\rho \vb u)}}\dd V=0
+\]
+
+\[\text{equation of continuity:}\qquad
+\pdv{\rho}{t}+\div{(\rho\vb u)}=0\]
+
+\[\text{mass conservation in co-moving frame:}\qquad
+\dv{\rho}{t}=-\rho\div\vb u\]
+
+\section{the momentum equation}
+
+For any surface within a fluid there is a momentum flux across it (from each side)
+\emph{that has nothing to do with any bulk flow} but is a consequence of its thermal properties.
+
+Microscopically, assume a perfect gas. Meaning that the finite temperature imparts molecules with random motions.
+The pressure is the associated (one-sided) momentum flux.
+
+Thermal motion is isotropic, hence, the \underline{local momentum} flux is
+independent of the orientation of the surface and always perpendicular to the surface (the parallel components cancel out)
+
+For a lump of fluid subject to gravity and the inward pressure of the surrounding fluid,
+pressure force on $\dd\vb S$ is $-p\vb S$
+\[\text{component of inward pressure force:}\qquad
+-p\vb{\hat n}\cdot \dd \vb S\]
+
+\[-\oiint _Sp\vb{\hat n}\cdot \dd\vb S
+=-\iiint _V \div{p\vb{\hat n}}\ \dd V\]
+
+\[\text{total momentum in volume $V$:}\qquad
+\smallint _V\rho\vb u\ \dd V\]
+\[\text{rate of change of momentum in $V$:}\qquad
+\dv{t}\int_V\rho\vb u\ \dd V\]
+
+The equation of motion in direction $\vb{\hat n}$ is the rate of change of momentum equated to the sum of forces:
+\[\therefore
+\pqty{\dv{t}\int_V\rho\vb u\ \dd V}
+\cdot \vb{\hat n}
+=-\int _V\div{(p\vb{\hat n})}\ \dd V
++\int _V\rho\vb g\cdot\vb{\hat n}\ \dd V
+\]
+
+\[\div{(p\vb{\hat n})}=\vb{\hat n}\cdot\grad p
++\cancelto{0}{p\div{\vb{\hat n}}}\]
+
+assuming lump is small,
+\[\dv{t}(\rho\vb u\delta V)\cdot\vb{\hat n}
+=\cancelto{0}{\vb u\cdot\vb{\hat n}
+\tfrac{\dd}{\dd t}(\rho\delta V)}
++\rho\delta V\dv{\vb u}{t}\cdot \vb{\hat n}\]
+
+\begin{equation*}
+\begin{aligned}
+\therefore
+\rho\delta V\dv{\vb u}{t}\cdot\vb{\hat n}
+&=\delta V(-\grad p +\rho\vb g)\cdot \vb{\hat n}
+\\ \delta V\pqty{\rho\dv{\vb u}{t}+\grad p-\rho\vb g}
+\cdot\vb{\hat n} &=0
+\end{aligned}
+\end{equation*}
+
+\deff{equation of motion,momentum/conservation equation (Lagrangian form)}
+\[\rho\dv{\vb u}{t}=-\grad p+\rho\vb g\]
+
+\deff{Eulerian form}
+\[\rho\pdv{\vb u}{t}+\rho(\vb u\cdot
+\grad{})\vb u
+=\grad p+\rho \vb g\]
+The momentum contained in a fixed grid cell changes in response to external forces (pressure and gravitational forces) plus any imbalance in the momentum flux in and out of the cell.
+
+The \emph{thermal pressure} is associated with random motions in the fluid which are isotropic, and is scalar (acts the same way in any direction).
+
+The \emph{ram pressure} is associated with bulk motion of the fluid which is oriented. Only a surface whose normal has some component along the direction of flow feels the ram pressure.
+
+\deff{$2^\text{nd}$ law of thermodynamics:}
+\[T\dd S=\dd Q
+\dd U+p\dd V\]
+\[
+\mqty{
+\dd Q=\delta m\ \dd q
+\\ \dd U=\delta m\ \dd e
+\\ \dd V=\delta m\ \dd \pqty{\frac1p}
+}\Bigg\}\arr
+T\dd s=\dd q=\dd e+p\ \dd \pqty{\frac1p}
+\]
+
+\[\dd s=\frac{\dd S}{\delta m}
+\qquad
+e=\frac{p}{(\gamma-1)\rho}
+\qquad
+\gamma=\frac{c_p}{c_v}\]
+
+$L$ is the sum of sources and sinks of energy, we can differentiate by $\dd t$ (and multiply by density) to get:
+\[\rho T\dv{s}{t}
+=\rho\bqty{\dv{e}{t}
++p\dv{t}\pqty{\frac1p}}=-L\]
+
+\begin{equation*}
+\begin{aligned}
+\rho T\dv{s}{t}
+&=\rho\bqty{\dv{e}{t}
++p\dv{t}\pqty{\frac1p}}=-L
+\\&=\rho\dv{e}{t}+p\rho
+\pqty{\frac{-1}{p^2}}\dv{\rho}{t}
+\\&=\rho\dv{e}{t}
+-\frac{p}{\rho}\dv{\rho}{t}
+\qquad \text{(apply mass conservation)}
+\\&=\rho\dv{e}{t}+p\div{\vb u}=-L
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\vb u\cdot \bigg(\rho\dv{\vb u}{t}
+&=-\grad{p}+\rho\vb g\bigg)
+\\ \rho\dv{t}\pqty{\tfrac12 u^2}
+&=-u\cdot\grad p+\vb u\cdot \rho\vb g
+\end{aligned}
+\end{equation*}
+\begin{equation*}
+\begin{aligned}
+\rho\dv{t}\pqty{\frac12 u^2+e}
+&=-L-p\div\vb u-\vb u\cdot\grad p
++\vb u\cdot \rho \vb g
+\\&=-L-\div p\vb u
++\vb u \cdot\rho\vb g
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\rho\dv{A}{T}
+&=\dv{(\rho A)}{t}-A\dv{\rho}{t}
+\qquad\text{(apply mass conservation)}
+\\&=\dv{(\rho A)}{\dd t}
++\rho A\div{\vb u}
+\qquad\text{(convert into observers frame)}
+\\&=\pdv{(\rho a)}{t}
++\vb u\cdot \grad{(\rho A)}
++\rho A\div{\vb u}
+\\&=\pdv{(\rho A)}{t}+\div{(\rho A)}\vb u
+\end{aligned}
+\end{equation*}
+
+\[\pdv{t}
+\pqty{\frac12 \rho u^2+\rho e}
++\div{
+\pqty{\frac12 \rho u^2+\rho e}
+}\vb u
+=-L-\div{p\vb u}-\vb u\cdot \rho\grad \psi
+\]
+
+\begin{equation*}
+\begin{aligned}
+\div{(\rho \psi)\vb u}
+&=(\rho \psi )\div \vb u
++\vb u\cdot\grad{(\rho \psi)}
+\\&=(\rho \psi)\div \vb u
++\psi \vb u\cdot \grad\rho
++\rho \vb u\cdot \grad \psi
+\\&=\psi(\rho \div \vb u+\vb u\cdot \grad\rho)
++\rho \vb u \cdot\grad\psi
+\\ \text{(use mass conservation)}
+&=\psi\pqty{-\pdv{\rho}{t}}
++\rho \vb u\cdot\grad\psi
+\end{aligned}
+\end{equation*}
+
+\section{equations of state}
+
+\[\div\pqty{\frac12\rho u^2
++pe+p+\rho \psi}\vb u=-L
+\qquad\textit{enthalpy: }
+\rho e+p=\frac{\gamma}{\gamma-1}p
+\]
+
+In steady state, the net effect $L$ of the sources and sinks of energy is equal to the flux of energy through the surface of the volume.
+
+In general, $p=p(\rho,T)$ and for an ideal gas:
+\[p=nk_BT
+\qq{or}
+p=\frac{k_B}{m}\rho T\]
+
+\deff{barotropic equation of state}
+$p$ is a function of $\rho$ only.
+
+To approximate a fluid as being isothermal
+($T=\text{constant}
+\longrightarrow p\propto\rho$)
+we require that
+\begin{itemize}
+\item temperature for thermal equilibrium isn't very sensitive to the heating/cooling rate
+\item in time-dependent problems, therei s time for the system to reach this constant $T$ thermal equilibrium
+\end{itemize}
+
+\deff{adiabatic equation of state}
+\[p=K\rho ^\gamma
+\qquad \gamma = \frac{c_p}{c_b}\]
+
+This is derived from the ideal gas laws assuming no heat excange with surroudings (only $p\dd B$ work).
+
+A fluid element behaves adiabatically if $K$ is constant as the element's properties change.
+
+An isentropic fluid is one in which all the elements have the same value of $K$.
+
+\begin{equation*}
+\begin{aligned}
+-L&=\rho\dv{e}{t}-\frac{p}{\rho}\dv{\rho}{t}
+\qquad e=\frac{p}{(\gamma-1)\rho}
+\\& =\frac{\rho}{\gamma -1}
+\dv{t}\pqty{\frac{p}{\rho}}
+-\frac{p}{\rho}\dv{\rho}{t}
+\\&=\frac{1}{\gamma -1}
+\pqty{\dv{p}{t}-\frac{p}{\rho}\dv{\rho}{t}
+-\frac{(\gamma -1)p}{\rho}\dv{\rho}{t}}
+\\&=\frac{1}{\gamma -1}
+\pqty{\dv{p}{t}-\frac{\gamma p}{\rho}
+\dv{\rho}{t}}
+\\&= \frac{\rho ^\gamma}{\gamma -1}
+\dv{t}\pqty{\frac{p}{\rho ^\gamma}}
+\end{aligned}
+\end{equation*}
+
+\deff{vorticity}
+tendency for parcel of fluid to rotate about an axis through its centre of mass
+\[\vb \omega =\curl \vb u\]
+
+\[\mathrm{curl} \vb F =
+\begin{vmatrix}
+\vb i&\vb j&\vb k
+\\ \pdv{x}&\pdv{y}&\pdv{z}
+\\ F_x&F_y&F_z
+\end{vmatrix} \]
+
+\deff{rigid body rotation}
+reach parcel of fluid changes its orienation as it moves (as opposed to circulation without rotation)
+
+\deff{viscosity}
+the internal stress (force/unit area) from a fluid dragging other fluid
+
+stress: (for a Newtonian fluid)
+\[\tau = \mu \pdv{u}{y}\]
+$\tau$ is the coefficient of shear viscosity, and $\tau$ is the stress tensor. For a given flow $\vb u$, thte higher the viscosity, the greater the stress.
+
+viscous force/element of volume (stress):
+\[
+\bqty{
+  \mu \eval{\pdv{u}{y}}_{y+\delta y}
+  -\mu \eval{\pdv{u}{y}}_{y}
+}
+\delta x\ \delta z
+=\bqty{
+  \pdv{y}\pqty{\mu\pdv{u}{y}}
+  \delta y
+}
+\delta x\ \delta z
+=\mu\pdv[2]{u}{y}\delta y\ \delta x\ \delta z
+\]
+
+\deff{viscous stress force}
+\[ F_\nu=\mu\pdv[2]{u}{y}\]
+
+generalizing:
+\[F_\nu = \rho\nu \grad^2{u}
+\qquad \mu = \rho\nu \]
+
+new equation of motion:
+\[\pdv{\vb u}{t}
++(\vb u\cdot \grad{})\vb u
+=-\frac{1}{\rho}
+\grad p
++\vb g + \nu\grad ^2\vb u
+\]
+
+
+
+
+
+
+
+\end{document}

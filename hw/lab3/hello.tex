@@ -1,0 +1,45 @@
+\documentclass[8pt, a4paper]{article}
+
+\usepackage{verbatim}
+%\usepackage{savetrees}
+\usepackage{geometry}
+\geometry{left=10pt, right=0pt, top=0pt, bottom=0pt}
+\usepackage{graphicx}
+\graphicspath{ {./images/}}
+
+\title{Spectroscopy}
+\author{Jack Symonds}
+\date{}
+
+\begin{document}
+
+
+\begin{figure}[h]
+\includegraphics{linear_IV.png}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics{log_IV.png}
+\end{figure}
+
+\verbatiminput{IV.py}
+
+\newpage
+\begin{figure}[h]
+\includegraphics{ri.png}
+\end{figure}
+
+\verbatiminput{IR.py}
+
+\newpage
+\begin{figure}[h]
+\includegraphics{zeem1.png}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics{zeem.png}
+\end{figure}
+
+\verbatiminput{spec.py}
+
+\end{document}

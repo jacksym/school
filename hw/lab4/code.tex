@@ -1,0 +1,48 @@
+\documentclass[8pt, a4paper]{article}
+
+\usepackage{verbatim}
+%\usepackage{savetrees}
+\usepackage{geometry}
+\geometry{left=10pt, right=0pt, top=0pt, bottom=0pt}
+\usepackage{graphicx}
+\graphicspath{ {./images/}}
+
+\title{Low-Temperature Measurements Code}
+\author{Jack Symonds}
+\date{}
+
+\begin{document}
+\maketitle
+
+Measuring $\tau _c$:
+\verbatiminput{plot.py}
+
+\newpage
+Varying $P$ Values:
+\verbatiminput{control.py}
+
+\newpage
+Varying $I$ Values:
+\verbatiminput{IV.py}
+
+\newpage
+1 V Lock-In Output Superconductor Measurments:
+\verbatiminput{superc.py}
+
+\newpage
+5 V Lock-In Output Superconductor Measurments:
+\verbatiminput{superc2.py}
+
+\newpage
+Diode $IV$ Curves:
+\verbatiminput{IV.py}
+
+\newpage
+Diode $\ln (I)-V$ Curves:
+\verbatiminput{logIV.py}
+
+\newpage
+$V(T)$:
+\verbatiminput{vt.py}
+
+\end{document}

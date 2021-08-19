@@ -1,0 +1,44 @@
+\documentclass[8pt, a4paper]{article}
+
+\usepackage{verbatim}
+%\usepackage{savetrees}
+\usepackage{geometry}
+\geometry{left=10pt, right=0pt, top=0pt, bottom=0pt}
+\usepackage{graphicx}
+\graphicspath{ {./images/}}
+
+\title{Biophotonics Code}
+\author{Jack Symonds}
+\date{}
+
+\begin{document}
+\maketitle
+
+Measuring the $Q$ value:
+\verbatiminput{./optitwee/qval.py}
+
+\newpage
+Varying Fluorescein concentration:
+\verbatiminput{./fluospec/conc.py}
+
+\newpage
+Varying concentration on wavelength:
+\verbatiminput{./fluospec/conc_wav.py}
+
+\newpage
+Stain traces
+\verbatiminput{./fluospec/stain.py}
+
+\newpage
+Spectra for dsDNA concentrations
+\verbatiminput{./fluospec/stain_conc.py}
+
+\newpage
+Peak strength for dsDNA concentrations
+\verbatiminput{./fluospec/dsDNA_conc.py}
+
+\newpage
+UV vs Blue LED
+\verbatiminput{./fluospec/stain2.py}
+
+\end{document}

@@ -1,0 +1,442 @@
+%St Andrews Notes Template
+\documentclass[10pt, a4paper, twocolumn]{article}
+
+%Formatting Packages
+\usepackage[a4paper, margin=0.5in]{geometry}
+%\usepackage[extreme]{savetrees}
+\usepackage{times}
+
+%Math Packages
+\usepackage{xparse}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{esint}
+\usepackage{physics}
+% \usepackage{mhchem}
+
+\newcommand{\deff}[1]{\par \noindent \textit{#1}: }
+\newcommand{\dbar}{\mathrm d \hspace*{-0.2em}\bar{}\hspace*{0.2em}}
+\newcommand{\pfs}{\ensuremath{\varepsilon _0}}
+\newcommand{\arr}{\ensuremath{\longrightarrow\ }}
+\newcommand{\larr}{\ensuremath{\longleftarrow\ }}
+\newcommand{\intall}{\ensuremath{\int\limits_\text{all space}}}
+\newcommand{\intinf}{\ensuremath{\int\limits_{-\infty}^{+\infty}}}
+\newcommand{\eps}{\ensuremath{\varepsilon _0}}
+\newcommand{\n}{\par \noindent}
+
+\author{Jack Symonds}
+\title{Advanced Quantum Mechanics}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{complex analysis}
+
+\[
+z=x+iy \qquad
+\mqty{x = \Re z \\ y = \Im z}
+\]
+A function of this complex variable will in general itself be complex, and hence can also be written as a sum of a real and imaginary part.
+\[f(x,y) = u(x,y)+iv(x,y)\]
+
+real derivative:
+\[\dv{g}{x} \equiv \lim _{\delta \rightarrow 0}
+\pqty{\frac{g(x+\delta)-g(x)}{\delta}}\]
+
+In the 2D plane there is an infinite number of directions we could choose. A complex function is differentiable/\emph{analytic} at a certain ponit if the direciton doesn't matter.
+
+\subsection{the Cauchy-Riemann equations}
+\begin{enumerate}
+\item approaching along y
+\[\dv{f}{z} \equiv \lim _{\delta \rightarrow 0}
+\pqty{\frac{f(z+\delta)-f(z)}{\delta}}\]
+\[z+\delta = (x+\delta)+iy\]
+\begin{equation*}
+\begin{aligned}
+f(z)&=u(x,y)+iv(x,y)
+\\f(z+\delta)&=u(x+\delta,y)+iv(x+\delta,y)
+\end{aligned}
+\end{equation*}
+$\delta$ is infinitesimal, so we may Taylor-expand $u(x+\delta,y)$ and $v(x+\delta,y)$:
+\begin{equation*}
+\begin{aligned}
+u(x+\delta,y)&=u(x,y)+\delta\pdv{u}{x}(x,y)+O(\delta ^2)
+\\v(x+\delta,y)&=v(x,y)+\delta\pdv{v}{x}(x,y)+O(\delta ^2)
+\end{aligned}
+\end{equation*}
+\[\therefore
+f(x+\delta)-f(z)=\delta\pdv{u}{x}+i\delta\pdv{v}{x}
++O(\delta ^2)\]
+\[\therefore
+\dv{f}{z}=\lim_{\delta\rightarrow 0}
+\pqty{\frac{f(z+\delta)-f(z)}{\delta}}
+=\pdv{u}{x}+i\pdv{v}{x}\]
+
+\item Approaching along $y$, $\delta$ is purely imaginary, so $\delta = i\epsilon$
+
+\begin{equation*}
+\begin{aligned}
+f(z)&=u(x,y)+iv(x,y)
+\\f(z+\delta)&=u(x,y+\epsilon)+iv(x,y+\epsilon)
+\end{aligned}
+\end{equation*}
+
+Again, $\epsilon$ is infinitesimal, so we may Taylor-expand $u(x,y+\epsilon)$ and $v(x,y+\epsilon)$
+
+\begin{equation*}
+\begin{aligned}
+u(x,y+\epsilon)
+&= u(x,y)+\delta\pdv{u}{x}(x,y)+O(\epsilon ^2)
+\\v(x,y+\epsilon)
+&=v(x,y)+\delta\pdv{v}{x}(x,y)+O(\epsilon ^2)
+\end{aligned}
+\end{equation*}
+\[\therefore f(z+\delta)-f(z)
+=\epsilon\pdv{u}{y}+i\epsilon\pdv{v}{y}+O(\epsilon ^2)\]
+\begin{equation*}
+\begin{aligned}
+\frac{f(z+\delta)-f(z)}{\delta}
+\\&=\frac{f(z+\delta)-f(z)}{i\epsilon}
+\\&=-i\frac{f(z+\delta)-f(z)}{\epsilon}
+\\&=\pdv{v}{y}-i\pdv{u}{y}+O(\epsilon)
+\end{aligned}
+\end{equation*}
+\[\therefore
+\dv{f}{z}=\pdv{v}{y}-i\pdv{u}{y}\]
+\end{enumerate}
+
+\deff{Cauchy-Riemann equation}
+\[\pdv{u}{x}=\pdv{v}{y}
+\qq{and} \pdv{v}{x}=-\pdv{u}{y}\]
+If these are satisfied at a point $(x,y)$, then the functoin is analytic at that point.
+
+\subsection{the 'function-of-z' test}
+If a function of a complex variable can be written using only $z$ (and without using its conjugate, $z*$), then the function is analytic.
+
+\begin{itemize}
+\item expand in terms of $x$ and $y$
+\item real and imaginary parts
+\item relevant partial derivatives
+\item compare with Cauchy-Riemann equations
+\end{itemize}
+
+\section{singularities of meromorphic functions: poles and their types}
+
+\deff{holomorphic function}
+if a function of a complex variable is analytic everywhere in the complex plane
+
+Holomorphic functions can have zeros, but can't have divergences.
+
+\deff{meromorphic functions}
+
+if a function is analytic everywhere in the complex plane \emph{except at a discrete set of points called singular points}
+
+The most common way a point may be singular is a divergence.
+
+It is possible for a function to pass the function-of-$z$ test, but still be meromorphic rather than holomorphic.
+
+For a function like $p(z)=\sqrt z$, if you go round the origin once, you switch from the $+\sqrt z$ to the $-\sqrt z$ branch, so it is a \emph{branch point}. $q(z)=\ln z$ has an infinite number of branches, for which the origin is the branch point.
+
+For a meromorphic function $f(z)$ with singular point of $z=z_0$, let's say it diverges as
+\[f(z)\sim\frac{1}{(z-z_0)^\alpha}\]
+$\alpha$ is the \emph{order} of the pole.
+\begin{equation*}
+\begin{aligned}
+\alpha&=1\qq{\arr}\text{simple pole}
+\\ \alpha&=2\qq{\arr}\text{double pole}
+\end{aligned}
+\end{equation*}
+
+\subsection{integration in the complex plane: the residue
+theorem}
+
+To integrate a function in the complex plane one must specify a \emph{contour} along which the integration will be taken. Then direct integration.
+
+\subsubsection{around a closed loop}
+(infinitesimal square)
+\begin{equation*}
+\begin{aligned}
+C_1&: &x_0+iy_0&\arr(x_0+\dd x)+iy_0
+\\C_2&: &(x_0+\dd x)+iy_0&\arr(x_0+\dd x)+i(y_0+\dd y)
+\\C_3&: &(x_0+\dd x)+i(y_0+\dd y)
+&\arr x_0+i(y_0+\dd y)
+\\C_4&: &x_0+i(y_0+\dd y)&\arr x_0+iy_0
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\int _{C_1}&=\int\limits_{x_0}^{x_0+\dd x}
+f(z)\ \dd x
+\\&=\int\limits_{x_0}^{x_0+\dd x}
+u(x,y_0)\ \dd x
++i\int\limits_{x_0}^{x_0+\dd x}
+v(x,y_0)\ \dd x
+\\&=u(x_0,y_0)\dd x+iv(x_0,y_0)\dd x
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\int _{C_2}f(z)\ \dd z
+&=iu(x_0+\dd x,y_0)\dd y
+-v(x_0+\dd x,y_0)\dd y
+\\ \int _{C_3}f(z)\ \dd z
+&=-u(x_0,y_0+\dd y)\dd x
+-iv(x_0,y_0+\dd y)\dd x
+\\ \int _{C_4}f(z)\ \dd z
+&=-iu(x_0,y_0)\dd y
++v(x_0,y_0)\dd y
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{split}
+\hspace{-4em}
+\oint _Cf(z)\ \dd z =
+\left[ u(x_0,y_0)+iv(x_0,y_0)
+-u(x_0,y_0+\dd y)-iv(x_0,y_0+\dd y)\right]\dd x
+\\ +\left[ iu(x_0+\dd x,y_0)-v(x_0+\d x,y_0)
+-iu(x_0,y_0)+v(x_0,y_0)\right]\dd y
+\end{split}
+\end{equation*}
+
+\[\text{Taylor's theorem}\qq{\arr}
+u(x_0,y_0+\dd y)
+\approx u(x_0,y_0)+\pdv{u}{y}\dd y\]
+
+\[\oint_Cf(z)\ \dd z
+=\bqty{\pqty{-\pdv{u}{y}-\pdv{v}{x}}
++i\pqty{-\pdv{v}{y}+\pdv{u}{x}}}
+\dd x\ \dd y\]
+
+If $f(z)$ satisfies the Cauchy-Reimann equations, then both the real and imaginary parts of this expression are zero. And since any contour can be made up out of infinitesimal squares, the integral of a holomorphic function around any closed contour must also vanish.
+
+\subsection{}
+For holomorphic $f(z)$:
+\[\textit{Cauchy's integral theorem:}\qquad
+\oint_Cf(z)\ \dd z=0\]
+
+For a non-analytic integration like:
+\[\oint_Cg(z)\ \dd z
+=\oint _C\frac{f(z)}{z-z_0}\ \dd z\]
+
+Sneak around the pole:
+\begin{equation*}
+\begin{aligned}
+\oint _{C'}\frac{f(z)}{z-z_0}\ \dd z
+&=\int_\alpha ^\beta\frac{f(z)}{z-z_0}\dd z
++\underbrace{
+\int_\beta ^\mu\frac{f(z)}{z-z_0}\dd z
+}_A
++\int_\mu ^\nu\frac{f(z)}{z-z_0}\dd z
++\underbrace{
+\int_\nu ^\alpha \frac{f(z)}{z-z_0}\dd z
+}_B
+\\&=0
+\end{aligned}
+\end{equation*}
+
+$A$ and $B$ are two sections that run along the cut line in opposite directions. Since the integrand is analytic at all points along the line (pole excluded), then they cancel each other out. The other two integrals are infinitesimally close to full circles.
+\[\therefore
+\int_\mu^\nu\frac{f(z)}{z-z_0}\dd z
+=-\oint_{C_2}\frac{f(z)}{z-z_0}\dd z
+\qquad \textstyle{\oint} \qq{\arr}\text{anti-clockwise}
+\]
+Switching to polar coordinates relative to pole:
+$z=z_0+re^{i\theta}$:
+
+\begin{equation*}
+\begin{aligned}
+\oint_{C_2}\frac{f(z)}{z-z_0}\dd z
+&=\oint_{C_2}\frac{f(z_0+re^{i\theta})}{re^{i\theta}}
+ire^{i\theta}\ \dd \theta
+\\&=if(z_0)
+\int_0^{2\pi}\dd \theta=2\pi i\ f(z_0)
+\end{aligned}
+\end{equation*}
+\begin{equation*}
+\begin{aligned}
+\oint_{C'}\frac{f(z)}{z-z_0}\dd z
+&=\int_\alpha^\beta\frac{f(z)}{z-z_0}\dd z
++\int_\nu^\alpha\frac{f(z)}{z-z_0}\dd z
+\\&=\oint_C\frac{f(z)}{z-z_0}\dd z
+-\oint_{C_2}\frac{f(z)}{z-z_0}\dd z
+\\&=\oint_C\frac{f(z)}{z-z_0}\dd z-2\pi\ f(z_0)=0
+\end{aligned}
+\end{equation*}
+
+\[\therefore
+\textit{Cauchy's integral formula:}\qquad
+\oint_C\frac{f(z)}{z-z_0}\dd z=2\pi i\ f(z_0)
+\]
+Once the values of an analytic function on a surrounding contour are known, then the value of a function at a point inside the contour is determined.
+
+The first derivative $f'(z_0)$:
+\[\frac{f(z_0+\delta z_0)-f(z_0)}{\delta z_0}
+=\frac{1}{2\pi i\ \delta z_0}
+\bqty{\oint\frac{f(z)}{z-z_0-\delta z_0}\dd z
+-\oint\frac{f(z)}{z-z_0}\dd z} \]
+
+\begin{equation*}
+\begin{aligned}
+f'(z_0)&=\lim_{\delta z_0\to 0}
+\frac{1}{2\pi i\ \delta z_0}
+\oint\frac{\delta z_0\ f(z)}
+{(z-z_0-\delta z_0)(z-z_0)}\dd z
+\\&=\frac{1}{2\pi i}
+\oint\frac{f(z)}{(z-z_0)^2}\dd z
+\end{aligned}
+\end{equation*}
+
+\[f^{(z)}(z_0)=\frac{n!}{2\pi i}
+\oint\frac{f(z)}{(z-z_0)^{n+1}}\dd z\]
+
+Since we have defined $f(z)$ to be analytic in the region containing $z_0$ then this guaratees that all derivatives of $f(z)$ are analytic in that region too.
+
+\subsection{Laurent series}
+
+Trying to find a Taylor series for a funciton of a complex variable $f(z)$, around an expansion point $z_0$ and in some region where we know $f(z)$ is analytic.
+
+A point on the circle will be $z'$ and so
+$\abs{z'-z_0}<\abs{z_1-z_0} $
+
+\begin{equation*}
+\begin{aligned}
+f(z)&=\frac{1}{2\pi i}
+\oint_C\frac{f(z')}{z'-z}\dd z'
+\\&=\frac{1}{(z'-z_0)-(z-z_0)}\dd z'
+\\&=\frac{1}{2\pi i} \oint_C
+\frac{f(z')}{(z'-z_0)
+\pqty{1-\frac{z-z_0}{z'-z_0}}}\dd z'
+\\&\qquad
+\frac{1}{1-x}=1+x+x^2+\ldots=\sum_{n=0}^\infty x^n
+\\&\qquad \text{convergent for $\abs{x}<1$}
+\qquad\abs{z-z_0}<\abs{z'-z_0}
+\\&=\frac{1}{2\pi i}
+\oint_C\sum_{n=0}^\infty
+\frac{(z-z_0)^nf(z')}
+{(z'-z_0)^{n+1}}\dd z'
+\\&=\frac{1}{2\pi i}\sum_{n=0}^\infty
+(z-z_0)^n
+\oint_C\frac{f(z')}{(z'-z_0)^{n+1}}\dd z'
+\\&=\sum_{n=0}^\infty(z-z_0)^n
+\frac{f^{(n)}(z_0)}{n!}
+\qq{\larr}\textit{Taylor expansion}
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+f(z)&=\frac{1}{2\pi i}\oint_C
+\frac{f(z')}{z'-z}\dd z'
+\\&=\frac{1}{2\pi i}
+\oint_{C_1}\frac{f(z')}{z'-z}\dd z'
+-\frac{1}{2\pi i}
+\oint_{C_1}\frac{f(z')}{z'-z}\dd z'
+\end{aligned}
+\end{equation*}
+
+\[\frac{1}{2\pi i}
+\oint_{C_1}\frac{f(z')}{z'-z}\dd z'
+=\frac{1}{2\pi i}
+\sum_{n=0}^\infty (z-z_0)^n
+\oint_{C_1}\frac{f(z')}{(z'-z_0)^{n+1}}\dd z'\]
+
+\begin{equation*}
+\begin{aligned}
+\frac{1}{2\pi i}
+\oint_{C_2}\frac{f(z')}{z'-z}\dd z'
+&=\frac{1}{2\pi i}
+\sum_{n=0}^\infty (z-z_0)^{-(n+1)}
+\oint_{C_2}
+f(z')(z'-z_0)^n\ \dd z'
+\\&=\frac{1}{2\pi i}
+\sum_{m=-\infty}^{-1}(z-z_0)^m
+\oint_{C_2}f(z')(z'-z_0)^{-(m+1)}\ \dd z'
+\end{aligned}
+\end{equation*}
+
+\[\text{Laurent series:}\qquad
+f(z)=\sum_{n=-\infty}^\infty
+a_n(z-z_0)^n
+\qquad a_n=\frac{1}{2\pi i}
+\oint_C\frac{f(z')}{(z'-z_0)^{n+1}}\dd z'\]
+
+\subsubsection{the residue theorem}
+\[f(z)=\sum_{n=-\infty}^\infty
+a_n(z-z_0)^n\]
+\[I_n=a_n\oint (z-z_0)^n\dd z\]
+\[g^{(m)}(z_0)
+=\frac{m!}{2\pi i}
+\oint\frac{g(z)}{(z-z_0)^{m+1}}\dd z\]
+\[I_n\propto g^{(-n-1)}(z_0)\]
+
+\begin{equation*}
+\begin{aligned}
+I_{-1}&=
+a_{-1}\oint\frac{1}{z-z_0}\dd z
+\\&= a_{-1}\oint\frac{g(z)}{z-z_0}\dd z
+\\&=a_{-1}2\pi i\ g(z_0)
+\\&=a_{-1}2\pi i
+\end{aligned}
+\end{equation*}
+
+\[\textit{residue of $f(z)$:}\qquad
+\frac{1}{2\pi i}
+\oint f(z)\ \dd z=a_{-1}=R_{z_0} \]
+
+\[
+\oint_Cf(z)\ \dd z
+-\oint_{C_0}f(z)\ \dd z
+-\oint_{C_1}f(z)\ \dd z
+-\oint_{C_2}f(z)\ \dd z
++\cdots=0\]
+
+\deff{residue theorem}
+\begin{equation*}
+\begin{aligned}
+\oint_Cf(z)\ \dd z&=2\pi i
+\pqty{R_{z_0}+R_{z_1}+R_{z_2}+\cdots}
+\\&=2\pi\times
+\text{(sum of enclosed residues)}
+\end{aligned}
+\end{equation*}
+
+\[ f(z)=\frac{g(z)}{z-z_0}\]
+
+\begin{equation*}
+  \begin{aligned}
+    R_{z_0}&=\frac{1}{2\pi i}
+    \oint _Cf(z)\ \dd z
+    \\&=\frac{1}{2\pi i}
+    \oint _C\frac{g(z)}{z-z_0}\dd z
+    \\&=g(z_0)
+    \\&=\lim _{z\to z_0}[(z-z_0)\ \f(z)]
+  \end{aligned}
+  \end{equation*}
+  \subsubsection{poles on the contour: the Cauchy principal value}
+
+\[f(z)=\frac{1}{z-1}\]
+\[\oint _C\frac{\dd z}{z-1}\]
+ \[\mathcal{P} \oint _C\frac{\dd z}{z-1} = i\pi\]
+
+ \[\mathcal{P}\oint_Cf(z)\ \dd z
+   \equiv \frac12
+   \left\{
+     \oint_{C'_1} f(z)\ \dd z
+     +\oint_{C'_2} f(z)\ \dd z
+\right\} \]
+
+\subsection{real integrals by residue methods}
+
+\[I\equiv \intinf \frac{\dd x}{x^2+1}\]
+
+
+\[I=\int_C\frac{\dd z}{z^2+1}\]
+
+
+
+
+\end{document}

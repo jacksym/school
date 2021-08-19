@@ -1,0 +1,1955 @@
+%St Andrews Notes Template
+\documentclass[10pt, a4paper, twocolumn]{article}
+
+%Formatting Packages
+\usepackage[a4paper, margin=0.5in]{geometry}
+%\usepackage[extreme]{savetrees}
+\usepackage{times}
+
+%Math Packages
+\usepackage{xparse}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{esint}
+\usepackage{physics}
+
+\newenvironment{definition}[1]{\par \noindent \textbf{#1}: \begin{itemize} \renewcommand{\labelitemi}{$\hookrightarrow$}}{\end{itemize}}
+\newcommand{\bd}{\begin{definition}}
+\newcommand{\ed}{\end{definition}}
+
+\newcommand{\deff}[1]{\par \noindent \textit{#1}: }
+\newcommand{\dbar}{\mathrm d \hspace*{-0.2em}\bar{}\hspace*{0.2em}}
+\newcommand{\arr}{\ensuremath{\longrightarrow\ }}
+\newcommand{\larr}{\ensuremath{\longleftarrow\ }}
+\newcommand{\intall}{\ensuremath{\int\limits_\text{all space}}}
+\newcommand{\intinf}{\ensuremath{\int\limits_{-\infty}^{+\infty}}}
+\newcommand{\n}{\par \noindent}
+\newcommand{\eps}{\ensuremath{\varepsilon _0}}
+
+\author{Jack Symonds}
+\title{Introduction to Condensed Matter Physics}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Quantum Review}
+
+\subsection{Introduction}
+
+The electric field inside solids breaks the translational symmetry of free space, leaving \emph{lattice translational symmetry}. 
+
+\subsection{Single-Particle Quantum Mechanics}
+
+Hamiltonian operator for a single spinless particle under the influence of a force field $\vb F(\vb r ) = - \grad V (\vb r)$:
+
+\[ \hat H _1 = \frac{\vb{\hat p ^2}}{2m} + V( \vb r )
+\qquad \hat H_1 \psi _n (\vb r)
+= \epsilon _n \psi _n (\vb r ) \]
+
+Hamiltonian for an $N$-fermion system:
+\begin{equation*}
+\begin{aligned}
+	\hat H _N &= \frac{1}{2m} \sum _{j=1}^N \vb{\hat p} _j^2
+	+ \sum _{j = 1}^N V )\vb r _j )
+\\	&= \hat H _1 + \hat H _2 + \ldots + \hat H _N
+\end{aligned}
+\end{equation*}
+
+\[ \vb \Psi (\vb r _1, \vb r _2, \ldots , \vb r _N )
+= \psi _{n_1} ( \vb r_1) \psi _{n_2} ( \vb r _2)
+\cdots \psi _{n_N} (\vb r _N) \]
+
+\[ E = \epsilon _{n_1} + \epsilon _{n_2} + \ldots
++ \epsilon _{n_N} \]
+
+\emph{Slater Determinant}
+\[
+\vb \Psi ( \vb r _1 , \vb r _2 , \ldots , \vb r _N)
+= \frac{1}{\sqrt{N!}}
+\begin{vmatrix}
+\psi _{n_1} (\vb r _1) & \psi _{n_1} (\vb r _2)
+	& \cdots & \psi _{n_1} (\vb r _N)
+\\ \psi _{n_2} (\vb r _1) & \psi _{n_2} (\vb r _2)
+	& \cdots & \psi _{n_2} (\vb r _N)
+	\\ \vdots & \vdots & \ddots & \vdots
+\\ \psi _{n_N} (\vb r _1) & \psi _{n_N} (\vb r _2)
+	& \cdots & \psi _{n_N} (\vb r _N)
+\end{vmatrix}
+\]
+
+All fermions have half-odd-integer spin. Electrons have $S = 1/2$, which means that in addition to their orbital degrees of freedom they have two internal states:
+\begin{equation*}
+\begin{aligned}
+&\ket{\uparrow} \arr \text{projection } S_z = \hbar /2
+\\ &\ket{\downarrow} \arr \text{projection } S_z = - \hbar /2
+\end{aligned}
+\end{equation*}
+
+\section{Statistical Mechanics Review}
+
+\bd{microcanonical ensemble}
+\item no environment: the system is closed
+\item total energy $E$ and total particle number $N$ is conserved
+\item probability in equilibrium of a configuration $\mathcal C$:
+\[ P _\mathcal C ^\text{MCE} = \frac{1}{Z_\text{MCE}}
+\delta _{E,E_0} \delta _{N,N_0} \]
+\item energy configuration is allowed and occurs with the same probability
+\item \deff{partition function} the normalization factor
+\[ Z_\text{MCE}
+= \sum _\mathcal C \delta _{E,E_0} \delta _{N,N_0}
+\qquad \sum _\mathcal C P_\mathcal C ^\mathrm{MCE} = 1 \]
+\ed
+
+\bd{canonical ensemble}
+\item system is in contact with a \emph{heat bath}
+-- a large reservoir that can exchange energy but not particles
+\item probability in equilibrium of a configuration $\mathcal C$:
+\[ P _\mathcal C ^\mathrm{CE} = \frac{1}{Z_\mathrm{CE}}
+e^{-\beta E} \delta _{N,N_0}
+\qquad \beta \equiv \frac{1}{k_B T} \]
+\item partition function
+\[ Z_\mathrm{CE} (T) = \sum _\mathcal C e^{-\beta E}
+\delta _{N,N_0} \]
+\item \emph{Helmholtz free energy}
+\[ F(T) = -k_B T \ln Z_\mathcal{CE} (T) \]
+\ed
+
+Any thermodynamic observable can be written as some function of this free energy and its derivatives.
+
+\bd{grand canonical ensemble}
+\item system is in contact with a \emph{particle reservoir} -- a large reservoir that can exchange both energy and particles
+\item probability in equilibrium of a configuration $\mathcal C$:
+\[ P_\mathcal C^\mathrm{GCE} = \frac{1}{Z_\mathrm{GCE}}
+e^{- \beta E} e^{\beta \mu N}
+\qquad \mu: \text{\emph{ chemical potential}}
+\]
+\item partition function
+\[ Z_\mathrm{GCE} = \sum _\mathcal C e^{-\beta E}
+e^{\beta \mu N} \]
+\item \emph{grand canonical free energy}
+\[ \Omega (T, \mu) = - k _B T \ln Z_\mathrm{GCE} (T, \mu)\]
+\ed
+
+For a many-body system of independent fermions, use the GCE because the equilibrium population of a single-particle eigenstate $\psi _i$ is independent of the populations of the other single-particle eigenstates. 
+\deff{Fermi-Dirac distribution}
+For the average number of particles in a single-particle eigenstate $\psi _j$ in the GCE
+\[ n_j = \frac{1}{e^{\beta(\epsilon _j - \mu)} + 1} \]
+
+\subsection{Observables}
+\subsubsection{Specific Heat Capacity}
+At a given temperature $T$, the number of degrees of freedom capable of being excited by the transfer of energy from the reservoir with a value of $k_B/2$ corresponding to a single degree of freedom. It can be measured per particle, per mole of the substance in questino, or per unit volume of the substance.
+
+\[ C = \frac{T}{V} \pdv{S}{T} = \frac1V \pdv{E}{T} \]
+
+\[ S = - \pdv{\Omega}{T} \]
+
+\[ C -\frac{T}{V} \pdv[2]{\Omega}{T}
+\qquad C = \frac32 k_B n \]
+
+\subsubsection{magnetic susceptibility}
+
+\[ \vb M = \frac{1}{\mu _0} \chi (T) \vb B \]
+
+For applied small fields, the magnetic susceptibility $\chi (T)$ is usually field-independent.
+
+magnetisation density:
+\[ M = - \frac1V \pdv{\Omega}{B} \]
+
+\begin{equation*}
+\begin{aligned}
+\chi (T) &= \mu _0 \pdv{M}{B}
+\\ &= -\frac{\mu _0}{V} \pdv[2]{\Omega}{B}
+\end{aligned}
+\end{equation*}
+
+magnetic susceptibility of a single $S = 1/2$ particle:
+\[ \chi _\mathrm{Curie} = \frac{\mu _0 (g \mu _B )^2}
+{4 k_B T} \qquad \mu _B \equiv \frac{e \hbar}{2m_e}
+\larr \text{ Bohr magneton}
+\]
+
+\section{Properties of Solids}
+
+\subsection{specific heat capacity}
+
+The amount of energy necessary to raise the temperature of a given amount of the material oby one degree. It counts the number of excitations in the system that, at temperature $T$, are available for thermal excitation.
+
+\subsubsection{insulators}
+
+\[ C(T) = \alpha T^3 \]
+
+\deff{lattice vibrations}
+sound waves propagating through the crystal.
+\deff{phonos} quantized versions of sound
+
+\subsubsection{metals}
+
+\[ C(T) = \gamma T \qquad \mu:
+\text{ \emph{Sommerfeld coefficient}} \]
+
+This must come from  excitations of the conduction electrons.
+
+\subsection{magnetic susceptibility}
+
+\subsubsection{insulators}
+
+\deff{magnetic insulators} have unpaired electrons on some of their lattice sites (non-magnetic insulators do not)
+
+\[ \chi (T) = \frac{A}{T} \]
+
+At sufficiently high temperatures, the spins of the unpaired electrons behave independently, so each behaves as a single spin coupled to a heat bath.
+
+At lower temperatures, the psins start to interact with each other. If the interactions tends to align the spins, the susceptibility will deviate upwareds from the curve; if the interaction tends to anti-align them, the susceptibility will deviate downwards.
+
+\deff{non-magnetic insulators}
+
+Susceptibility tends to remain near zero over a wide range of temperatures because to magnetize the sample would mean breaking some chemical bonds, which have energies high enough that they do no break until the crystal is at or near its melting point.
+
+\subsubsection{metals}
+
+\[ \chi (T) = \chi _0 \]
+
+\subsection{electrical resistivity}
+
+The electrical resistivity is not a thermodynamic observable. It's similar to the resistance.
+
+\[ R = \frac{\rho L}{A} \]
+
+\subsubsection{insulators}
+
+low-temperature resistivity:
+\[ \rho (T) = A \exp \qty( \frac{\Delta}{k_B T}) \]
+
+\subsubsection{metals}
+
+Metals tend to have a non-zero resistivity even at zero temperature due to structural impurities. It's resistivity can vary quite a bit.
+
+\[ \rho (T) = \rho _0 + AT^2 + BT^5
+\qquad \rho _0: \text{\emph residual resistivity} \]
+
+\deff{residual resistivity}
+due to the scattering of electrons from impurities in the crystal
+
+\section{Sommerfeld model I: $k$-space and Fermi sphere}
+
+Since the electrons in a metal can conduct electricity, they must be able to move around relatively freely. So, they can't be too strongly influenced by the electric field of the lattice of positive ions. So let's completely ignore that lattice, and model the conduction electrons as free and independent electrons in a box.
+
+The model is not a an infinitely deep square well because the wave function would not have translational invariance.
+
+\deff{periodic boundary conditions}
+an electron moving out of the box on one side reappears on the other
+
+\subsection{single-particle solution}
+
+\begin{equation*}
+\begin{aligned}
+\hat H _1 &= \frac{\vb{\hat p} ^2}{2m}
+\qquad \vb{\hat p} = - i \hbar \nabla
+\\ &= - \frac{\hbar ^2}{2m} \laplacian
+\end{aligned}
+\end{equation*}
+
+TISE for the single-particle eigenfunction:
+
+\begin{equation*}
+\begin{aligned}
+- \frac{\hbar ^2}{2m} \laplacian{\psi} &= E \psi
+\\ - \frac{\hbar ^2}{2m}
+\left( \pdv[2]{\psi}{x} + \pdv[2]{\psi}{y} + 
+\pdv[2]{\psi}{z} \right) &= E \psi
+\end{aligned}
+\end{equation*}
+
+solution via separation of variables:
+
+\begin{equation*}
+\begin{aligned}
+\psi (x,y,z) &= A e^{i k_x x} e^{i k_y y} e^{i k_z z}
+\\ \psi (\vb r) &= A e^{i \vb k \cdot \vb r}
+\end{aligned}
+\end{equation*}
+
+\[ \textstyle \int _0^L \dd x \int _0^L \dd y
+\int _0^L \dd z \abs{\psi}^2 = 1
+\qquad \larr \abs{\psi}^2 = \abs{A}^2 \]
+
+\[L^3 \abs{A}^2 = 1 \arr \abs{A} = \frac{1}{\sqrt{L^3}} \]
+
+The overall phase of the wave function is arbitrary, so we can choose $A$ to be a real and positive:
+$A = 1/\sqrt{L^3}$
+
+\[ \psi _{\vb k} (\vb r) = \frac{1}{\sqrt{L^3}}
+e^{i \vb k \cdot \vb r} \]
+
+\[ E = \frac{\hbar ^2}{2m} (k_x^2 + k_y^2 + k_z^2)
+= \frac{\hbar ^2 \vb k^2}{2m} \]
+
+The boundary conditions restrict the allowed values of $\vb k$ to a discrete (but infinite) set.
+
+For just the $x$-dependent part of the wave function:
+\[ e^{i k_x x} \qquad \psi (x + L) = \psi (x) \]
+
+\[e^{i_x(x+L)} = e^{ik_xx} \qquad \arr e^{ik_xL} = 1 \]
+
+\[\therefore k_x L = 2 \pi n_x \]
+
+\[ \vb k = \frac{2 \pi}{L} (n_x, n_y, n_z) \]
+
+\subsection{'k-space' representation}
+
+Each value of $\vb k$ corresponds to a permitted single-particle state, and there can be two electrons in each state (with different spins).
+
+Think of a particular $\vb k$-space lattice point $\vb k _0$ as occupying a certain $\vb k$-space volume, which we define as the set of points in $\vb k$-space that are closer to $\vb k_0$ than to any other lattice point.
+
+$\vb k$-space volume occupied by each lattice point:
+
+\[ V _\mathrm{pt} = \qty( \frac{2\pi}{L} )^3 \]
+
+\subsection{many-fermion problem and the Fermi sphere}
+
+To determinme the many-body wave function, we need to assign our $N$ electrons to these single-particle states in way that repects the exclusion principle.
+
+Starting with the ground state:
+
+\[ E_{\vb k} = \frac{\hbar ^2 \vb k^2}{2m} \]
+
+Since  $E_k$ depends only on the magnitude of $\vb k$, the only thing that matters in determining the energy of a given single-particle state is how far its $\vb k$-space point is from the origin.
+
+To make the lowest-energy state we should populate our single-particle states starting from the origin in $\vb k$-space and working outwards, putting two electrons at each $\vb k$-point
+(one $\ket{\uparrow}$, one $\ket{\downarrow}$)
+
+\deff{Fermi sphere}
+a filled shape in $\vb k$-space that is basically indistinguishable from a sphere that has a \emph{Fermi surface}
+
+\section{Sommerfeld model II: density of states and Fermi energy}
+
+\subsection{Fermi sphere radius}
+
+\deff{Fermi wavenumber}
+its radius is the only distinguishable quantity $k_F$
+
+If there's a function $\mathcal N_k(k)$ that describes the number of single-particle states whose distance from the origin in $\vb k$-space is less than or equal to $k$, then inverting could get to $k_F$ itself:
+
+\[ \mathcal N_k (k_F) = N \]
+
+
+\[ \frac{V_\mathrm{sphere}}{V_\mathrm{pt}}
+= \frac{\frac43 \pi k^3}{\qty(\frac{2 \pi}{L})^3}
+= \frac{L^3k^3}{6\pi ^2}
+= \frac{Vk^3}{6\pi ^2}
+\qquad (L^3 \equiv V) \]
+
+Each lattice point corresponds to two states
+(one $\ket{\uparrow}$, one $\ket{\downarrow}$)
+
+\[ \mathcal N _k (k) = \frac{V k^3}{3 \pi ^2}
+\quad \arr \quad
+\frac{V k_F^3}{3 \pi ^2} = N\]
+
+\[ k_F = \qty(\frac{3 \pi ^2 N}{V})^{1/3} \]
+
+\subsection{density of states in k}
+
+\deff{density of states in $\vb k$ per unit volume}
+$g _k(k) \dd k$
+is the number of states in a thin shell between radius $k$ and radius $k + \dd k$ in a unit volume of the sample 
+
+\[ g_k (k) \equiv \frac1V \dv{\mathcal N _k(k)}{k}
+= \frac{k^2}{\pi ^2} \]
+
+ground-state energy of the filled Fermi sphere:
+(only runs over the occupied states)
+
+\begin{equation*}
+\begin{aligned}
+E &= \sum _{\vb k}^{}{}^{'} \frac{\hbar^2 k^2}{2m}
+\\ & \approx \frac{\hbar ^2 V}{2m} \int _0^{k_F}
+g_k (k) k^2 \ \dd k
+\\ &= \frac{\hbar ^2 V}{2m \pi ^2} \int _0 ^{k_F}
+k^4 \ \dd k
+\\ &= \frac{\hbar ^2 V}{10 m \pi ^2} k_F^5
+\\ &= \frac{\hbar ^2 V}{10 m \pi ^2}
+\qty( \frac{3 \pi ^2 N}{V})^{5/3}
+\end{aligned}
+\end{equation*}
+
+\subsection{Fermi energy}
+
+\deff{Fermi energy}
+the energy of the highest occupied single-particle eigenstate.
+
+\[ E_F = \frac{\hbar ^2 k_F^2}{2m}
+\Rightarrow \frac{\hbar ^2}{2m}
+\qty(\frac{3 \pi ^2 N}{V} )^{2/3} \]
+
+The Fermi energy acts effectively as the zero of energy for electrons in the metal: states with $E \leq E_F$ are occupied at $T=0$, while states with $E > E_F$ are unoccupied.
+
+\subsection{density of states in energy}
+
+Instead of working out $\mathcal N _k (k)$ -- the number of states inside a $\vb k$-space sphere of radius $k$ --use $\mathcal N_E(E)$ -- the number of states with energy less than or equal to $E$.
+
+\[ E = \frac{\hbar ^2 k^2}{2m}
+\quad \arr \quad k = \frac1\hbar \sqrt{2mE} \]
+
+\begin{equation*}
+\begin{aligned}
+\mathcal N_E (E) &= 2 \times \frac{\frac43 \pi k^3}
+{\qty(\frac{2\pi}{L})^3} = \frac{Vk^3}{3 \pi ^2}
+\\ &= \frac{V}{3 \pi ^2} \frac{1}{\hbar ^3}
+(2mE)^{3/2}
+= \frac{V}{3 \pi ^2} \qty( \frac{2m}{\hbar ^2})^{3/2}
+E^{3/2}
+\end{aligned}
+\end{equation*}
+
+density of states in energy per unit volume:
+
+\[ g_E(E) \equiv \frac1V \dv{\mathcal N_E(E)}{E}
+= \frac{1}{2\pi ^2} \qty( \frac{2m}{\hbar ^2})^{3/2}
+E^{1/2} \]
+
+This can turn a sum over $\vb k$-space lattice points directly into an integral over energy. The gound-state energy of teh $N$-electron:
+
+\begin{equation*}
+\begin{aligned}
+E &= \sum _k {}{}^{'} E_k
+\\ & \approx V \int _0^{E_F} E g_E(E) \ \dd E\
+\\ &= \frac{V}{2\pi ^2} \qty( \frac{2m}{\hbar ^2})^{3/2}
+\int _0^{E_F} E^{3/2} \ \dd E
+\\ &= \frac{V}{5 \pi ^2} \qty( \frac{2m}{\hbar ^2})^{3/2}
+E_F^{5/2}
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+E &= \frac{V}{5 \pi ^2} \qty( \frac{2m}{\hbar ^2})^{3/2}
+\left( \frac{\hbar ^2}{2m}
+\qty( \frac{3 \pi ^2 N}{V})^{2/3}
+\right)^{5/2}
+\\ &= \frac{\hbar ^2 V}{10 m \pi ^2}
+\qty(\frac{3 \pi ^2 N}{V} )^{5/3}
+\end{aligned}
+\end{equation*}
+
+\section{Sommerfeld model III: specific heat capacity}
+
+\subsection{specific heat capacity}
+
+\[ C = \frac1V \pdv{E}{T} \]
+
+$E(T)$ is the internal of the electrons in the Sommerfeld model as a function of temperature.
+At $T=0$, $E(T)$ must be equal to the ground-state energy $E_0$.
+As the temeprature is increased, the thermal bath will excite electrons from the filled Fermi sea into theunoccupied states with $\epsilon _{\vb k} > E_F$.
+This will cause the average enrgy to increase, so $E(T)$ should be a monotonically increasing function of temperature. 
+Therefore, $C(T)$ is positive at all temperatures.
+
+internal energy:
+
+\[ E(T) = \sum _{\vb k} \epsilon _{\vb k} n _{\vb k} \]
+\[ E(T) =  V \int _0^\infty
+\epsilon \ n(\epsilon ,T) \ g_E (\epsilon )
+\ \dd \epsilon \]
+
+The distribution function $n(\epsilon , T)$ depends both on the energy of the single-particle state we are considering and on the temperature.
+
+internal energy at zero temperature:
+
+\[ E(0) = V \int _0 ^\infty \epsilon
+\ n (\epsilon ,T = 0) \ g_E (\epsilon ) \ \dd \epsilon \]
+
+\begin{equation*}
+\begin{aligned}
+E(T) - E(0) &=
+V \int _0^\infty
+\epsilon \qty[ n(\epsilon , T) - n (\epsilon , T=0)]
+\ g_E (\epsilon) \ \dd \epsilon
+\\ &= 
+V \int _0^\infty
+\epsilon \ \delta n (\epsilon , T ) 
+\ g_E (\epsilon) \ \dd \epsilon
+\end{aligned}
+\end{equation*}
+
+$\delta n ( \epsilon , T)
+\equiv n (\epsilon, T)- n (\epsilon , T = 0) $
+is the difference betwen the Fermi-Dirac distribution at temperature $T$ and the zero-temperature Fermi-Dirac distribution.
+
+using a simplified Fermi-Dirac distribution function:
+
+\begin{equation*}
+\tilde n _{\vb k} = 
+\begin{cases}
+1 & \epsilon _{\vb k} < E_F - 2 k_B T;
+\\ \frac12 - \frac12
+\qty( \frac{ \epsilon _{\vb k} - E_F}{2 k_B T}) 
+& E_F - 2k_B T \leq \epsilon _{\vb k} \leq E_F
++ 2 k_B T;
+\\ 0
+& = \epsilon _{\vb k} > E_F + 2 k_B T;
+\end{cases}
+\end{equation*}
+
+using this for $\tilde n (\epsilon, T)$
+
+\begin{equation*}
+\delta n (\epsilon , T) \approx
+\begin{cases}
+0 & \epsilon _{\vb k} < E_F - 2 k_B T;
+\\ -\frac12 - \frac12
+\qty( \frac{ \epsilon _{\vb k} - E_F}{2 k_B T}) 
+& E_F - 2k_B T \leq \epsilon _{\vb k} \leq E_F
+\\ \frac12 - \frac12
+\qty( \frac{ \epsilon _{\vb k} - E_F}{2 k_B T}) 
+& E_F \leq \epsilon < E_F + 2 k_B T;
+\\ 0
+& \epsilon _{\vb k} \geq E_F + 2 k_B T;
+\end{cases}
+\end{equation*}
+
+$\delta n (\epsilon , T)$
+is zero outside the narrow region of
+$E_F - 2 k_B T < \epsilon < E_F + 2k_BT$.
+Therefore the integral in the change in energy from zero temperature involves contributions from only this range of energies.
+
+The density of states in energy is approximately constant over such a narrow range. Therefore, to a good approximation, we can replace it by its value at the Fermi energy, $g_E(E_F)$, which is just a constant.
+
+\begin{equation*}
+\begin{aligned}
+E(T) - E(0) &=
+V \int\limits_{E_F - 2 k_B T}^{E_F + 2k_BT}
+\epsilon \ \delta n (\epsilon , T)
+\ g_E (\epsilon) \ \dd \epsilon
+\\ & \approx 
+g_E (E_F)
+\ V \int\limits_{E_F - 2 k_B T}^{E_F + 2k_BT}
+\epsilon \ \delta n (\epsilon , T)
+\ \dd \epsilon
+\qquad x = \epsilon - E_F
+\\ &= g_E (E_F) \ V
+\int\limits_{-2k_BT}^{2k_BT}
+(x + E_F) \ \delta n (x, T) \ \dd x
+\\ &= g_E (E_F) \ V
+\left\{
+\int\limits_{-2k_BT}^{2k_BT}
+x \ \delta n (x, T) \ \dd x
++ \int\limits_{-2k_BT}^{2k_BT}
+E_F \ \delta n (x, T) \ \dd x
+\right\}
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\int\limits_{-2k_BT}^{2k_BT}
+x \ \delta n (x, T) \ \dd x &=
+2 \int _0^{2 k_B T} x \ \delta n(x,T) \ \dd x
+\\ &= \int _0^{2 k_B T}
+\left( x - \frac{x^2}{2 k_B T} \right) \ \dd x
+\\ &= \left[ \frac{x^2}{2} - \frac{x^3}{6 k_B T} \right]
+_0^{2 k_B T}
+\\ &= \frac{(2 k_B T)^2}{2}
+- \frac{(2 k_B T)^3}{6 k_BT}
+\\ &= \frac23 (k_B T)^2
+\end{aligned}
+\end{equation*}
+
+\[\therefore E(T) - E(0) = \frac23 g_E (E_F) \ V
+\ (k_B T)^2 \]
+
+\[ C(T) = \frac1V \pdv{T}{T} = \frac43 k_B ^2
+\ g_E(E_F) T \]
+
+This is of the expected form $C = \gamma T$, with the Sommerfeld coefficient:
+
+\[ \gamma = \frac43 k_B^2 \ g_E(E_F) \]
+
+\section{Tight-binding model I: one-dimensional case}
+
+The Sommerfeld model manages to account for the linear-in-temperature behaviour of the specific heat capacity and the temperature-independence of the magnetic susceptibility. (while assuming that all systems will be metallic). The tight-binding model explains how the existence of the crystal lattice can cause insulating behaviour.
+
+\subsection{one-dimensional tight-binding model}
+
+For a one-dimensional lattice, consisting of $N$ sites, and occupied by a single electron, the basis states for the problem are
+$ \ket j, \qquad j = 0, 1, 2, \ldots , N-1, $
+where $\ket j$ represents the state in which the electron is on the $j$th site of the chain. In the absence of any hopping between sites, the particle has energy $\eps$ irrespective of which site it's on. $-t$ is the quantum amplitude for hopping from one site to either of its neighbors. Periodic boundary conditions are imposed, i.e. we allow hopping from site $N$ to site 1 and vice versa.
+
+\[ H = \sum _{j=0}^{N-1}
+\left(
+\eps \dyad{j} - t \dyad{j+1}{j} - t \dyad{j}{j+1}
+\right) \]
+
+\subsection{eigenstates}
+
+Since all sites are equivalent, in an eigenstate they presumably all have equal occupations.
+
+\[ \ket \psi = \sum _{j=0}^{N-1} c_j \ket j
+\qq{\arr} \abs{c_j}^2 = \frac1N
+\qq{\arr} c_j = \frac{1}{\sqrt N}e^{i\phi _j} \]
+$\phi _j$ is a complex phase associated with the site $j$
+
+\[ \ket \psi = \frac{1}{\sqrt N}
+\sum _{j=0}^{N-1} e^{i \phi _j} \ket j \]
+
+Since all bonds (the links that connect nearest-neighbour istes) are equivalent, we would expect the phase difference along any bond to be the same as along any other. That suggests that our eigenstates are labelled by a single number, $\phi$, the phase difference between neighbouring sites.
+
+\begin{equation*}
+\begin{aligned}
+\ket \phi &= \frac{1}{\sqrt N}
+\left( \ket 0 + e^{i\phi} \ket 1 + e^{2i \phi} \ket 2
++ e^{i(N-1)\phi} \ket{N-1} \right)
+\\ &= \frac{1}{\sqrt N} \sum _{j=0}^{N-1} e^{ij\phi} \ket j
+\end{aligned}
+\end{equation*}
+
+To make the wave function single-valued, $e^{iN\phi}=1$, so that the phase return to its original value when we go all the way around the ring.
+\[\therefore N\phi = 2n\pi \qq{arr} \phi = \frac{2\pi}{N}n
+\]
+If $n=N$ then $\phi = 2\pi$ which gives the same eigenstate as if $\phi$ were zero.
+
+A choice that ocunts each eigenstate exactly once:
+\[ n =
+-\frac{N}{2}, -\frac{N}{2} +1, \ldots, \frac{N}{2} -1\]
+There are precisely $N$ distinct eigenstates. This makes sense since there were $N$ states in the position basis, and all we have done is to take linear combinations of them.
+
+\subsection{eigenenergies}
+'stand still' term:
+\begin{equation*}
+\begin{aligned}
+H_0\ket\psi &=
+\left( \sum _{i=0}^{N-1} \eps\dyad{i} \right)
+\left(\frac{1}{\sqrt N}
+\sum _{j=0}^{N-1} e^{ij\phi} \ket j \right)
+\\ &= \eps \frac{1}{\sqrt N}
+\sum _{i=0}^{N-1} \sum _{j=0}^{N-1} e^{ij\phi} \ket i
+\underbrace{\ip{i}{j}}_{=\delta _{ij}}
+\\ &= \eps \frac{1}{\sqrt N} \sum _{j=0}^{N-1}
+e^{ij\phi} \ket j
+\\ &= \eps \ket \psi
+\end{aligned}
+\end{equation*}
+
+'hop-to-the-right' term:
+\begin{equation*}
+\begin{aligned}
+H_R\ket\psi &=
+\left( -t \sum _{i=0}^{N-1} \dyad{i+1}{i} \right)
+\left(\frac{1}{\sqrt N}
+\sum _{j=0}^{N-1} e^{ij\phi} \ket j \right)
+\\ &= -t \frac{1}{\sqrt N}
+\sum _{i=0}^{N-1} \sum _{j=0}^{N-1}e^{ij\phi} \ket{i+1}
+\underbrace{\ip{i}{j}}_{=\delta _{ij}}
+\\ &= -t \frac{1}{\sqrt N} \sum _{j=0}^{N-1}
+e^{ij\phi} \ket{j+1} \qq{\larr} j \rightarrow j+1
+\\ &= -t \frac{1}{\sqrt N} \sum _{j=1}^N
+e^{i(j-1)\phi} \ket j
+\\ &= -t e^{-i\phi} \frac{1}{\sqrt N}
+\sum_{j=1}^N e^{ij\phi} \ket j
+\\ & \quad \text{period boundary conditions}
+\arr j=N \Rightarrow j=0
+\\ &= -te^{-i\phi}\frac{1}{\sqrt N}
+\sum _{j=0}^{N-1}e^{ij\phi}\ket j
+\\&= -t e^{-i \phi} \ket \psi
+\end{aligned}
+\end{equation*}
+
+complete Hamiltonian:
+\begin{equation*}
+\begin{aligned}
+H\ket \psi &=
+\left( \eps - te^{-i\phi}-te^{i\phi}\right)\ket\psi
+\\&= (\eps - 2t \cos \phi ) \ket \psi
+\end{aligned}
+\end{equation*}
+
+dispersion relation of these tight-binding eigenstates:
+\[\epsilon (\phi) = \eps - 2t \cos \phi \]
+
+\section{tight-binding model II: interpretation of phase; Brillouin zone}
+eigenstates of the one-dimensional $N$-site tight-binding model form:
+
+\[\ket\phi = \frac{1}{\sqrt N}
+\left( \ket 0 + e^{i\phi}\ket 1 + e^{2i\phi}\ket2
++\ldots + e^{i(N-1)\phi} \ket{N-1} \right) \]
+
+phase difference between neighboring sites:
+\[ \phi = \frac{2\pi}{N}n \qq{with}
+n=-\frac{N}{2}, -\frac{N}{2} +1, \ldots,\frac{N}{2}-1 \]
+
+\deff{first Brillouin zone} $\pi\leq\phi < \pi$
+\[\epsilon (\phi) = \eps -2t\cos\phi\]
+
+There is a \emph{band} of allowed states, in the energy range
+$\eps -2t \leq \epsilon \leq \eps + 2t$. 
+Outside this range, there are \emph{no available states} for the electron to occupy. There can \emph{never} be electrons there.
+
+\subsection{energy bands and insulators}
+
+In the Sommerfeld model, there are always filled states at energies just below $E_F$ and empty states at energies just above $E_F$. The application fo a small electric field can always cause excitations in which an electron is promoted from a state just below the Fermi energy to a state just above it. Such an excitation will carry an electrical current (since we have changed the momentum of one of the leectrons compared to the ground stae). Hence, the Sommerfeld model predicts that every solid with a non-zero electron density will be a metal.
+
+In the tight-binding model, there is a 'top' to the energy spectrum. Increasing the electron density from zero starts to populate the lowest-energy staes, which are those around $\phi =0$.
+
+\deff{filling fraction} what fraction of the total number of available states are occupied.
+
+\deff{band insulator}
+when all the available $\phi$-points are fillend meaning there is no possibility of any current-carrying excitations of the system, irrespective of the strength of the applied electric field, since there would be simply no states available for the electrons to transition into
+\subsection{relationship between $\phi$ and the electron's momentum}
+
+coefficent of each position eigenstate $\ket j$ in the eigenket in the tight-binding model:
+
+\[c_j = \frac{1}{\sqrt N} e^{ij\phi} \]
+
+spatial wave function in a plane wave eigenstate of the one-dimensional Sommerfeld model:
+
+\[\psi (x) = \frac{1}{\sqrt L} e^{ikx}
+\qq{\arr} \psi (ja) = \frac{1}{\sqrt N} e^{ijka}
+\]
+
+Comparing the two, $\phi =ka$
+\[p = \hbar k=\frac{\hbar \phi}{a} \]
+
+first Brillouin zone \qq{\arr}
+$\displaystyle -\frac{\pi}{a}\leq k<\frac{\pi}{a} $
+
+\subsection{effective mass (or 'band mass')}
+
+\begin{equation*}
+\begin{aligned}
+\epsilon (k) &= \eps - 2t\cos (ka)
+\qq{\larr} \cos\theta\approx 1-\frac12 \theta ^2
+\qquad \text{near } k=0
+\\&\approx \eps - 2t \left(1-\frac12 (ka)^2 \right)
+\\&= \epsilon - 2t +ta^2k
+\end{aligned}
+\end{equation*}
+
+$\eps$ is just the energy of the bottom of the tigh-binding band, which can be $\epsilon _b$ \arr our effective zero of energy.
+
+\[\tilde e (k) \equiv \epsilon (k)-\epsilon _b = ta^2k^2 \]
+This has the same form as the free-electron dispersion relation:
+\[E(k)=\frac{\hbar^2k^2}{2m} \qq{if} ta^2
+= \frac{\hbar^2}{2m}\]
+
+So near the bottom of the tigh-binding band, the electrons in a lattice behave like electrons in free space, but with an \emph{effective mass} (or 'band mass') of:
+
+\[m^* = \frac{\hbar^2}{2ta^2} \]
+
+\section{tight-binding model III: group velocity; Bloch oscillations}
+
+\subsection{electron wave packets}
+Superposition of the tight-binding eigenstates over a range of values around some center $k_0$, and with a width $\delta k$.
+
+eigenstates of the tight-binding model:
+
+\[ \ket k = \frac{1}{\sqrt N}
+\left( \ket 0 + e^{ika}\ket 1 + \ldots
++ e^{ika(N-1)} \ket{N-1} \right)
+\qquad (\phi \rightarrow k\quad \phi = ka)
+\]
+
+\emph{lattice wave function} for the tight-binding eigenstate:
+\[ \ket k = \sum _{j=1}^N c_{kj} \ket j
+\qquad c_{kj} = \frac{1}{\sqrt N} e^{ikja} \]
+
+A wave packet is a superposition of different $k$ (of a Gaussian weighting in this case):
+\[ \ket{w_{k_0,\delta k}} \sum _k f_k \ket k
+\qquad
+f_k = \frac14
+\qty{\frac{2}{\pi(\delta k)^2}}^{1/4}
+\exp \left[ -\frac{(k-k_0)^2}{(\delta k)^2} \right] \]
+
+\begin{equation*}
+\begin{aligned}
+\psi _j&= \sum _k f_k\ c_{kj}
+\\&= \sum_k f_k \frac{1}{\sqrt N} e^{ikja}
+\qquad \omega _k = \frac{\epsilon _k}{\hbar}
+=-\frac{2t}{\hbar} \cos (ka)
+\\&= \sum _k f_k \ c_{kj} e^{-i\omega _k \tau}
+\\&= \sum _k f_k \frac{1}{\sqrt N} e^{ikja-i\omega _k \tau}
+\end{aligned}
+\end{equation*}
+
+\subsection{group velocity}
+\deff{group velocity}
+the speed of the peak position of the wave packet
+\[v_g \equiv \eval{\pdv{\omega _k}{k}}_{k=k_0}
+= \frac{1}{\hbar} \eval{\pdv{\epsilon _k}{k}}_{k=k_0} \]
+
+\[ \epsilon (k) = -2t\cos (ka)
+\qq{\arr} v_g (k_0) = \frac{2at}{\hbar} \sin (k_0a) \]
+
+For wave packets with $0<k_0<\pi/a$ the group velocity is positive (they move to the right); for wave packets with $-\pi /a<k_0<0$ the group velocity is negative (they move to the left). As the wavenumber approaches the edge of the zone, the velocity decreases, even though the momentum in increasing.
+
+\subsection{Bloch oscillatoins}
+
+Subjecting an electron to an electric field, $-E_0$, from Ehrenfest's theorems that the position of the center of mass of a quantum wave packet obeys Newton's laws.
+
+\[ \dv{p}{\tau} = F = eE_0 \qq{\arr} p(\tau) = eE_0\tau
+\qquad (\text{assuming } p_0=0) \]
+
+\[p=\hbar k_0 \qq{\arr}
+k_0(\tau) = \frac{eE_0}{\hbar}\tau\]
+
+For an electron in free space, $v=p/m$, and so an ever-growing momentum means an ever-growing velocity. But for an electron on a lattice, this is not so.
+
+\[ v_g(\tau) = \frac{2at}{\hbar}
+\sin \qty(\frac{eE_0a}{\hbar} \tau)
+\qq{\larr} \text{periodic!} \]
+
+\[x(\tau) = \frac{2t}{eE_0}
+\left(1-\cos\qty(\frac{eE_0a}{\hbar}\tau) \right)
+\quad (\text{assuming } x(\tau =0)=\vb 0) \]
+
+\deff{Bloch oscillation}
+the wave packet osillating on the spot
+
+In isolated quantum sytems, such as cold atoms in optical lattices, it is very easy to observe. A wave packet in a vertical optical lattice does not fall under the influence of gravity: rather, it oscillates up and down at a frequency determined by the strength of the gravitational field.
+
+\section{tight-binding model IV: two-site basis $\rightarrow$ two bands}
+We'll generalize the model, viz. one where not all lattice sites have the same eenrgy as each other.
+
+\subsection{the diatomic lattice}
+
+To think of a lattice with two different constituent atoms like rock salt, think of the lattice of being made of $N/2$ sites (or 'unit cells'), each of which contains one atom of each type. Now each cell is uniform.
+
+The basis state $\ket{j,\alpha}$ is the state in which the electron is in unit cell $j$, on the atom of type $\alpha$:
+\[\ket{j,\alpha}
+\qquad j = 0, 1, \ldots , \frac{N}{2}-1,
+\quad \alpha = A,B \]
+
+\begin{equation*} \begin{split}
+\hat H =\sum _{j=0}^{\frac{N}{2} -1} \Big(
+\epsilon _A \dyad{j,A}{j,A} + \epsilon _B \dyad{j,B}{j,B}
+- t\dyad{j,B}{j,A} - t\dyad{j,A}{j,B}
+\\ - t\dyad{j,B}{j+1,A} - t\dyad{j+1,A}{j,B} \Big)
+\end{split} \end{equation*}
+
+\subsection{eigenkets}
+
+\begin{equation*}
+\begin{aligned}
+\ket\psi &= \sum _{j=0}^{\frac{N}{2}-1}
+\sum _{\alpha =A,B} c_{j,\alpha} \ket{j,\alpha}
+\\&=
+c_{0,A} \ket{0,A} + c_{0,B} \ket{0,B}
++ c_{1,A} \ket{1,A} +\ldots
+\\ & \qquad + c_{\frac{N}{2} -1,A} \ket{\tfrac{N}{2} -1,A}
++ c_{\frac{N}{2} -1,B} \ket{\tfrac{N}{2} -1,B}
+\end{aligned}
+\end{equation*}
+
+Every A-site is still equivalent to every other A-site, which implies that $\abs{c_{j,A}}^2$ is independent of $j$, and every B-site is still equivalent to every other B-site, which implies that $\abs{c_{j,B}}^2$ is independent of $j$ as well. But these two probabilities do not have to equal each other.
+
+\[c_{j,A} \propto e^{ij\phi} \qquad
+c_{j,B} \propto e^{ij\phi} \]
+
+overall eigenket:
+\[\ket\psi =c_A \ket{\phi,A} + c_B\ket{\phi,B} \]
+
+\[ \ket{\phi,A} =\sqrt{\frac{2}{N}}
+\sum _{j=0}^{\frac{N}{2} -1} e^{ij\phi} \ket{j,A}
+\qquad
+\ket{\phi,B} =\sqrt{\frac{2}{N}}
+\sum _{j=0}^{\frac{N}{2} -1} e^{ij\phi} \ket{j,B} \]
+
+Periodic boundary conditions determine the allowed values of $\phi$:
+\[ e^{iN\phi/2} =1 \qq{\arr} \frac{N\phi}{2} = 2n\pi
+\qq{\arr} \phi = \frac{4\pi}{N}n \]
+
+To ensure that $\phi$ remains within the first Brillouin zone $-\pi\leq\phi <\phi$
+\[n = -\frac{N}{4},-\frac{N}{4}+1,\ldots ,\frac{N}{4} -1 \]
+
+For the state ot be an eigenstate, it must come back the same after the action of the Hamiltonian.
+
+\[\hat H\ket\psi = c_A\hat H\ket{\phi,A}
++ c_B\hat H\ket{\phi,B} \]
+
+\begin{equation*}
+\begin{aligned}
+\hat H \ket{\phi, A} &= \epsilon _A \ket{\phi,A}
+-t(1+e^{i\phi}) \ket{\phi, B}
+\\ \hat H \ket{\phi, B} &= \epsilon _B \ket{\phi,B}
+-t(e^{-i\phi}+1) \ket{\phi, A}
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\hat H\ket\psi &=
+c_a \left\{
+\epsilon _A \ket{\phi,A} -t(1+e^{i\phi})\ket{\phi,B}
+\right\}
+\\ & \qquad + c_b \left\{
+\epsilon _B \ket{\phi,B} -t(e^{-i\phi}+1)\ket{\phi,A}
+\right\}
+\\&=
+\left\{ \epsilon _Ac_A-t(e^{-i\phi}+1)c_B \right\}
+\ket{\phi,A}
++ \left\{ \epsilon _Bc_B-t(1+e^{i\phi})c_A \right\}
+\ket{\phi,B}
+\\&= E\ket\psi = Ec_A\ket{\phi,A} + Ec_B\ket{\phi,B}
+\end{aligned}
+\end{equation*}
+
+\[\therefore \epsilon _Ac_A-t(e^{-i\phi}+1)c_B=Ec_A
+\qquad
+\therefore \epsilon _Bc_B-t(1+e^{i\phi})c_A=Ec_B \]
+
+\[ \underbrace{
+\begin{pmatrix}
+\epsilon _A & -te^{-i\phi}-t
+\\ -t-te^{i\phi} & \epsilon _B
+\end{pmatrix}}_{\equiv \vb H (\phi)}
+\mqty(c_A\\c_B) = E \mqty(c_A\\c_B) \]
+
+\[\vb H (\phi) -E\vb I)\mqty(c_A\\c_B) = \vb 0\]
+
+\subsection{eigenenergies}
+
+For the solutions to be non-trivial, the matrix on the left must be non-invertible:
+\begin{equation*}
+\begin{aligned}
+\qty|\vb H (\phi) - E\vb I| &=0
+\\ \begin{vmatrix}
+\epsilon _A -E & -te^{-i\phi} -t
+\\ -t-te^{i\phi} & \epsilon _B-E \end{vmatrix} &= 0
+\\ (\epsilon _A-E) (\epsilon _B-E)
+-t^2(1+e^{-i\phi})(1+e^{i\phi}) &=0
+\\ E^2 -E(\epsilon _A + \epsilon _B) + \epsilon _A
+\epsilon _B - t^2(2+2\cos \phi) &=0
+\\ \qquad \cos ^2\theta = \tfrac12 +\tfrac12\cos 2\theta
+\\ E^2 -E(\epsilon _A \epsilon _B)
++ \epsilon _A\epsilon _B - 4t^2 \cos ^2(\phi/2) &=0
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+E &= \frac12 \left[
+(\epsilon _A + \epsilon _B) \pm
+\sqrt{(\epsilon _A + \epsilon _B)^2
+-4\epsilon _A \epsilon _B
++16t^2\cos ^2 (\phi/2)} \right]
+\\&=
+\frac{\epsilon _A + \epsilon _B}{2} \pm
+\sqrt{\qty(\frac{\epsilon _A-\epsilon _B}{2})^2
++ 4t^2\cos ^2 \qty(\frac{\phi}{2})}
+\end{aligned}
+\end{equation*}
+
+For every value of the phase parameter $\phi$, there are two eigenenergies. The reason for this becomes clear if we turn off the hopping, i.e. set $t=0$. Then the two energies become just $\epsilon _A$ and $\epsilon _B$ i.e. they correspond to the two site energies within each unit cell.
+
+The constant term $(\epsilon _A+\epsilon _B)/2$, which represents the average of the two site energies, is not really significant: like $\eps$ in the monatomic problem, it jsut moves the eniter spectrum up and down in energy.
+
+The argument of the square root never vanishes. This means that, for every value of $\phi$, there is a non-zero energy gap between the lower and the upper band.
+
+\section{nearly-free-electron model I: Fourier transform of periodic potential}
+
+The Sommerfeld model ignores the lattice. The tight-binding model is defined by the lattice from the start. The \emph{nearly-free-electron model} (NFE) starts from the Sommerfeld model and then subjects the electrons to a weak periodic potential.
+
+\subsection{the NFE model}
+
+\[\hat H = \frac{\hat{\vb p}^2}{2m} + W(\vb r) \]
+
+The function $W(\vb r)$ is the potential energy of the electron in the electric field generated by the positive ions of the crystal lattice. It's complicated but definitely periodic: $W(\vb r + \vb R) = W(\vb r)$ where $\vb R$ is any vector joining one lattice site to another.
+
+In a three-dimensional lattice, $\vb R = m\vb a+n\vb b + p\vb c$ where $m$, $n$, and $p$ are integers and $\vb a$, $\vb b$, $\vb c$ are primitive lattice vectors.
+
+\subsection{the importance of the Fourier transform}
+
+If the potential $W(\vb r)$ is weak, we try to use perturbation theory. The unperturbed eigenfunctions of the problem are just the Sommerfeld model eigenfunctions:
+
+\[\psi _{\vb k}^{(0)} (\vb r) = \frac{1}{\sqrt V}
+e^{i\vb k \cdot r}
+\qquad \vb k = \frac{2\pi}{L}(n_x,n_y,n_z) \]
+
+\[\epsilon _{\vb k}^{(0)} = \frac{\hbar ^2\vb k^2}{2m} \]
+
+From first-order perturbation theory, the eigenfunctoins of the full Hamiltonian are given, to first order in $W(\vb r)$, by:
+
+\[\psi _{\vb k}(\vb r) = \psi _{\vb k}^{(0)} (\vb r)
++\sum _{\vb q} c_{\vb{kq}}^{(1)}
+\ \psi _{\vb q}^{(0)} (\vb r)
+\qquad c_{\vb{kq}}^{(1)}
+=\frac{W_{\vb{kq}}}{\epsilon _{\vb k}^{(0)}
+-\epsilon _{\vb q}^{(0)}} \]
+
+\begin{equation*}
+\begin{aligned}
+W_{\vb{kq}} &= \int \dd ^3\vb r
+\qty[\psi _{\vb q}^{(0)}(\vb r)]^*
+W(\vb r)
+\qty[ \psi _{\vb k}^{(0)} (\vb r)]
+\\ &= \int \dd ^3\vb r
+\qty[\frac{1}{\sqrt V} e^{i\vb q \cdot \vb r}]^*
+W(\vb r)
+\qty[\frac{1}{\sqrt V} e^{i\vb k \cdot \vb r}]
+\\&= \frac1V \int \dd ^3\vb r \ e^{-i\vb q \cdot\vb k}
+W(\vb r)
+e^{i\vb k \cdot \vb r}
+\\&= \frac1V \int \dd ^3\vb r
+\ e^{-i(\vb k - \vb q)\cdot \vb r}
+W(\vb r)
+\end{aligned}
+\end{equation*}
+
+$W_{\vb{kq}}$ is basically just the expression for the Fourier transform of the real-space potential $W(\vb r)$, evaluated at the point $\vb k - \vb q$ in reciprocal space:
+\[W_{\vb{kq}}=\frac1V\tilde W (\vb k - \vb q)
+\qquad \tilde W(\vb k) = \int \dd ^3 \vb r
+\ e^{i\vb k \cdot \vb r} \ W(\vb r) \]
+
+The mixing coefficient etween plane-wave eigenstates $\vb k$ and $\vb q$ is given by the Fourier transform of the real-space potential, evaluated at $\vb k - \vb q$.
+
+\subsection{the Fourier transform of a periodic potential: 1D example}
+
+Let $W(x)$ be a function with a period $a$ (interpreted as the lattice spacing of the crystal).
+
+\begin{equation*}
+\begin{aligned}
+W(x)&=b_0
++ \sum _{n=1}^\infty b_n \cos \qty(\frac{2\pi nx}{a})
++ \sum _{n=1}^\infty c_n \sin \qty(\frac{2\pi nx}{a})
+\\&= b_0 +
+\sum _{n=1}^{\infty} \frac{b_n}{2} \left(
+e^{2i\pi n x/a} + e^{-2i\pi n x/a} \right)
+\\&\qquad \qquad
++ \sum _{n=1}^{\infty} \frac{c_n}{2i} \left(
+e^{2i\pi n x/a} + e^{-2i\pi n x/a} \right)
+\\&= b_0 + \sum _{n=1}^\infty
+\left\{ \qty(\frac{b_n}{2} - i\frac{c_n}{2})
+e^{2i\pi nx/a}
++ \qty(\frac{b_n}{2} + i\frac{c_n}{2})
+e^{-2i\pi nx/a} \right\}
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\tilde W (q) &= \intinf \dd x\ e^{iqx}\ W(x)
+\\&= b_0 \intinf \dd x\ e^{iqx} + \sum _{n=1}^\infty
+\Bigg\{ \qty(\frac{b_n}{2}-i\frac{c_n}{2})
+\intinf \dd x\ e^{iqx}e^{2i\pi nx/a}
+\\&\qquad
++ \qty(\frac{b_n}{2}+i\frac{c_n}{2})
+\intinf \dd x\ e^{iqx}e^{-2i\pi nx/a}
+\Bigg\}
+\quad \larr \intinf e^{ipx} \dd x = 2pi\ \delta (p)
+\\&= 2\pi b_0 \ \delta (q) + 2\pi \sum _{n=1}^\infty
+\Bigg\{
+\qty(\frac{b_n}{2}-i\frac{c_n}{2})
+\ \delta \qty(q+\frac{2\pi n x}{a})
+\\&\qquad\qquad
++ \qty(\frac{b_n}{2}+i\frac{c_n}{2})
+\ \delta \qty(q-\frac{2\pi n x}{a}) \Bigg\}
+\end{aligned}
+\end{equation*}
+
+The Fourier transform of a periodic funciotn is zero, except when the wavenumber $q$ matches on of the wavenumbers present in the Fourier series expansion of the periodic function.
+
+We call that set of wavenumbers $G = \frac{2\pi n}{a}$. Then $\tilde W (q)$ is a lattice of Dirac delta-functions in $q$-space. This is called the \emph{reciprocal lattice} corresponding to the real-space periodic potential $W(x)$. (because it is a lattice in reciprocal space).
+
+\section{NFE model II: band gaps, standing waves, Brillouin zone}
+
+\subsection{the NFE approximation in one dimension}
+
+In a one-dimensional Sommerfeld model, in which our electrons move in the region $0\leq x<L$, with the usual periodic boundary conditions. Also assuming that the periodic potential $W(x)$ is monochromatic.
+
+The single-particle Hamiltonian where $a$ is the lattice spacing and the sign is so that one of the minima of the crystalline potential is at the origin.
+\[\hat H =
+\underbrace{-\frac{\hbar ^2}{2m}\pdv[2]{x}}
+_{\equiv \hat H _0}
+\underbrace{-V_0 \ \cos\qty(\frac{2\pi x}{a})}
+_{\equiv \hat V} \]
+
+\subsection{mixing of unperturbed states}
+
+The first order mixing coefficent between two unperturbed states $\ket{q^{(0)}}$ and $\ket{k^{(0)}}$:
+
+\[ c_{qk}^{(1)} = \frac{\mel{k^{(0)}}{\hat V}{q^{(0)}}}
+{E_q^{(0)} - E_k^{(0)}} \]
+
+$\hat V$ is the operator of the crystalline potential. The numerator matrix element is just the Fourier transform of the periodic potential $W(x)$ evaluated at the momentum $q-k$.
+
+In this case, the real-space periodic potential contains only two harmonics.
+
+\begin{equation*}
+\begin{aligned}
+\mel{k^{(0)}}{\hat V}{q^{(0)}} &=
+\int _0^L \qty[\frac{1}{\sqrt L} e^{-ikx}]
+\qty[-V_0 \cos \qty(\frac{2\pi x}{a})]
+\qty[\frac{1}{\sqrt L} e^{iqx}] \ \dd x
+\\&=-\frac{V_0}{2L}\int _0^L \qty[e^{iGx}+e^{-iGx}]
+e^{iqx} \ \dd x
+\qquad G = \frac{2\pi}{a}
+\\&= -\frac{V_0}{2L}
+\left\{
+\int_0^L e^{i(q-k+G)x} \ \dd x
++ \int_0^L e^{i(q-k-G)x} \ \dd x \right\}
+\\&= -\frac{V_0}{2}
+\left\{ \delta _{q-k+G,0} + \delta _{q-k-G,0} \right\}
+\end{aligned}
+\end{equation*}
+
+Therefore, mixing can only occur between unperturbed states whose momenta differ by $\pm G$. The mixing will be reduced by the difference in energies (large). However, if there are two states whose momena differ by $\pm G$ and whose energies are degenerate, then the effect could be drastic.
+
+\subsection{effect of strong mixing: standing waves}
+
+The two unperturbed states in the spectrum for which first-order mixing will be large is now a two-state degereate perturbation theory problem.
+
+The action of the perturbation $\hat V$ in this basis:
+
+\[\vb V = \mqty(0&-V_0/2\\-V_0/2&0) \]
+
+\[\vb H = \vb H_0 + \vb V =
+\mqty(\epsilon _{\pi/a} &-V_0/2
+\\-V_0/2&\epsilon _{\pi/a})
+\qquad \epsilon _{\pi/a} = \frac{\hbar ^2\pi ^2}{2ma^2} \]
+
+\[ \vb e_+ = \frac{1}{\sqrt 2} \mqty(1\\1)
+\qquad \vb e_- = \frac{1}{\sqrt 2} \mqty(1\\-1) \]
+
+\[\lambda _+=\epsilon _{\pi/a} - \frac{V_0}{2}
+\qquad \lambda _-=\epsilon _{\pi/a} + \frac{V_0}{2} \]
+
+\begin{equation*}
+\begin{aligned}
+\psi _+^{(0)}(x) &= \frac{1}{\sqrt 2}
+\left(\psi_{G/2}^{(0)}(x) + \psi_{-G/2}^{(0)}(x) \right)
+\\&=\frac{1}{\sqrt{2L}}
+\left(e^{iGx/2} + e^{-iGx/2} \right)
+\\&=\sqrt{\frac2L} \cos \qty(\frac{Gx}{2})
+\\&=\sqrt{\frac2L} \cos \qty(\frac{\pi x}{a})
+\end{aligned}
+\end{equation*}
+
+\[|\psi _+^{(0)}|^2 =\frac2L
+\cos ^2\qty(\frac{\pi x}{a})
+=\frac1L\qty(1+\cos\qty(\frac{2\pi x}{a})) \]
+
+This is a standing wave, peaked at the origin and with wavelength $a$. This state puts the electron mainly in the 'troughs' of the crystalline potenital, which lowers the enrgy, which is why $\lambda _+$ is negative.
+
+\[|\psi _-^{(0)}|^2 =\frac2L
+\sin ^2\qty(\frac{\pi x}{a})
+=\frac1L\qty(1-\cos\qty(\frac{2\pi x}{a})) \]
+
+This standing wave peaks at positions half-way between the lattice sites. This state puts the eelctron mainly in the 'peaks' of the crystalline potential, which raises the energy, which is why $\lambda _+$ is positive.
+
+\subsection{energy gaps and the Brillouin zone}
+
+For most plane-wave states, the periodic potential makes very little difference, as the first (and higher-) order mixing coefficients are all small. The exception is near the momenta $k=\pm\pi/a$, where strong mixing occurs between the left and right-going waves. This makes two standing waves: one in phase with the lattice, whose energy is lowered, and one out of phase with it, whose energy is raised.
+
+This opens up an \emph{energy gap} at the points $k=\pm \pi/a$; and the region of momentum between these points is referred to as the \emph{first Brillouin zone}. (this matches the Brillouin zone in the tight-binding calculation).
+
+Higher-order scattering processes also open gaps at $k=\pm3\pi/a$, $k=\pm 5\pi/a$, and so on, dividing the $k$-axis into a series of Brillouin zones each of width $2\pi/a$. As a result, the original parabolic energy spectrum is transformed into an infinite number of finite-width \emph{energy bands} separated by gaps.
+
+\section{NFE III: multiple bands; comparison to tight-binding}
+
+For most of the plane-wave eigenstates of the Sommerfeld model, the weak periodic potential has very little effeect. Because the sacttering due tot he potential does no link degenerate states. However, the states near $k=\pm\pi/a$ are strongly mixed, and hybridize to form standing waves, thereby opening an energy gap at the edge of the Brillouin zone.
+
+\subsection{higher harmonics $\rightarrow$ multiple bands}
+
+Foruier transform of periodic potential:
+\[\tilde W _{q-k} = \sum _Gf_G\ \delta _{q-k-G,0}
+\qquad G = \frac{2\pi}{a}n \]
+
+Now we also have reonant scattering, at first order in perturbation theory, in more $k$ ranges.
+
+\subsection{the interpretation of $k$: crystal momentum}
+
+The energy spectrum of the NFE model resembles that of teh tight-binding model, in that it consists of a set of energy bands, separated by energy gaps. Increasing the strength of the periodic potential makes the gaps larger and thus the bands narrower, until the bandwidth tended to zero.
+
+\deff{atomic limit} when the bandwidth tends to zero, having a set of discrete energy levels, as we would have for an isolated atom.
+
+In the tight-binding model, the different energy bands all appeared in the first Brillouin zone, whereas in the NFE, the lowest band appears in the region $0\leq \abs{k} < \pi /a$, the next band in the region $\pi /a\leq \abs{k}< 2\pi /a$, and so on.
+
+Resonant scattering has effectively imposed \emph{periodic boundary conditions in $k$-space}, so that a wave packet in the lowest band that reaches $k=\pi /a$ will be resonantly scattered to $k=-\pi/a$, and thus 'reappear on the left'
+
+\deff{reduced zone scheme} when two halves of a band join as one
+
+\subsection{real-space wave functions; Bloch's theorem}
+
+In the NFE picutre, we think of these extrra oscillations as arising from the fact that we made the higher-band eigenstates from plane waves with higher momoenta. In the tight-binding picutre, we think of them as arising from the fact that we made the higher-band eienstates from atomic wave functions that had more zeros in them.
+
+\deff{Bloch's theorem} the wave functions in a periodic potential are themselves periodic, except for the 'phase twist' between on unit cell and the next
+
+eigenstates of a particle in a periodic potential:
+\[\psi _{nk}(x)=e^{ikx}u_{nk}(x)\]
+
+$k$ lies iwthin the first Brillouin zone, and the function $u_{nk}(x)$, which is strictly periodic (with the same period as the lattice potential), differes fro mband to band, acquiring more zeros as the band index $n$ increases.
+
+\section{reciprocal lattice I: the reciprocal lattice as the Fourier transform of the periodic lattice potential}
+
+\subsection{the real-sace lattice in more than one dimension}
+
+\deff{Bravais lattice} a real-space lattice in which every point is equivalent to every other, in the sense that each site -- including the bonds coming out of it -- can be obtained from any other simply by translation through a \emph{Bravais lattice vector}
+
+\deff{basis} a pair of sites that act as the elementary repeating unit of a lattice
+
+\deff{unit cell} an elementary area of the real-space lattice which, if translated by all the real-space Bravais lattice vec tors, would tile the plane leaving no gaps
+
+\subsection{the reciproval lattice in more than one dimension}
+
+In the 1D case, the momentum-transferes at which the real-space lattice can scatter incident waves are given by the vectors of teh reciprocal lattice $\vb G$, for $Ga=2\pi n$. For higher dimensions, $\vb G\cdot \vb R = 2\pi q$, for any $\vb R$ in the real-spaaace lattice. The resulting vectors $\vb G$ will form a reciprocal lattice, so presumably that also has a basis.
+
+vectors of the real-space lattice, where $\vb a$, $\vb b$, and $\vb c$ are the basis vectors of the real-space Bravais lattice:
+\[\vb R =n\vb a+m\vb b+p\vb c\]
+
+vectors of the reciprocal lattice:
+\[\vb G = n'\vb a^*+m'\vb b^*+p'\vb c^*\]
+
+\[\therefore
+(n'\vb a^*+m'\vb b^*+p'\vb c^*)\cdot
+(n\vb a +m\vb b +p\vb c)=2\pi q\]
+
+The only option for choices of the $n$'s, $m$'s and $p$'s iup to possible cyclic permutations of the basis vectors) is to impose the following:
+
+\[\vb a^*\cdot \vb a =\vb b^*\cdot \vb b
+=\vb c^*\cdot \vb c = 2 \pi\]
+\[\vb a^* \cdot \vb b = \vb a^*\cdot \vb c
+=\vb b^*\cdot \vb a = \vb b^*\vb c
+=\vb c^* \cdot \vb a = \vb c^* \cdot \vb b=0\]
+
+real-space basis vectors: $\vb e_j\qquad(j=1,2,3)$
+
+\[\vb e _i^*\cdot \vb e _j=2\pi \ \delta _{ij}\]
+
+\subsection{explicit construction of the reciprocal lattice basis vectors}
+
+\[ \vb a^*=2\pi \frac{\vb b \times \vb c}
+{\vb a \cdot (\vb a \times \vb c)}
+\qquad \vb b^*=2\pi \frac{\vb c \times \vb a}
+{\vb b \cdot (\vb c \times \vb a)}
+\qquad \vb c^*=2\pi \frac{\vb a \times \vb b}
+{\vb c \cdot (\vb a \times \vb b)} \]
+
+\subsection{the connection to X-ray diffraction}
+
+Shining an x-ray on a crystalline sample, puts the beam in the lattice's periodic potential. Parts of the beam are therefore scattered to the side, with momentum transfers given by the Fourier transform of the periodic real-space potential $W(\vb r)$.
+
+However $\tilde W (\vb q)=0$ except at discrete values of $\vb q$: the reciprocal lattice vectors, il.e. $\vb q =\vb G$. Therefore, the reciprocal lattice vectors tell us what momentum transfers the latticce can possibly give to the X-ray photons in the incident beam.
+
+If part of the X-ray beam has picked up some momentum from the lattice, it will now have a componnent of momentum perpendicular to the original beam direction as well as along it. That means it will be departing from the beam axis as it propagates. Thus, when it hits the detector, it will be a distance $d$ off the axis, where $d$ is proportional to the transverse momentum it acquired from the crystal. So a dis crete dset of allowed momentum-transfers correspondsd to a discrete set of sidewards 'kicks' tot he X-ray photons in the beam, which in turn corresponds to a discrete set of possible arrival locations at the detector.
+
+\section{reciprocal lattice II: the square and triangular lattices}
+
+\subsection{the square lattice}
+primitive vectors of the square lattice:
+\[ \vb a= \pmqty{a\\0} \qquad \vb b= \pmqty{0\\a} \]
+
+real-space lattice vector:
+\[\vb R = m\vb a + n \vb b \qquad m, n \in \mathcal{I} \]
+
+from $\vb e_i^*\cdot \vb e_j =2\pi\ \delta _{ij}$, reciprocal lattices' primitive vectors:
+\begin{equation*}
+\begin{aligned}
+\vb a^*\cdot \vb a &=2\pi & \vb a^*\cdot \vb b &=0
+\\ \vb b^*\cdot \vb a &=0 & \vb b^*\cdot \vb b &=2\pi
+\end{aligned}
+\end{equation*}
+
+The directions of the reciprocal lattice vectors  can be determined from the orthogonality relations. $\vb a^*\cdot \vb b=0$ says that $\vb a^*$ is orthogonal to $\vb b$; since $\vb b$ points in the $y$-direction, then $\vb a^*$ must point in the $x$-direction:
+
+\[\vb a^*=\mathcal{N}_a\pmqty{1\\0}
+\qquad \vb b^*=\mathcal{N}_b\pmqty{0\\1}\]
+
+The lengths of the reciprocal lattice vectors are determined from the normalization conditions.
+\[ \vb a^*\cdot\vb a =\mathcal{N}_a\pmqty{1\\0}
+\cdot\pmqty{a\\0}=\mathcal{N}_aa=2\pi \]
+\[ \vb b^*\cdot\vb b =\mathcal{N}_b\pmqty{0\\1}
+\cdot\pmqty{0\\a}=\mathcal{N}_ba=2\pi \]
+
+\begin{equation*}
+\begin{aligned}
+\mathcal N_a&=\frac{2\pi}{a}
+& \mathcal N_b&=\frac{2\pi}{a}
+\\ \vb a ^*&=\frac{2\pi}{a}\pmqty{1\\0}
+& \vb b ^*&=\frac{2\pi}{a}\pmqty{0\\1}
+\end{aligned}
+\end{equation*}
+
+We define the first Brillouin zone as the Wigner-Seitz cell of the reciprocal lattice, i.e. the area containing all the points that rae closer to the origin than to any other reciprocal-lattice site. In this case, we can see that the Brillouin zone covers the region $-\pi/a\leq k_x<\pi/a$ and $-\pi/a\leq k_y<\pi/a$.
+
+\subsection{the triangular lattice}
+
+components of choice for primitive vectors of real-space latttice:
+
+\[\vb a =\pmqty{a\\0}\qquad\vb b=\pmqty{a/2\\\sqrt 3a/2}\]
+
+\[ \vb b^*=\mathcal N_b\pmqty{0\\1} \]
+
+\[\vb a^* = \mathcal N _a \pmqty{\sqrt 3/2\\-1/2} \]
+\[\vb a^* \cdot \vb a =\mathcal N_a
+\pmqty{\sqrt 3/2\\ -1/2} \cdot \pmqty{a\\0}
+=\mathcal N_a \frac{\sqrt 3 a}{2} = 2\pi \]
+
+\[\mathcal N_a = \frac{4\pi}{\sqrt 3a}
+\qq{\arr} \vb a ^*=\frac{4\pi}{\sqrt 3 a}
+\pmqty{\sqrt 3/2\\-1/2}\]
+
+\[\vb b^*\cdot \vb b = \mathcal N_b \pmqty{0\\1}
+\cdot \pmqty{a/2\\\sqrt 3a/2}
+=\mathcal N_b\frac{\sqrt 3a}{2}=2\pi\]
+
+\[\mathcal N_b = \frac{4\pi}{\sqrt 3a}
+\qq{\arr} \vb b ^*=\frac{4\pi}{\sqrt 3 a}
+\pmqty{0\\1}\]
+
+\section{reciprocal lattice III: 2D square lattice tight-binding Fermi surfaces}
+
+\subsection{the tight-binding model in more than one dimension}
+
+For primitive vectors of the real-space quare lattice of $\vb a =a\vb e_x$ and $\vb b=a\vb e_y$, where $\vb e_x$ and $\vb e_y$ are unit vectors pointing respectively in the positive quadrant.
+
+position vector of a given site on the lattice:
+\begin{equation*}
+\begin{aligned}
+\vb R &= m\vb a+n\vb b
+\\&=ma\vb e_x +na\vb e_y
+\end{aligned}
+\end{equation*}
+
+tight-binding Hamiltonian:
+\[H=-t\sum _{\vb R} \left( \dyad{\vb R}{\vb R+\vb a}
++ \dyad{\vb R+\vb a}{\vb R}
++ \dyad{\vb R}{\vb R+\vb b} + \dyad{\vb R+\vb b}{\vb R}
+\right) \]
+
+First two terms represent the hopping processes along one of the horizontal bonds attached to site $\vb R$; the other two represent the hopping processes along one of the vertical bonds, so that each bond is countedx exactly once.
+
+\subsection{eigenstates}
+
+The two-dimensional case is basically similar to the one-dimensional one, except that now the 'phase twist' between neighbouring sites $e^{ika}$ is replaced by $e^{i\vb k\cdot \vb R}$, where $\vb R$ is the position vector of the real-space lattice site.
+
+eigenstate of the Hamiltonian:
+\[\ket{\vb k} = \frac{1}{\sqrt N}
+\sum _{\vb R} e^{i\vb k\cdot \vb R}\ket{\vb R}\]
+
+\begin{equation*}
+\begin{aligned}
+\left[ -t\sum _{\vb R}
+\dyad{\vb R}{\vb R+\vb a}\right]\ket{\vb k}
+&=\left[ -t\sum _{\vb R}
+\dyad{\vb R}{\vb R+\vb a}\right]
+\frac{1}{\sqrt N}\sum _{\vb R'}
+e^{i\vb k\cdot \vb R'}\ket{\vb R'}
+\\&=-\frac{t}{\sqrt N}
+\sum _{\vb R,\vb R'}
+e^{i\vb k\cdot \vb R'}\ket{\vb R'}
+\underbrace{\ip{\vb R+\vb a}{\vb R'}}
+_{=\delta _{\vb R+\vb a, \vb R'}}
+\\&=-\frac{t}{\sqrt N}\sum_{\vb R}
+e^{i\vb k\cdot (\vb R+\vb a)} \ket{\vb R}
+\\&=-te^{i\vb k \cdot \vb a}\frac{1}{\sqrt N}
+\sum _{\vb R}e^{i\vb k\cdot \vb R}\ket{\vb R}
+\\&=-te^{i\vb k \cdot \vb a} \ket{\vb k}
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+\left[ -t\sum _{\vb R}
+\dyad{\vb R+\vb a}{\vb R}\right]\ket{\vb k}
+&= -te^{-i\vb k\cdot \vb a}\ket{\vb k}
+\\ \left[ -t\sum _{\vb R}
+\dyad{\vb R}{\vb R+\vb b}\right]\ket{\vb k}
+&= -te^{i\vb k\cdot \vb b}\ket{\vb k}
+\\ \left[ -t\sum _{\vb R}
+\dyad{\vb R+\vb b}{\vb R}\right]\ket{\vb k}
+&= -te^{-i\vb k\cdot \vb b}\ket{\vb k}
+\end{aligned}
+\end{equation*}
+
+action of the entire Hamiltonian:
+\[H\ket{\vb k} = -t\left( e^{i\vb k \cdot \vb a}
++e^{-i\vb k\cdot \vb a} +e^{i\vb k\cdot \vb b}
++e^{-i\vb k\cdot \vb b} \right) \ket{\vb k} \]
+
+\subsection{single-electron energy-momentum relation}
+
+energy-momentum (dispersion) relation for teh 2D square-lattice tight-binding model:
+
+\begin{equation*}
+\begin{aligned}
+\varepsilon (\vb k) &=
+ -t\left( e^{i\vb k \cdot \vb a}
++e^{-i\vb k\cdot \vb a} +e^{i\vb k\cdot \vb b}
++e^{-i\vb k\cdot \vb b} \right)
+\\&=-2t[\cos(\vb k\cdot \vb a) + \cos(\vb k\cdot \vb b)]
+\\&=-2t[\cos(k_xa) + \cos(k_ya)]
+\end{aligned}
+\end{equation*}
+
+Near the origin in $\vb k$-space it is approximately parabolic.
+
+\begin{equation*}
+\begin{aligned}
+\cos \theta \approx 1-\tfrac12 \theta ^2 \qq{\arr}
+\varepsilon (\vb k) &\approx
+-2t\left[ 1 - \frac12 (k_xa)^2+1-\frac12 (k_ya)^2\right]
+\\&=-4t+ta^2(k_x^2+k_y^2)
+\\&=-4t+ta^2\vb k^2
+\end{aligned}
+\end{equation*}
+
+This has of the same form as the free-particle dispersion:
+$\eps (\vb k)=\frac{\hbar ^2}{2m}\vb k^2$. Thus wave packets near the bottom of this tight-binding energy move like particles in free space, with an effective mass -- the \emph{band mass}:
+
+\[\frac{\hbar ^2}{2m^*} = ta^2 \qq{\arr}
+m^*=\frac{\hbar ^2}{2ta^2} \]
+
+The dispersion surface is \emph{particle-hole symmetric}. Reflecting the the surface in the plane $\varepsilon =0$, and then translating bit by $\vb ka =(\pi,\pi)$, maps it to itself.
+
+As well as the maximum at $\vb ka=(\pi,\pi)$ (and other points htat are equivalent to this under translations by a reciprocal lattice vector),a nd the minimum at $\vb ka=(0,0)$, there are \emph{saddle points} in the dispersion relation, at $\vb ka=(0,\pi)$ and $\vb ka=(\pi,0)$ (and other points that are equivalent to this under translations by a reciprocal lattice vector). these are sometimes known as \emph{van Hove points}.
+
+\subsection{Fermi surfaces}
+
+Filling up this energy band up to a certain Fermi energy $\varepsilon _F$, the dividing line between the occupied and the empty regions of $\vb k$-space will be given by the contour at 'height' $\varepsilon = \varepsilon _F$ on the surface.
+
+For ever 'electron-like' Fermi surface of Fermi energy $\varepsilon _F<0$ centered at $\vb k a=(0,0)$, there is a partner 'hole-like'Fermi surface of Fermi energy $-\varepsilon _F>0$ centered at $\vb ka=(\pi,\pi)$.
+
+At precisely half filling, where the Fermi energy is in the middle of the band (i.e. $\varepsilon _F=0$), the Fermi surface is a perfect square joining the van Hove points. At this filling, one cannot say whethere the Fermi surface is electron-like or hole-like: it could equally well be thought of as  asquare centered on $\vb ka=(0,0)$ or as a square centered on $\vb k a=(\pi,\pi)$.
+
+\section{reciprocal lattice IV: 2D honeycomb lattice tight-binding Fermi surfaces}
+\subsection{the tight-binding model on the honeycomb lattice}
+
+Honeycomb is not Bravais. If the nearest-neighbour lattice spacing of the noneycombb lattice is $\tilde a$, then the spacing of the Bravais lattice is $a=\sqrt 3\tilde a$.
+
+choice of primitive lattice vectors:
+\[\vb a =\pmqty{a\\0}
+\qquad \vb b = \pmqty{a/2\\\sqrt 3 a/2}
+\qquad \vb R= m\vb a + n\vb b \]
+
+We write down a Hamiltonian which sums over unit cells, and include in the summand allhopping processes that begin with the unit cell in question. In this diatomic case, the basis states must specify which unit cell the electron is in, and also whether it is on the A-site or the B-site in that unit cell: $\ket{\vb R;\tau}$ where $\tau =\mathrm{A, B}$.
+
+Hamiltonian for the tight-binding model on this lattice:
+\begin{equation*}
+\begin{split}
+\hspace{-1em} \hat H = -t \sum _{\vb R} \Big(
+\dyad{\vb R +\vb b - \vb a ;\mathrm B}{\vb R;\mathrm A}
++\dyad{\vb R +\vb b;\mathrm B}{\vb R;\mathrm A}
++\dyad{\vb R;\mathrm B}{\vb R;\mathrm A}
+\\+\dyad{\vb R;\mathrm A}{\vb R;\mathrm B}
++\dyad{\vb R +\vb b - \vb a ;\mathrm A}{\vb R;\mathrm B}
++\dyad{\vb R -\vb b;\mathrm A}{\vb R;\mathrm B}
+\Big)
+\end{split}
+\end{equation*}
+
+The first line of this equation describes the three hopping processes that start at site A in the unit cell; the second line describes the three that start at site B.
+
+\subsection{eigenstates and energy-momentum relation}
+
+state that looks like a tight-binding eigenstate in which all the electrons are on the A-type sites:
+\[\ket{\vb k;\mathrm A}
+=\frac{1}{\sqrt N}
+\sum _{\vb R}e^{i\vb k\cdot \vb R}
+\ket{\vb R;\mathrm A} \]
+
+\[\ket{\vb k;\mathrm B}
+=\frac{1}{\sqrt N}
+\sum _{\vb R}e^{i\vb k\cdot \vb R}
+\ket{\vb R;\mathrm B} \]
+
+\begin{equation*}
+\begin{aligned}
+\hat H_1\ket{\vb k; A} &=
+\bigg[ -t\sum _{\vb R}
+\dyad{\vb R+\vb b-\vb a;B}{\vb R;A} \bigg]
+\frac{1}{\sqrt N}\sum_{\vb R'}
+e^{i\vb k\cdot \vb R'}\ket{\vb R';A}
+\\&=-\frac{t}{\sqrt N}\sum_{\vb R,\vb R'}
+e^{i\vb k\cdot \vb R'}
+\ket{\vb R+\vb b - \vb a;B}
+\underbrace{\ip{\vb R;A}{\vb R';A}}
+_{\delta _{\vb R, \vb R'}}
+\\&=-\frac{t}{\sqrt N}\sum_{\vb R}
+e^{i\vb k\cdot \vb R'}
+\ket{\vb R+\vb b - \vb a;B}
+\\&=-\frac{t}{\sqrt N}\sum_{\vb R}
+e^{i\vb k\cdot (\vb R-\vb b+\vb a)}
+\\&=-te^{-i\vb k\cdot (\vb b-\vb a)}\frac{1}{\sqrt N}
+\sum _{\vb R} e^{i\vb k\cdot \vb R} \ket{\vb R;B}
+\\&=-te^{-i\vb k\cdot (\vb b-\vb a)} \ket{\vb k;B}
+\end{aligned}
+\end{equation*}
+
+Hence $\ket{\vb k;A}$ is not an eigenstate of this term, because the result is transformed into the tight-binding state on the other sublattice.
+
+\[\hat H \ket{\vb k;A}
+=\left( -te^{-i\vb k\cdot (\vb a-\vb b)}
+-te^{i\vb k \cdot b)} - t\right)
+\ket{\vb k;A} \]
+
+\[\hat H \ket{\vb k;B}
+=\left( -te^{-i\vb k\cdot (\vb a-\vb b)}
+-te^{i\vb k \cdot b)} - t\right)
+\ket{\vb k;B} \]
+
+\[
+\hat H = \tiny{\pmqty{\ket{\vb A;A}\\ \ket{\vb k;B}}}
+=\underbrace{\tiny{\begin{pmatrix}
+0&-te^{-i\vb k\cdot (\vb b - \vb a)}
+-te^{-k\vb k\cdot b}-t
+\\-te^{-i\vb k\cdot (\vb b - \vb a)}
+-te^{-k\vb k\cdot b}-t &0 \end{pmatrix}}}
+_{\equiv \vb H(\vb k)}
+\pmqty{\ket{\vb A;A}\\ \ket{\vb k;B}}
+\]
+
+matrix generation procedure:
+\begin{enumerate}
+\item Set up an $M\times M$ matrix $\vb H$, where $m$ is the number of sites in the real-space unit cell
+\item The entry in row $i$, column$j$ of that matrix corresponds to hops that start on a site of type $i$, and end on a site of type $j$.
+\item Hence, to determine the entry $H_{ij}$, add up the quantum amplitudes for every $i$-to-$j$-type hop that starts in a given unit cell. Where the hop goes into another unit cell, attach a factor $e^{-i\vb k\cdot \vb d}$, where $\vb d$ is the vector going from the center of the initial unit cell to the center of the new one 
+\end{enumerate}
+
+\[\chi \equiv -te^{-i\vb k\cdot (\vb b-\vb a)}
+-te^{-i\vb k\cdot b} - t
+\qq{\arr} \vb H(\vb k)=\pmqty{0&\chi\\ \chi ^*&0} \]
+
+\[\vmqty{-\lambda &\chi \\ \chi ^*&-\lambda}
+=0\qq{\arr} \lambda ^2 = \abs{\chi}^2
+\qq{\arr} \lambda = \pm \abs{\chi} \]
+
+dispersion relation for the eigenstates of the tight-binding model on the honeycomb lattice:
+\begin{equation*}
+\begin{aligned}
+\varepsilon (\vb k) &= \pm \abs{\chi}
+\\&= \pm \sqrt{\abs{\chi}^2}
+\\&=\pm \sqrt{\chi ^* \chi}
+\\&=\pm \sqrt{
+(-te^{i\vb k\cdot (\vb b-\vb a)}
+-te^{i\vb k \cdot \vb b} -t)
+(-te^{-i\vb k\cdot (\vb b-\vb a)}
+-te^{-i\vb k \cdot \vb b} -t)}
+\\&= \pm t \sqrt{
+3+2\cos (k_xa)+4\cos \qty(\frac{k_x}{2})
+\ \cos \qty(\frac{\sqrt 3k_ya}{2})}
+\end{aligned}
+\end{equation*}
+
+This consists of two bands, but they touch at precisely two distinct points in $\vb k$-space: the two inequivalent corners of the Brillouin zone -- the $K$ and $K'$ points. Because $\varepsilon (\vb k)$ is conical there, they are \emph{Dirac points}.
+
+this dispersion relation also has very obvious particle-hole symmetry: indeed, the entire upper band is just the reflection of the lower one  in the plane $\varepsilon =0$.
+
+\subsection{Fermi surfaces}
+
+Constant-energy contours of this despersion surface correspond to the Fermi surface we get if we were to fill up the single-electron eigenstates to that Fermi energy.
+
+\section{phonons I: 1D mass-and-spring model}
+
+\subsection{Debye model}
+
+The case is a 1D monatomic crystal, i.e. a chain of identi atoms. $a$ is the lattice spacing (and also the natural lenght of the springs). $x_j$ is the displacement of atom $j$ from its equilibrium position. We are only considering longitudinal vibrations.
+
+\subsection{classical equations of motion}
+
+acceleration of mass $j$:
+
+\[\mathcal A_j=\dv[2]{x_j}{t}\]
+
+There are two spring forces on the mass.
+\[F_L=-\alpha (x_j-x_{j-1}
+\qquad F_R=\alpha (x_{j+1}-x_j)\]
+\begin{equation*}
+\begin{aligned}
+m\dv[2]{x_j}{t} &=F_L=F_R
+\\&=-\alpha(x_j-x_{j-1})+\alpha (x_{j+1}-x_j)
+\\&=\alpha (x_{j+1} +x_{j-1}-2x_j)
+\end{aligned}
+\end{equation*}
+
+\subsection{normal modes of vibration}
+
+The acceleratoin of mass $j$ depends  on the displacements of its neighbours, their displacements depend on those of their own neighbours, and so on ad infnitum.
+
+The system is lattice-translationally invariant, so we should describe the motion in terms of plane waves modes rrather than in therms of each atom individually. (Fourier-series represetation of the displacments of the masses)
+
+\[x_j(t)=\frac{1}{\sqrt N}\sum _ke^{ikja}\tilde x_k(t)\]
+$N$ is the number of sites in the real-space lattice, and $k$ takes values in the associated first Brillouin zone.
+
+\begin{equation*} 
+\begin{aligned}
+m\dv[2]{x_j}{t}&=\frac{1}{\sqrt N}
+\sum _ke^{ikja}m\dv[2]{\tilde x_k(t)}{t}
+\\\alpha x_{j+1}&=\frac{1}{\sqrt N}
+\sum _ke^{ik(j+1)a}\alpha \tilde x_k(t)
+\\&=\frac{1}{\sqrt N} \sum _ke^{ikja}\alpha
+e^{ika}\tilde x_k(t)
+\\\alpha x_{j-1}&=\frac{1}{\sqrt N}
+\sum _ke^{ik(j-1)a}\alpha \tilde x_k(t)
+\\&=\frac{1}{\sqrt N} \sum _ke^{ikja}\alpha
+e^{-ika}\tilde x_k(t)
+\\ -2\alpha x_j&=\frac{1}{\sqrt N} \sum _k
+e^{ikja}(-2\alpha \tilde x_k(t))
+\end{aligned}
+\end{equation*}
+
+\[
+\hspace{-5em}
+\therefore
+\frac{1}{\sqrt N} \sum _k
+e^{ikja}m \dv[2]{\tilde x(t)}{t}
+= \frac{1}{\sqrt N} \sum _k
+e^{ikja}m \left[
+(\alpha e^{ika}+\alpha e^{-ika}-2\alpha)
+\ \tilde x(t) \right] \]
+
+\begin{equation*}
+\begin{aligned}
+m\dv[2]{\tilde x_k(t)}{t}&=
+(\alpha e^{ika}+\alpha e^{-ka}-2\alpha)
+\tilde x_k(t)
+\\&= \alpha (-2+2\cos (ka))\tilde x_k(t)
+\\&\qquad
+\sin ^2\theta =\tfrac12 - \tfrac12 \cos (2\theta)
+\\&= -4\alpha \sin ^2\pqty{\frac{ka}{2}}
+\tilde x_k(t)
+\end{aligned}
+\end{equation*}
+
+Because the equation of motion for a simple harmonic oscillator is $\dv[2]{x}{t}=-\omega ^2x$, we see that each plane-wave mode hbehaves as an independent simple harmoinic oscillator with an angular frequency given by the dispersion relation of the lattice vibrations in the 1D Debye model:
+\[\omega (k)=\sqrt{\frac{\alpha}{m}}
+\vqty{\sin(\frac{ka}{2})}\]
+
+\subsection{dispersion relation}
+
+Near $k=0$, we may approximate $\sin(\frac{ka}{2})\approx \frac{ka}{2}$, and hence
+ $\omega (k)\approx \omega _0 a \abs{k}$
+
+This is the same dispersion relation wthat w would get from a linear wave equation, with the speed of the wave given by $v_\mathrm{ph}=\omega _0a$.
+
+Nearer the edge of the zone, the dispersion relation flattens (the group velocity vanishes at the edge of the zone. The propation of lattice vibrations is blocked by Bragg reflection.
+
+\section{phonons II: acousitc and optical phonons}
+
+\subsection{the diatomic Debye model: classical equations of motion}
+
+Making the model diatomic, we simply assume that the massz of the atoms alternates between two different values, $m_1$ and $m_2$, as we go along the crystal.
+
+$x_j$ is still the diplacement of atom $j$ from its equilibrium position.
+
+\begin{equation*}
+\begin{aligned} 
+m_1\dv[2]{x_j}{t}&=\alpha(x_{j+1}+x_{j-1}-2x_j)
+\qquad (j\text{ odd})
+\\ m_2\dv[2]{x_j}{t}&=\alpha(x_{j+1}+x_{j-1}-2x_j)
+\qquad (j\text{ even})
+\end{aligned} 
+\end{equation*}
+
+\subsection{normal modes of vibration}
+solution?
+\[x_j(t)=\begin{cases}
+A_ke^{ikja}e^{-i\omega t} & j\text{ odd}
+\\ B_ke^{ikja}e^{-i\omega t} & j\text{ even}
+\end{cases}\]
+
+\[\hspace{-4em}
+-m_1\omega ^2A_ke^{ikja}e^{-i\omega t}
+=\alpha \left(
+B_ke^{ik(j+1)a}e^{-i\omega t}
++B_ke^{ik(j-1)a}e^{-i\omega t}
+-2A_ke^{ikja}e^{-i\omega t}
+\right) \]
+
+$j$ is odd, so sites $j+1$ and $j-1$ are even.
+
+\[ -m_1\omega ^2A_k
+=\alpha \left(
+B_ke^{ika} +B_ke^{-ika} -2A_k
+\right) \]
+\[0=(m_1\omega ^2-2\alpha )A_k
++\pqty{2\alpha \cos(ka)}B_k\]
+
+$j$ is even, so sites $j+1$ and $j-1$ are odd.
+
+\[0=(m_2\omega ^2-2\alpha )B_k
++\pqty{2\alpha \cos(ka)}A_k\]
+
+matrix form:
+\[ \underbrace{\begin{pmatrix}
+m_1\omega ^2-2\alpha & 2\alpha \cos(ka)
+\\2\alpha \cos (ka) & m_2\omega ^2-2\alpha \end{pmatrix}
+}_{\equiv \vb{M}}
+\pmqty{A_k\\ B_k} = \pmqty{0\\0}\]
+
+If $A_k,B_k\neq 0$, then $\vb M^{-1}$ must not exist. Therefore, for these potential solutions to be solutions, $\det \vb M = 0$.
+
+\[(m_1\omega ^2-2\alpha )
+(m_2\omega ^2-2\alpha)
+-4\alpha ^2\cos ^2(ka)=0\]
+
+\subsection{dispersion relation}
+\[m_1m_2\omega ^4-2\alpha (m_1+m_2)\omega ^2
++4\alpha ^2(1-\cos ^2(ka))=0\]
+\[\frac12\omega ^4-\alpha (m_1^{-1}+m_2^{-1})
+\omega ^2
++\frac{2\alpha ^2}{m_1m_2}\sin ^2(ka)=0\]
+
+\begin{equation*}
+\begin{aligned}
+\omega ^2&=\alpha (m_1^{-1}+m_2^{-1})
+\pm
+\sqrt{\alpha ^2(m_1^{-1}+m_2^{-1})^2
+-\frac{4\alpha ^2}{m_1m_2}\sin ^2(ka)}
+\\&=\alpha (m_1^{-1}+m_2^{-1})
+\Bigg\{1 \pm \sqrt{1-
+\frac{4\sin ^2(ka)}{m_1m_2(m_1^{-1}+m_2^{-1})}}
+\Bigg\}
+\\&=\alpha (m_1^{-1}+m_2^{-1})
+\Bigg\{1 \pm \sqrt{1- \frac{4\sin ^2(ka)}{2+q+q^{-1}}}
+\Bigg\}\qquad q\equiv\frac{m_2}{m_1}
+\\\omega (k)&= \omega _d
+\sqrt{1\pm
+\sqrt{1-\frac{4\sin ^2(ka)}{2+q+q^{-1}}}}
+\qquad \omega _d\equiv
+\sqrt{\frac{\alpha}{m_1}+\frac{\alpha}{m_2}}
+\end{aligned}
+\end{equation*}
+
+\subsection{interpretation}
+In the diatomic model, the spacing of the underlying Bravais lattice is actyually $2a$, hence the primitive reciprocal lattice vector is $G=2\pi/(2a) = \pi /a$, meaning that the boundaries of the first Brillouin zone are at $k=\pm G/2 = \pm \pi/(2a)$.
+
+The lower branch of the dispersion relation still reaches zero 3energy at $k=0$, and is approximately linear there. thus it represents long-wavelength sound waves propagating through the crystal, and hence it is known as the \emph{acoustic branch}
+
+The upper branch, by contrast, can only be excited by relatively high-energy disturbances, which tend to come from light rather than sound. Hence it is known as the \emph{optical branch}
+
+\section{phonons III: specific heat and Debye temperature}
+
+In a 3D crystal, there are always two direction perpendicular to the directin of propagation of the wave, but only one direction parallel to it: hence every phonon brnch splits into three sub-branches, two transcerse and on longitudinal -- polarizations of the phonon.
+
+\subsection{specific heat capacity of lattice vibrations}
+
+\[C(T) = \frac1V\pdv{E}{T}\]
+
+internal energy of the phonons:
+\[E(T)=\sum_{\alpha ,\theta ,\vb k}
+\epsilon _{\alpha \theta \vb k}
+n_{\alpha \theta \vb k}(T)\]
+
+$\alpha$ is the branch, $\theta $ labels the polarization, and $\vb k$ is the phonon's wavevector.
+
+Since pohonons are harmoinic oscillators, their excitations are bosons, and so $
+n_{\alpha \theta \vb k} (T)$, the population of te phonon mode $\alpha \theta \vb k$ at temperature $T$, is given by the Bose-eiunstein distribution function:
+
+\[n_{\alpha \theta \vb k} (T)
+=\frac{1}{e^{\beta \epsilon _{\alpha \theta \vb k}}-1}\]
+
+Phonns are not number conserved.; any non-number-conserved boson has zero chemical potential.
+
+desnity of states in energy:
+
+\[E(T)=V\sum _{\alpha ,\theta}
+\int\limits_{0}^{\infty}
+\epsilon\ g_{E,\alpha\theta}(\epsilon)
+\ n(\epsilon ,T)\ \dd \epsilon\]
+
+\subsection{low-temperature limit}
+
+Even in the acoustic branch, however, we will have three different polarizations: one longitudinal and two transverse. Each of these polarizations will have a linear dispersion relation, but in general with different sound velocities:
+$\epsilon _{A\theta\vb k}\approx \hbar v_\theta
+\abs{\vb k}$
+$v_\theta$ is the sound velocity for the acoustic phonon branch with polarization $\theta$. The density of states for each polarization will therefore be quadratic in $\epsilon$, but with a different prefactor:
+$g_{E,A\theta}(\epsilon)=B_\theta \epsilon ^2$
+
+\begin{equation*}
+\begin{aligned}
+E(T) &= B_\mathrm{tot}\int\limits_0^\infty
+\epsilon ^3 n(\epsilon ,T)\ \dd \epsilon
+\qquad B_\mathrm{tot}\equiv \sum _\theta B_\theta
+\\&= B_\mathrm{tot}\int\limits_0^\infty
+\frac{\epsilon ^3\ \dd \epsilon}{e^{\beta\theta}-1}
+\qquad x= \beta\epsilon\qquad\epsilon=k_BTx
+\\&=B_\mathrm{tot}(k_BT)^4\int\limits_0^\infty
+\frac{x^3\ \dd x}{e^x-1}
+\\&=\frac{\pi ^4}{15}B_\mathrm{tot}k^4_BT^4
+\end{aligned}
+\end{equation*}
+
+specific heat capacity:
+\[C(T) = \frac1V\pdv{E}{T}
+=\frac{4\pi ^4}{15V}B_\mathrm{tot} k_B^4T^3\]
+
+The lowe-temperature specific heat capacity of  phonons is a cubic function of temperature.
+
+\deff{Debye frequency}
+the angular frequency $\omega _D$ of the highest-energy phonon.
+
+\deff{Debye temperature}
+\[T_D\equiv\frac{\hbar\omega _D}{k_B}\]
+
+\section{Transport I: Drude model}
+
+Electrical resistivity arises from the scattering of the electrons that carry the electrical current off other things. In metals at low temperatures, the dominant source scattering is \emph{impurities}: foreign atoms or defects the crystal structure that were incorporated when the crystal was grown. The 'drag' caused by the scattering from impurities balances the acceleration caused by an applied electric field, and leads to a constant average drift velocity of the conduction electrons -- constant current.
+
+Drude model assumptions:
+\begin{itemize}
+\item electrons propagate as free particles, under the influence of a constant applied electric field $\vb E$, except when they are scattered by an ipurity.
+\item for any given electron, the mean time between impurity scattering events is $\tau$, which is called the \emph{mean free time}, or \emph{relaxation time}
+\item Impurity scatterings are randomly directed. Directions of electron's motion before and after the scattering event are uncorrelated.
+\end{itemize}
+
+\subsection{time evolution of the average momentum}
+
+$\vb p(t)$ is the average momentum of the ensemble of electrons in the metal at time $t$. It is zero because of the randomness.
+\[\dv{\vb p}{t} = -e\vb E
+\qq{\arr} \vb p (t+\dd t) = \vb p(t)-e\vb E\ \dd t\]
+
+probability that an electron is scattered during a time interval $\dd t$:
+\[P_\mathrm{s}=\frac{\dd t}{\tau}\]
+proability that an electron is not scattered:
+\[P_\mathrm{ns}=1-P_s =1-\frac{\dd t}{\tau}\]
+
+\begin{equation*}
+\begin{aligned}
+\vb p(t+\dd t) &= P_\mathrm{s}\vb 0 +P_\mathrm{ns}
+(\vb p(t)-e\vb E\ \dd t)
+\\&=\pqty{1-\frac{\dd t}{\tau}}
+(\vb p(t)-e\vb E\ \dd t)
+\\&\approx \pqty{1-\frac{\dd t}{\tau}}
+\vb p(t)-e\vb E\ \dd t
+\qquad (\dd t)^2\text{ is very small}
+\end{aligned}
+\end{equation*}
+
+\[\frac{\vb p(t+\dd t)-\vb p(t)}{\dd t}
+=-\frac{\vb p}{\tau}-e\vb E\]
+
+\[\dv{\vb p}{t} =-\frac{\vb p}{\tau}-e\vb E\]
+
+First term is drag force, and the second is the Coulomb force. Equating them gives the equilibrium.
+
+steady-state average momentum:
+\[\vb p = -e \vb E \tau\]
+
+\subsection{electrical conductivity}
+
+electrical current density:
+\[\vb j = -ne\vb b\]
+$n$ is the number density of electrons in the sample, and $\vb v$ is the average velocity of the electrons.
+
+\begin{equation*}
+\begin{aligned}
+\vb j &= -ne\vb b
+\\&=-\frac{ne}{m}\vb p
+\\&\vb j = \frac{ne^2\tau}{m}\vb E
+\end{aligned}
+\end{equation*}
+
+\deff{Ohm's law}
+the current density is proportional to the applied electric field: $\vb j = \sigma\vb E$
+
+electrical conductivity in the Drude model:
+\[\sigma = \frac{ne^2\tau}{m}\]
+
+\section{trasnport II: temperature-dependence of the electrical resistivity of metals}
+
+\subsection{Mathiessen's Rule}
+\deff{Mathiessen's rule}
+the overall electrical resistivity is given by the sum of the resistivities due to each independent scattering processes -- that resistivities from different scattering processes are additive. (no proof)
+
+If resistivities are additive, then conductivities will not be.
+
+\[\rho _\mathrm{tot}=\rho _1+\rho _2\]
+\begin{equation*}
+\begin{aligned}
+\sigma _\mathrm{tot} &\equiv\frac{1}{\rho _\mathrm{tot}}
+\\&=\frac{1}{\rho _1 +\rho _2}
+\\&=\frac{1}{\sigma _1^{-1}+\sigma _2^{-1}}
+\end{aligned}
+\end{equation*}
+
+\subsubsection{scattering from impurities}
+
+Since the mean free time isi usually only weakly temperature-dpendent, we shall assume the Drude result to hold at all temperatures of interest.
+\[\rho _\mathrm{imp}=\frac{1}{\sigma _\mathrm{imp}}
+=\frac{m}{ne^2\tau}\]
+
+\subsubsection{scattering from other electrons}
+\[\rho _\mathrm{e-e}=AT^2\]
+
+In weakly correlated metals, where the conduction electrons come from s- and p-orbitals, the resistivity is often immeasurably weak. However, in strongly correlated metals, hwere the confuction electron come from d- or f-orbitals, it is often quite clearly observable.
+
+\subsubsection{scattering from phonons}
+
+\[\rho _\mathrm{e-ph}=BT^5\]
+
+This is only valid at temeperatures $T\ll T_D$, where $T_D$ is the Debye tempoerature of the phonons in question.
+
+Two factors: $T^3$ for number of phonons, and $T^2$ for how good those phonos are at reducing the electrical current when they scatter a conduction electron.
+
+The number of phonons is given by summing the Bose-Einstein distribution ovber all the possible wavevectors, branches, and polarizations of the phonons:
+
+\[N_\mathrm{ph} = \sum _{\alpha,\theta,\vb k}
+n_{\alpha\theta\vb k}(T)\]
+
+At low temperatures, only the acoustic phonons will be significantly populated, and so we can neglect all the other terms in the sum over branches:
+
+\[N_\mathrm{ph} = \sum _{\theta,\vb k}
+n_{A\theta\vb k}(T)\]
+
+If the temperature is well below the Debye temperature, well be populating only those phons whose dispersion relation is approximately linear
+$\epsilon _{A\theta\vb k}
+\approx \hbar v_\theta \abs{\vb k}$. And the density of states in energy correpsonding to such phonons is
+$g_{E,\theta}(\epsilon)=B_\theta\epsilon ^2$
+
+\begin{equation*}
+\begin{aligned}
+N_\mathrm{ph} &\approx V\sum _\theta\int\limits_0^\infty
+\dd \epsilon\ g_{E,\theta}(\epsilon)\ n(\epsilon ,T)
+\\&= B_\mathrm{tot}V\int\limits_0^\infty
+\dd \epsilon\ \epsilon ^2 n(\epsilon, T)
+\\ \therefore & \propto T^3
+\end{aligned}
+\end{equation*}
+
+\section{metals vs insulators: thermodynamic and transport properties}
+\subsection{metals}
+\subsubsection{thermodynamic properties}
+
+specific heat capacity due to the conduction electrons in a metal:
+\[C_\mathrm{el}=\gamma T\]
+
+specific heat capacity of the phonons (lattice vibrations):
+\[C_\mathrm{ph}=\alpha T^3\]
+\[C_\mathrm{metal}=C_\mathrm{el}+C_\mathrm{ph}
+=\gamma T + \alpha T^3\]
+
+The temperature must be well below botht he Fermi temperature of the confuction electrons, and the Debye temperature of the phonons
+$T\ll T_F,T_D$
+
+Magnetic susceptibility due to the conduction electrons in a metal is the Pauli susceptibility:
+$\chi _\mathrm{el}=\chi _0$
+a temperature-independent constant that is proportional to the density of conduction-electron states at the Fermi energy. The scrystal lattice does not really add anything to this -- the closed shells of core electrons do have  som e diamagnetic response, and the nuclear spins also have some paramagneitc contribution, but both of these are usually very small compared to $\chi _0$. Thus we would predict that the magnetic susceptibility of a metal is given more or less entirely by the Pauli term:
+\[\chi _\mathrm{metal}=\chi _\mathrm{el} =\chi _0\]
+
+\subsubsection{transport properties}
+electrical resistibity of a metal at low temperatures:
+\[\rho (T)=\rho _0+AT^2+BT^5\]
+
+\subsection{insulators}
+\subsubsection{thermodynamic properties}
+
+An insulator is just a conductor that has zero density of conduction electrons. Because of this lack of conduction electrons, the linear ($\gamma T$) term is no longer present, leaving only the $T^3$ specific heat due to the excitation of phonons:
+\[C_\mathrm{ins}=C_\mathrm{ph}=\alpha T^3\]
+
+\subsubsection{transport properties}
+At any non-zero temperature there is a finite probability that any given electron willb e thermally excited across the enrgy tgap between the valence band and the conduction band. This will lead to a small but bnon-zero density of charge carries in the confuciton band.
+
+proability of exciting a system by an energy $\Delta$
+\[P(\Delta) =\frac1Z\exp(-\frac{\Delta}{k_BT})\]
+density of carriers:
+\[n(T)=n_0\exp(-\frac{\Delta}{k_BT})\]
+electrical conductivity:
+\[\sigma(T)=\sigma_0\exp(-\frac{\Delta}{k_BT})\]
+electircal resistivity of a band insulator is reciprocal of conductivity:
+\[\text{\emph{Arhenius' law:}} \qquad
+\rho(T)=\rho_0\exp(\frac{\Delta}{k_BT})\]
+
+\section{semiconductors I: direct and indirect band gaps}
+
+
+
+\end{document}

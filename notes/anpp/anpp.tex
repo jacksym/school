@@ -1,0 +1,955 @@
+%St Andrews Notes Template
+\documentclass[10pt, a4paper, twocolumn]{article}
+
+%Formatting Packages
+\usepackage[a4paper, margin=0.5in]{geometry}
+\usepackage[extreme]{savetrees}
+\usepackage{times}
+
+%Math Packages
+\usepackage{xparse}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{esint}
+\usepackage{physics}
+\usepackage{mhchem}
+
+\newcommand{\deff}[1]{\par \noindent \textit{#1}: }
+\newcommand{\dbar}{\mathrm d \hspace*{-0.2em}\bar{}\hspace*{0.2em}}
+\newcommand{\pfs}{\ensuremath{\varepsilon _0}}
+\newcommand{\arr}{\ensuremath{\longrightarrow\ }}
+\newcommand{\larr}{\ensuremath{\longleftarrow\ }}
+\newcommand{\intall}{\ensuremath{\int\limits_\text{all space}}}
+\newcommand{\intinf}{\ensuremath{\int\limits_{-\infty}^{+\infty}}}
+\newcommand{\eps}{\ensuremath{\varepsilon _0}}
+\newcommand{\n}{\par \noindent}
+
+\author{Jack Symonds}
+\title{Atomic, Nuclear, and Particle Physics}
+\date{}
+
+\begin{document}
+\maketitle
+
+\part{Atomic Physics}
+\section{Hydrogen Atom}
+\subsection{Bohr model}
+
+\emph{Bohr's postulates}
+\begin{enumerate}
+\item an electron in an atom moves in a circular orbit for which the angular momentum $m _0 v r $ is an integer multiple of $\hbar$
+\item an electron in one of these orbits is stable. But if it discontinuously changes its orbit from one where energy is $E_i$ to one where energy is $Ef$, energy is emitted or absrorbed in photons satisfying: $E_i - E_f = h\nu$ where $\nu$ is the photon frequency.
+\end{enumerate}
+
+\[ m_0 v r = n \hbar
+\qquad F = \frac{1}{4 \pi \pfs} \frac{Ze^2}{r^2}
+= \frac{m_0 v ^2}{r} \]
+
+\[\therefore r_n = 4 \pi \pfs
+\frac{n^2 \hbar ^2}{m_0 Z e^2} \]
+
+\[ E = \frac{m_0v^2}{2} - \frac{1}{4 \pi \pfs}
+\frac{Ze^2}{r} \]
+
+energy levels: ($E<0$ because bound state)
+\[ E_n = -\frac{1}{(4 \pi \pfs)^2}
+\frac{m_0 Z^2 e^4}{2 n^2 \hbar ^2} \]
+
+\deff{Bohr radius}
+\[ a_0 = \frac{4 \pi \pfs \hbar ^2}{m _0 e^2}
+= 0.0529 \text{ nm} \]
+
+\deff{Rydberg energy}
+\[ R_y = \frac{m_0e^4}{(4 \pi \pfs)^22\hbar ^2}
+= 13.6 \text{ eV} \]
+
+\[ r_n = \frac{n^2}{Z} a_0 \qquad E_n
+= -\frac{Z^2}{n^2} R_y \]
+
+Increasing the atomic number $Z$ gets smaller radii and more negative energies. This makes sense because the larger nuclear charge leads to a more strongly bound system.
+
+\subsubsection{Rydberg Formula}
+
+\[ E_i = - \frac{R_y}{n_i^2}
+\qquad E_f = -\frac{R_y}{n_f^2} \]
+
+\[h \nu = R_y
+\left( \frac{1}{n_f^2} - \frac{1}{n_i^2} \right)
+\arr
+\frac{1}{\lambda} = \frac{\nu}{c} = \frac{R_y}{hc}
+\left( \frac{1}{n_f^2} - \frac{1}{n_i^2} \right) \]
+\deff{Rydberg constant}
+\[R_\infty = \frac{R_y}{hc} = 1.0974 \times 10^7
+\text{ m}^{-1} \]
+\[ \frac1\lambda  = R_\infty
+\left( \frac{1}{n_f^2} - \frac{1}{n_i^2} \right) \]
+
+\subsection{hydrogen atom eigenfunctions}
+\[ \Psi _{n,l,m_l} (r, \theta, \phi)
+= R_{n,l} (r) \ Y_{l, m_l} (\theta , \phi) \]
+
+$n$ is the principal quantum number (same as in the Bohr model), $l$ is the angular momentum quantum number and $m_l$ is the magnetic quantum number.
+
+\[E_n = -\frac{-13.6eV}{n^2}\]
+All hydrogen energy levels are degenerate with degeneracy of $n^2$. This is because the expression for the enrgy levels $E_n = -Z^2R_y/n^2$ depends on $n$, but not on $m$ or $m_l$.
+
+The degeneracy in $m_l$ comes from the fact that states with same $n$ and $l$, but different $m_l$, only differ by the orientation of their angular momentum $\vec l$ relative to the $z$-axis. Because we are in a central potential $V \propto -1/r$, intuitively the enrgy does not depend on the orientation of $\vec l$.
+
+The degeneracy in $l$ is a special characteristic that is specific to the $-1/r$ potential.
+
+Hydrogen orbitals refer to the probaility density
+ $|\Psi _{n,l,m_l}(r,\theta , \phi)|^2$
+ associated to state
+$\Psi _{n,l,m_l}(r,\theta , \phi)$. The dependence more specifically is
+\[ Y_{l,m_l}(\theta, \phi) = f(\theta ) e^{im_l \phi} \]
+$\phi$ eneters the wavefunction only via the phase $e^{im_l\phi}$, and so there is no dependence on $\phi$ of the probability density. This means that there is cylindric symmetry about the $z$-axis in all the plots.
+
+\section{alkali atoms}
+
+Hamitonian for $N$ electrons:
+\[ H = \sum_{i=1}^N
+\left(\frac{p_i^2}{2m_0}-\frac{Ze^2}{4\pi \pfs r_i}
+\right)
++ \sum _{i>j} \frac{e^2}{4\pi \pfs r_{ij}} \]
+
+When this Schr\"{o}dinger's equation is solved numerically, The individual electrons' states are given by $n$, $l$, and $m$. (still orbitals). And the corresponding energy levbels are strongly modified due to the electron-electron repulsion.
+
+spectroscopic notation:
+\[ \begin{matrix}
+l=&0&1&2&3&4&\ldots \\
+\phantom{1=}&s&p&d&f&g&\ldots \end{matrix} \]
+
+\deff{Pauli exclusion principle}
+No two electrons have the same set of quantum numbers.
+
+Once we have fixed our \emph{orbital} quantum numbers 
+$n$, $l$, and $m_l$
+, we can still allocate \emph{two} electrons to the orbital: one with spin up and the other with spin down.
+
+Ground-state electron configuration is how electrons are allocated to orbitals. For example for sodium,
+$ Na\ (Z=11):$ the ground state is $1s^22s^22p^63s$
+
+alkali atoms:
+\[\begin{matrix}
+\phantom{Z=} & Li & Na & K & Rb & Cs & Fr
+\\ Z= & 3 & 11 & 19 & 37 & 55 &87 \end{matrix} \]
+
+Each of these have a valence electron.
+\subsection{energy levels of the valence electrons in alkali atoms}
+
+At large distance $r$, we have $V(r) \approx \frac{-e^2}{4 \pi \pfs r}$. This is because the closed shells screen the valence electron from the nuclear charge.
+\emph{screening effect} \arr The net charge seen by the valence electron is $+Ze - (Z-1)e = +e$
+
+At short distance $r$, $V(r) \approx \frac{-Ze^2}{4\pi \pfs r} $, which is the \emph{unscreened} nuclear potential. (This is an application of Gauss' law)
+
+For intermediate distances, there is no longer a $1/r$ potential and there is no longer a $l$-degeneracy. So the $l$-degeneracy is \emph{lifted}. 
+
+Energy levels in the alkalis will have enrgy levels that depend on both $n$ and $l$, but there is no exact solution for $E_{n,l}$. (numeric methods)
+
+\n The dependence of $E_{n,l}$ on $l$:
+\begin{itemize}
+\item For elliptical Bohr orbits, orbits with small angular momentum $\vec l$ penetrate the closed shells and experience more of the unscreened potential nuclear charge. The unscreened nuclear potential is more attractive than the screened one, hence small values of $\vec l$ give more negative energies.
+\item For radial probability densities of the valence electron in different $l$ states, it is the behaviour at short distance $r$ that determines the dependence of the energy on $l$.
+\end{itemize}
+
+\n empirical formula for $E_{n,l}$
+
+\[ E_{n,l} = \frac{-13.6 \text{ eV}}
+{[n- \Delta (n,l)]^2}
+\qquad \Delta (n,l) \text{\emph{: quantum defect}} \]
+
+\subsection{radial probability density}
+
+Probability density at distance $r$ from nucleus, having integrated over the angles $\theta$ and $\phi$:
+\[\text{\emph{radial probability density}}
+= r^2 \abs{R_{nl}}^2 \]
+element of volume in spherical polar coordinates:
+\[\dd V = r^2 \dd r\ \sin \theta \ \dd \theta \ \dd \phi
+\]
+\begin{equation*}
+\begin{aligned}
+\underbrace{\int _0^\pi \int _0^{2\pi}}
+_{\substack{\text{by definition}\\ 0 \leq \theta \leq \pi
+\\ 0 \leq \phi \leq 2 \pi}}
+\abs{\Psi _{nlm}}^2 r^2 \ \dd r
+\ \sin \theta \ \dd \theta \ \dd \phi &=
+\int _0^\pi \int _0^{2\pi}
+\underbrace{\abs{R_{nl}}^2 r^2 \dd r\ }
+_{\substack{\text{do not depend}
+\\ {\text{on } \theta, \phi}}}
+\abs{Y_{lm}}^2 \sin \theta \ \dd \theta \ \dd \phi
+\\ &= \abs{R_{nl}}^2 r^2 \dd r\ 
+\underbrace{\int _0^\pi \int _0^{2\pi} \abs{Y_{ln}}^2
+\sin \theta \ \dd \theta \ \dd \phi}_{=1}
+\end{aligned}
+\end{equation*}
+
+$\abs{R_{nl}}^2r^2\dd r$ is therefore the probability of finding the electron in the shell. And the \emph{radial probability density} is $\abs{R_{nl}}^2r^2$ because we are retaining only the information on the distance ("radius"), having integrated over the angles.
+
+\section{the Helium atom}
+
+\subsection{the term notation $^{2S+1}L$}
+
+A term sybol which gives the total orbital angular momentum $\vec L = \vec l _l + \vec l _2 + \ldots$ and the total spin $\vec S = \vec s_1 + \vec s_2 + \ldots $.
+
+electron configuration in helium:
+\[ L = l_1 + l_2, l_1 + l_2 -1, \ldots, |l_1-l_2| \]
+\begin{equation*}
+\begin{array}{llll}
+\hspace{-2em} \text{Configuration} & \text{total spin }S
+& \text{total orbital an. mom. }\vb L & \text{term symbol}
+\\ 1s^2 & 0 & 0 & ^1S
+\\ 1s^12s^1 & 0,1 & 0 & ^1S, ^3S
+\\ 1s^12p^1 & 0,1 & 1 & ^1P, ^3P
+\end{array}
+\end{equation*}
+
+There is no optical tranistion between singlet terms and triplet terms because of the selection rule $\Delta S = 0$ for optical transitions. The singlet helium is called \emph{parahelium}, and the triplet helium is called \emph{orthohelium}. 
+
+\deff{symmetry energy}
+the difference in energy between the singlet term and the triplet term that arise from a given electorn configuration
+It comes from the different symmetry of the spatial wavefunctions for the singlet and triplet state: in a triplet state, the spin wavefunction is symmetric and the space wvefunction is antisymmetric with respect to electron exchange, while in a singlet state teh spin wavefunction is antisymmetric and the space wavefunction is symmetric.
+
+Given that an antisymmetric space wavefunction vanishes if the two electrons are in the same place, the probability for the two electrons begin tin the same place vanishes, and it becomes small when the electrons approach each toer. 
+
+The electron-electron repulsion
+$e^2/4 \pi \pfs |\vec r_1-\vec r_2|$
+is smaller in this case, leading to a lower energy for the triplet state. In other words, the electron-electron repulsion takes a lower expectation value for the triplet term than for the singlet term.
+
+Classically, the total orbital angular momentum $\vec L$ must be a conserved quantity, given that all the interactions that we are considering are internal to the atom. In quantum mechanics, this is equivalent ot saying that $\vec L$ commutes with the atomic Hamiltonian $H$, and that $H$ and $\vec L$ share a complete set of simultaneous eigenfunctions. this is the underlying justification of the term notation, where the eenrgy levels are characterized by the $L$ quantum number.
+
+
+\newpage
+\part{nuclear and particle physics}
+\setcounter{section}{0}
+\section{nuclear sizes}
+
+Rutherford got the nuclear size in 1911 by firing alpha particles at a gold foil and a rotating detector.
+\begin{enumerate}
+\item some $\alpha$ aprticles were scattered by large angles, implying that the nucleus mus be concentrated in a very small volume.
+\item the measured count rate as a function of angle was very well described by calculations that assumed that the nucleus is pointlike and only considered the repulsive Coulomb interaction, setting an upper limit on the size of the nucleus and the range of the attractive nuclear force.
+\end{enumerate}
+
+\subsection{nuclear notation and units}
+
+\deff{atomic number} the number of protons $Z$ determines the element name and chemical properties.
+\deff{isotopes} nuclei with the same atomic number and different neutron numbers $N$
+\deff{mass number} $A=N+Z$
+
+
+Nuclei are written as $_Z^AX$. Neutrons and protons are collectively called nucleons.
+\[1\text{ eV} = 1.6\times 10^{-19}\text{ J}\]
+\[\hbar c = 197.3\text{ MeV fm}
+\approx 200\text{ MeV fm}\]
+
+\[\text{scattering/reaction probability per
+single beam particle} = \frac{N_t\sigma}{A}\]
+
+$\sigma$ is an ''effective'' cross section that depends on the energy of the incoming beam particle, the type of beam particle and target particle and the interaction between them.
+\deff{total cross section $\sigma$} the total projected area per single beam and single target particle over which scattering or a reaction occurs
+
+The unit of $\sigma$ is m$^2$ but more common is the barn, with $1b=10^{-28}\text{ m}^2$.
+
+Scattering or reaction rate: the number of scattering event or reactions per unit time:
+
+\[R=\frac{N_t\sigma}{A}\frac{N_b}{t}\]
+
+\deff{beam flux} the number of incident beam particles per area and time: $\phi _b=\frac{N_b}{At}$
+\[R=N_t\sigma \phi _b\]
+You can now get the cross section for scatt ering with the nujber of incident beam particles per unit time and the reaction rate, and using the target thickness and molar mass to calculate $N_t/A$.
+
+solid angle:
+\[\Omega =\iint\limits_\text{detector area}
+\frac{\vec n \cdot \vec{\dd A}}{r^2}\]
+\[A\ll r^2 \qq{\arr} \vec n \cdot \vec{\dd A} \approx \dd A
+\qq{\arr} \Omega \approx \frac{A}{r^2}\]
+
+\[\dd R(\text{into }\dd \Omega)
+= N_t \phi _b\dv{\sigma}{\Omega}\dd \Omega
+=\frac{N_t}{A}\frac{N_b}{t}\dv{\sigma}{\Omega}\dd \Omega\]
+
+$\dv{\sigma}{\Omega}$ is the \emph{differential cross section}. One can consider $\dd \sigma$ as the area element of the cross-sectional area that lead to scattering into the solid angle $\dd \Omega$.
+
+\subsection{Rutherford scattering}
+
+The energy of the $\alpha$ particles was only a fe2 MeV, so non-relativistic kinematics is sufficient and one can neglect the recoil of the target nucleus, as the gold nucleus is much heavier than the $\alpha$ particle. Also classical trajaectories (no quantum).
+
+\deff{impact parameter} $b$ the smallest distance between single target nucleus and single beam particle if there were no interaction.
+
+The scattering angle $\theta$ is the angle between the beam particle's incident direction and the scattered direction far fafter the target.
+
+\[\dd \sigma =2\pi b\ \dd b
+\qquad \dd \Omega =2\pi \sin \theta \ \dd \theta\]
+
+\[\dv{\sigma}{\Omega} = \frac{b}{\sin \theta}
+\abs{\frac{\dd b}{\dd \theta}}\]
+
+Absolute value because the differential cross section is always positive ($R$ is always positive).
+
+(separate derivation)
+\[b(\theta) =-\frac{zZe^2}{8\pi \eps E_k}
+\frac{\cos \qty(\frac{\theta}{2})}
+{\sin \qty(\frac{\theta}{2})}
+\qquad \sin (\theta)
+= 2\sin\qty(\tfrac{\theta}2) \cos\qty(\tfrac{\theta}2) \]
+
+\deff{differential cross section for Rutherforrd scattering}
+\begin{equation*}
+\begin{aligned}
+\dv{b}{\theta}&=\qty(\frac{zZe^2}{\pi \eps E_k})^2
+\frac{\cos\qty(\frac{\theta}{2})}
+{8\times 16\sin ^3\qty(\frac{\theta}{2})
+2\sin\qty(\frac{\theta}{2})
+\cos\qty(\frac{\theta}{2})}
+\\&= \qty(\frac{zZe^2}{16\pi\eps E_k})^2
+\frac{1}{\sin ^4 \qty(\frac{\theta}{2})}
+\end{aligned}
+\end{equation*}
+
+Both this equation and the experimental results imply the scattering rate falls off very rapidly with scattering angle $\theta$, but remains non-zero up to 180$^\circ$, setting an upper limit on the nuclear size.
+
+\subsection{determining nuclear charge densities}
+
+With electron beam enegies as high as 500 GeV, 
+
+\[E = \sqrt{m^2c^4+\abs{\vec p}^2c^2} \approx pc\]
+
+\[\lambda = \frac{h}{p} = 2\pi\frac{\hbar c}{pc}
+\approx 2\pi \frac{\text{200 MeV }fm}{\text{500 MeV}}
+=2.5\ fm \]
+
+This is sufficiently small to prove the internal structure of the nucleus.
+
+In quantum scattering theory, in high energy approximation,
+\[\dv{\sigma}{\Omega} \propto
+\abs{\mel{\psi _f}{\hat V}{\psi _i}}^2 \]
+
+spatial parts of the wave funcitons:
+\[\psi _i=\frac{1}{\sqrt V}
+e^{i\frac{\vec p _i \cdot \vec r}{\hbar}}
+\qquad \psi _f=\frac{1}{\sqrt V}
+e^{i\frac{\vec p _f \cdot \vec r}{\hbar}} \]
+
+scattering potential energy:
+\[\hat V =e\ \phi (\vec r)\]
+
+\begin{equation*}
+\begin{aligned}
+\hspace{-3em} \mel{\psi _f}{\hat V}{\psi _i}&=\frac1V
+\iiint\limits_\text{all space}
+e^{i\frac{\vec p _i \cdot \vec r}{\hbar}} e\ \phi (\vec r)
+e^{-i\frac{\vec p _f \cdot \vec r}{\hbar}} \dd \tau
+\\&=\frac{e}{V} \iiint\limits_\text{all space}
+e^{i\frac{\vec q \cdot \vec r}{\hbar}}
+\phi (\vec r) \dd \tau
+\qquad \vec q = \vec p_i - \vec p_f
+\\&\Delta e^{i\frac{\vec q \cdot \vec r}{\hbar}}
+=\left(\pdv[2]{x}+\pdv[2]{y}+\pdv[2]{z}\right)
+e^{i\frac{q_xx+q_yy+q_zz}{\hbar}}
+\\& \phantom{\Delta e^{i\frac{\vec q \cdot \vec r}{\hbar}}}
+=\left(\frac{i^2q_x^2}{\hbar^2} +
+\frac{i^2q_y^2}{\hbar^2} +
+\frac{i^2q_z^2}{\hbar^2}
+\right) e^{i\frac{\vec q\cdot\vec r}{\hbar}}
+\\& \phantom{\Delta e^{i\frac{\vec q \cdot \vec r}{\hbar}}}
+=-\frac{\abs{\vec q}^2}{\hbar ^2}
+e^{i\frac{\vec q \cdot \vec r}{\hbar}}
+\\&=-\frac{e\hbar ^2}{V\abs{\vec q}^2}
+\iiint\limits_\text{all space} \phi (\vec r)\ 
+\Delta e^{i\frac{\vec q\cdot \vec r}{\hbar}}\ \dd \tau
+\qquad \textstyle{\iiint u\ \Delta v\ \dd \tau
+=\iiint v\ \Delta u\ \dd \tau}
+\\&=-\frac{e\hbar ^2}{V\abs{\vec q}^2}
+\iiint\limits_\text{all space} \Delta \phi (\vec r)\ 
+e^{i\frac{\vec q\cdot \vec r}{\hbar}}\ \dd \tau
+\qquad \Delta \phi = -\frac{\rho}{\eps}
+\\&=-\frac{e\hbar ^2}{\eps V\abs{\vec q}^2}
+\iiint\limits_\text{all space} \rho (r)\ 
+e^{i\frac{\vec q\cdot \vec r}{\hbar}}\ \dd \tau
+\end{aligned}
+\end{equation*}
+
+form factor of the charge distribution:
+\[F(q) = \frac{1}{Ze}\iiint\limits_\text{all space}
+\rho (r)\ e^{i\frac{\vec q\cdot \vec r}{\hbar}}
+\ \dd \tau \]
+
+Each scattering angle $\theta$ corresponds to a unique value of momentum-transfer $q$ (the greater $q$, the greater $\theta$).  
+
+The scattering rate as a funciton of scattering angle will be modulated by a factor of $\abs{F(q)}^2$
+
+In practifce one assumes a function for $\rho (r)$ with parameters that are fit to the observed differential cross sectoin data. At the high energies remember the recoil and the spin-spin interaction.
+
+charge density approximation:
+\[\rho (r) = \frac{\rho _0}{1+e^\frac{r-c}{a}}\]
+
+$a$ is a measure of the width of the diffuse edge. For heavy nuclei, the range over which $\rho$ falls from 90\% to 10\% of its value at $r=0$ is $\sim 2.4fm$. Very light nuclei are more diffuse.
+
+ratio of neutron and proton number densities (assuming uniform distribution):
+\[\frac{n_n(r)}{n_p(r)}=\frac{N}{Z}\]
+
+nucleon number density:
+\begin{equation*}
+\begin{aligned}
+n(r)&=n_p(r)+n_n(r)
+\\&=n_p(r)\qty(1+\frac{N}{Z})
+\\&=n_p(r)\frac{Z+N}{Z}
+\\&=\frac{A}{Z}n_p(r)
+\\&=\frac{A}{Z}\frac{\rho (r)}{e}
+\end{aligned}
+\end{equation*}
+
+Central nucleon number densities thus found are almost constant over a large range of mass number.
+\[n(0)\approx 0.17\frac{\text{nucleons}}{fm^3}\]
+Therefore, nuclei are not compressible and have constant mass density. This behaviour found for nuclei implies that the nuclear force is short range even on nuclear distance scales: each nucleon only feels the atrractoin of its direct neighbours, so that the attractive force on a nucleon in the interior does not change with increasing mass number.
+
+The form factor brings forth the mean square charge radius $\expval{r^2}$. This is the expectatoin value of $r^2$ with respect to the charge density $\rho (r)$. One then defines the nuclear radius $R$ as the radius of a uniform sphere with a sharp edge with the same $\rho(0)$ and $\expval r^2$.
+
+relation between nuclear radius and mass number:
+\[R=R_0\ A^\frac13 \qq{with} R_0 = 1.21\ fm\]
+
+\[n=\frac{A}{V_\text{nucleus}}=\text{const.}
+=\frac{A}{\frac43 \pi R^3}\]
+
+\[\frac{A}{R^3}=\text{const.}
+\qquad \Rightarrow R^3 \propto A
+\qquad \Rightarrow R\propto A^\frac13 \]
+
+\section{nuclear masses, the liquid drop model}
+\subsection{nuclear binding energy}
+
+\deff{nuclear binding energy} $B$ the difference in potential energy $\Delta U$ between the individual nucleons at large separation ($U=0$) and the bound nucleus ($U<0$), and its sign is defined to be positive for a bound state, so it is the energy required to separate the nucleus into all its individual necleons.
+
+\[B = (Nm_n+Zm_p-m_\text{nucl})c^2 \qq{with} B>0 \]
+\[m_\text{nucl} = Nm_n+Zm_p-\frac{B}{c^2} \]
+Nuclear binding energies make around 1\% of the toal nucleon masses, but it mostly negligible. Much more potential energy is released when a nucleus forms than when an atom forms.
+
+\subsection{the liquid drop model
+(semi-empirical mass formula)}
+
+\deff{liquid drop model} semi-empirically parametrizes the nuclear bindding energy as teh sum of five terms
+\[B=B_v+B_s+B_c+B_a+B_p\]
+\deff{volume term} $B_v$ the effect of the bulk attractive nuclear force (+)
+\[B_v=a_vA \qquad a_v = 15.56\text{ MeV} \]
+\deff{surface term} $B_s$ describes the reduction of the binding energy due to neucleons at the surface being less well bound as they have fewer neighbours
+\[R=R_0\ A^\frac13 \qq{\arr} B_s = -a_s\ A^\frac23
+\qquad a_s=17.23\text{ MeV} \]
+\deff{Coulomb term} $B_c$ desribes the reduction of the binding energy due to the Coulomb repulsion fo the protons
+\[\hspace{-2em} \text{self-energy of sphere: }
+U=\frac35\frac{(Ze)^2}{4\pi\eps R}
+\qq{\arr} B_c=-a_c\frac{Z^2}{A^\frac13}
+\qquad a_c=0.697\text{ MeV} \]
+\deff{asymmetry term} $B_a$ arises from nuclei with unequal nubmers of neutrons and protons being less stable than nuclei with $N=Z$
+\[B_a=-a_a\frac{(N-Z)^2}{A} \qquad a_a=23.29\text{ MeV}\]
+\deff{pairing term} arises from pairs of protons or pairs of neutrons being a lower energy configuration compared with the same number of unpaired neutrons or unpaired protons, so even is more stable than odd
+\[B_p=-a_p\frac{1}{A^\frac12}
+\qquad a_p=\begin{cases}
+0 & \text{even $N$ and odd $Z$ or vice versa}
+\\ \text{-12 MeV} & \text{even-even nuclei} \end{cases} \]
+Identical fermions need to have fully antisymmetric wave functions under particle exchange.
+
+semi-empirical mass formula for nuclear binding energy:
+\[B=a_v-a_sA^\frac23-a_c\frac{Z^2}{A^\frac13}
+-a_a\frac{(N-Z)^2}{A}-a_p\frac{1}{A^\frac12} \]
+
+binding energy per nucleon:
+\[\frac{B}{A}
+=a_v-a_s\frac{1}{A^\frac13}-a_c\frac{Z^2}{A^\frac43}
+-a_a\frac{(N-Z)^2}{A^2}-a_p\frac{1}{A^\frac32} \]
+
+\section{nuclear Fermi gas model}
+Because neutrons and protons are both spin 1/2 fermions, neutrons and protons separately each need to obey the Pauli Principle. The Fermi gas model assumes that neutrons and protons form tow independent systems of nucleons moving freely inside the nucleus and that there is no interaction between nucleons. As $n$ and $p$ are distinguishable, each energy lebel ahas a maximal occupancy of four nucleons.
+
+single nucleon energy eigenfunctions assuming a 3D infinite square well:
+\[\psi (x,y,z)=\qty(\frac{2}{a})^\frac23
+\sin(k_xx)\sin(k_yy)\sin(k_zz)\]
+
+allowed wave numbers in a 3D infinite square well:
+\[ k_x=\frac{n_x\pi}{a};\qquad k_x=\frac{n_y\pi}{a};\qquad
+k_x=\frac{n_z\pi}{a} \]
+
+The density of points in k-space is 1 lattice point per volume $\qty(\frac{\pi}{a})^3$. The lattic epoints belonging to the wave numbers between $k$ and $k+\dd k$ form one-eighth of a sphereical shell with radius $k$ and thickness $\dd k$, because only the positive octant is occupied with lattice points as $n_x,n_y,n_z>0$.
+
+volume of spherical shell:
+\[\frac18 4\pi k^2\ \dd k\]
+
+number of energy levels with wave numbers between $k$ and $k+\dd k$:
+\[\dd n(k) \approx \frac18
+\frac{4\pi k^2\ \dd k}{\qty(\frac{\pi}{a})^3} \]
+
+\[E=\frac{\hbar ^2 k^2}{2m} \qq{with} k^2=k_x^2+k_y^2+k_z^2
+\qq{\arr} k=\frac{\sqrt{2mE}}{\hbar}\]
+
+\[\dv{E}{k} = \frac{\hbar ^2k}{m} = \frac{\hbar ^2}{m}
+\frac{\sqrt{2mE}}{\hbar}
+\qq{\arr} \dd k = \frac{\dd E}{\hbar}\sqrt{\frac{m}{2E}} \]
+
+\[\therefore \dd n(E) =
+\frac{4\pi}{8}\frac{2mE}{\hbar ^2}\frac{\dd E}{\hbar}
+\sqrt{\frac{m}{2E}}\qty(\frac{a}{\pi})^3 \]
+
+density of states:
+\[\dv{n}{E} = \frac{m^\frac32 a^3}{\sqrt 2 \pi ^2 \hbar ^3}
+\sqrt E \]
+
+For other more realistic potentials such as a 3D finite well, the constants will be different by $\dv{n}{E} \propto \sqrt E$ remains the case.
+
+As energy levels for nuclei lie in the MeV range, thermal excitation is completley negligible and all energy levels are fully occupied up to a maximal energy called the Fermi energy.
+
+total number of occupied energy levels:
+\[n_\text{tot} = \int _0^{n_\text{tot}} \dd n(E)
+= \frac{m^\frac32 a^3}{\sqrt 2 \pi ^2 \hbar ^3}
+\int _0^{E_F} \sqrt E \ \dd E
+= \frac{m^\frac32 a^3}{\sqrt 2 \pi ^2 \hbar ^3}
+\frac23 E_F^{3/2} \]
+
+In order to calculate the Fermi energy, we neglect the Coulomb repulsion between the protons and consider a nucleus with $N=Z$. This implies that the Fermi energies for the neutrons and protons are the same. for this case, $n_\text{tot} = A/4$ as each energy level is occupited by four nucleons.
+
+\[\frac{A}{4}
+= \frac{m^\frac32 a^3}{\sqrt 2 \pi ^2 \hbar ^3}
+\frac23 E_F^\frac32 \]
+
+Fermi energy:
+\begin{equation*}
+\begin{aligned}
+E_F &= \left(\frac{A}{4}
+\frac{\sqrt 2 \pi ^2\hbar ^3}{m^{3/2}a^3}\frac32
+\right)^{3/2}
+\\&=\frac{\hbar ^2}{2m}\qty(\frac{3\pi ^2 A}{2a^3})^{2/3}
+\end{aligned}
+\end{equation*}
+
+approximate numerical value for Fermi energy:
+\n nucleon number density: $\frac{A}{a^3}\approx 0.17
+\text{ fm}^{-3}$
+$\hbar c \approx 200 \text{ MeV}$
+\n assuming $m_n\approx m_p\approx 939\text{ MeV}/c^2$
+\begin{equation*}
+\begin{aligned}
+E_F&=
+\frac{\hbar ^2c^2}{2mc^2}\qty(\frac{3\pi ^2 A}{2a^3})^{2/3}
+\\&\approx 39 \text{ MeV}
+\end{aligned}
+\end{equation*}
+
+The difference between the Fermi energy and the top of the finite well is equal to the neutron or proton separation energy, which approximately equals the average energy per nucleon of $\frac{B}{A}\approx 8\text{ MeV}$. So the depth of a finite well would be $\approx 47\text{ MeV}$. Comparing $E_F\approx 39\text{ MeV}$ to the well depth shows that nucei are rather weakly bound systems.
+
+For heavy nuclei, we can no longer ignore the Coulomb repulsion, and the protons will on average be less well bound than the neutrons, so the finite well will be raised for protons than neutrons. Energy levels are fiulled to the same height for stable nuclei, implying that $E_{F_n} >E_{F_p}$ and $N>Z$ for stable heavy nuclei.
+
+If the two wells are filled to different heights, then it will be energetically favourable for either a neutron to decay into a proton or vice versa.
+
+\section{energetics of beta decay}
+\subsection{energy release}
+
+\deff{stability line}
+considering the $Z-N$ plane, then \emph{stable} nuclei only lie in a narrow band that is along $N\approx Z$ for light nuclei and curves towards a greater neutron fraction for heavier nuclei ($N/A \approx 0.6$ for the heaviest stable nuclei).
+
+Nuclei with a finite lifetime are \emph{radioactive} and decay towards the stability line where they live forever.
+
+Both stable and radioactive nuclei are \emph{bound} in that the neutron and proton separation energies $S_n>0$ and $S_p>0$, meaning that energy is requiree to remove a single nucleon from the nucleus.
+
+\deff{neutron and proton drip lines}
+the lines where $S_n=0$ and $S_p=0$ respectively -- nuclei beyond these drip lines can not exist -- the drip lines delineate the region of bound nuclei
+
+\deff{decay} $A\rightarrow B+C+\ldots$ \n
+Energy conservation requires that the toal mass of the decay particles be less than the mass of the original particle, the difference being the kinetic energy of the decay particles.
+\deff{energy release of a decay}
+$\displaystyle Q=\qty(M_i-\sum _fM_f)c^2\qquad (>0)$ \n
+$M_i$ is the mass of the initial decay particle and the sum is over all final state decay particles.
+
+Total relatvistic energy and momentum are conserved, but mass must decrease for a decay to proceed, and kinetic energy increases in the rest oframe of the decaying particle.
+
+\subsection{decay law}
+
+rate of change in the number of nuclei $N$:
+\[\dv{N}{t}=-\lambda N\]
+
+decay law for number of parent nuclei remaining given an initial number:
+\[ N(t)=N_0e^{-\lambda t} \]
+
+activity:
+\[ A=-\dv{N}{t} \qq{with}
+A(t)=\lambda\ N(t)=\lambda N_0e^{-\lambda t}
+=A_0e^{-\lambda t}\]
+
+\subsection{energietics of $\beta$ decay}
+
+\subsubsection{$\beta ^-$ decay}
+\[ \ce{_Z^AX -> _{Z+1}^AY +e^- +\bar{\nu}_e}
+\qq{nucleon level:} \ce{n -> p +e^- +\bar{\nu}_e} \]
+$e^-$ leaves nucleus at relativistic speeds. $\bar{\nu}_e$ is the anti-electron neutrino. This decay can happend if teh sum of the daughter nucleus and electron masses is less than the parent nucleus mass.
+
+energy release for $\beta ^-$ decay:
+\begin{equation*}
+\begin{aligned}
+Q&=(m_\text{nucl}(A,Z)
+-m_\text{nucl}(A,Z+1) - m_e)\ c^2
+\\&=(m_\text{nucl}(A,Z)
+-m_\text{nucl}(A,Z+1))\ c^2
+\end{aligned}
+\end{equation*}
+\subsubsection{$\beta ^+$ decay}
+
+For nuclei with an excess of protons compared with the stability line, both electron ecapture and $\beta ^+$ decay can proceed if the energy release is sufficiently large.
+\[ \ce{_Z^AX -> _{Z-1}^AY +e^+ +\nu_e}
+\qq{nucleon level:} \ce{p -> n +e^+ +\nu_e} \]
+The positron is the antiparticle of the electron and has the same mass $m_e$.
+
+energy release for $\beta ^-$ decay:
+\begin{equation*}
+\begin{aligned}
+Q&=(m_\text{nucl}(A,Z)
+-m_\text{nucl}(A,Z-1) - m_e)\ c^2
+\\&=(m_\text{nucl}(A,Z)
++Zm_e-Zm_e
+-m_\text{nucl}(A,Z-1) - m_e)\ c^2
+\\&=(m_\text{atom} (A,Z)-Zm_e
+-m_\text{nucl}(A,Z-1)-m_e)\ c^2
+\\&=(m_\text{atom} (A,Z)-m_e
+-(Z-1)m_e - m_\text{nucl}(A,Z-1)-m_e)\ c^2
+\\&=(m_\text{atom} (A,Z)-m_e
+-(m_\text{atom} (A,Z-1)-m_e)\ c^2
+\\&=(m_\text{atom} (A,Z)
+-(m_\text{atom} (A,Z-1)-2m_e)\ c^2
+\end{aligned}
+\end{equation*}
+The mass of the parent atom needs to be $s2m_ec^2=1.022\text{ MeV}$ greater than the mass of the daughter atom for $\beta ^+$ decay to proceed.
+
+\subsubsection{electron capture}
+
+\[\ce{_Z^AX +e^- -> _{Z-1}^AY +\nu _e}
+\qq{nucleon level:}
+\ce{p + e^- -> n + \nu _e} \]
+
+The electron is captured from the electron shell, typically the K-shell (with angular momentum quantum number $l=0$), ads the overlap of the wave function with the nucleus is greatest.
+
+energy release for electron capture:
+\begin{equation*}
+\begin{aligned}
+Q&=(m_\text{nucl}(A,Z)
++m_e -m_\text{nucl}(A,Z-1))\ c^2-\varepsilon
+\\&=(m_\text{atom}(A,Z)
+-m_\text{atom}(A,Z-1))\ c^2-\varepsilon
+\end{aligned}
+\end{equation*}
+
+\subsection{mass parabolas}
+liquid drop model atomic mass:
+\begin{equation*}
+\begin{split}
+m_\text{atom} = &Nm_n+Z(m_p+m_e)
+\\ &-\frac{1}{c^2}
+\left(
+a_vA-a_sA^{\frac23}-a_c\frac{Z^2}{A^{\frac13}}
+-a_a\frac{(N-Z)^2}{A}
+-a_p\frac{1}{A^{\frac13}}
+\right)
+\end{split}
+\end{equation*}
+
+rewrite using $Z$ only:
+\begin{equation*}
+\begin{split}
+m_\text{atom}(Z) = &(A-Z)m_n+Z(m_p+m_e)
+\\ &-\frac{1}{c^2}
+\left(
+a_vA-a_sA^{\frac23}-a_c\frac{Z^2}{A^{\frac13}}
+-a_a\frac{(A-2Z)^2}{A}
+-a_p\frac{1}{A^{\frac13}}
+\right)
+\end{split}
+\end{equation*}
+
+\[\therefore
+m_\text{atom}(Z)=\alpha Z^2+\beta Z+\gamma\]
+
+For odd $A$, single parabola with atomic masses at discrete points. For odd $A$ with a single parabola, only the nucleus corresponding to the lowest atomic mass is stable. 
+
+For even $A$, two parabolas separated by twice the pairing term. either one two or three nuclei can be stable, depending on their location along the parabolas.
+
+\section{$\alpha$ decay and fission}
+
+$\alpha$ occurs only in heavy nuclei and consists of the emission of a Helium nucleus.
+\[\ce{
+^A_ZX -> ^{A-4}_{Z-2}Y + \alpha}
+\qq{where} \ce{\alpha = ^4_2He}\]
+
+It splits into two lighter fragments. $\alpha$ decay can only occur where teh $\frac{B}{A}$ curve slopes downwards with increasing mass number $A$. For heavy nuclei, the daughter nucleus iwthsmaller $A$ a greater $\frac{B}{A}$ than the parent nucleus.
+
+energy release for $\alpha$ decay:
+\begin{equation*}
+\begin{aligned}
+Q&=(m_\text{nucl}(A,Z)
+-m_\text{nucl}(A-4,Z-2)-m(\alpha))\ c^2
+\\&=(m_\text{atom}(A,Z)
+-m_\text{atom}(A-4,Z-2)-m_\text{atom}(4,2))\ c^2
+\\&=B(A-4,Z-2)+B(4,2)-B(A,Z)
+\\&=B(A-4,Z-2)+28.3\text{ MeV}-B(A,Z)
+\end{aligned}
+\end{equation*}
+
+Empirically, the liftime $\tau$ of $\alpha$ decay is extremely dependent on the energy release $Q$, which comes from the fact that it is a quantum tunneling phenomenon.
+
+Geiger-Nutall relationship between lifetime and energy release:
+\[\log _{10}\tau=a+b\ Z_d\ Q^{-\frac12}\]
+
+Neglecting the recoil of the daughter nucleus, the energy release $Q$ (the total kinetic energy of the decay fragments) aproximately equals the kinetic energy only of the $\alpha $ particle. due to momentum conservation, the speed will be inversely prportional to the masses in the rest frame of the initial nucleus.
+
+Coulomb potential energy:
+\[V_C(r)=\frac{2Z_d e^2}{4\pi \eps r}\]
+
+The $\alpha$ particle needs to tunnel through a region with $Q<V_C$ in order to escape the nucleus. The tunneling distance is appromately from the radius $R$ to the radius $r_c$ for which $Q=V_C(r_c)$, with $R<r_c$.
+
+\deff{fine structure constant}
+$\displaystyle
+\alpha =\frac{e^2}{4\pi\eps\hbar c} \approx \frac{1}{137} $
+
+The $\alpha$ particle wave function decays exponentially in regions where the potential energy $V_C$ is greater than the energy $Q$ of the $\alpha$ particle.
+
+\deff{transmssion}
+the modulus sqauare of the ratio of the wave funciton amplitudes outside of the nucleus beyond the tunneling region and inside the nucleus. $T=e^{-G}$
+
+\deff{Gamow factor}
+$G(r_C,R,Q)$ depends on the tunneling distance as defined by $r_c$ and $R$ and the energy release $Q$.
+
+Calculate $G$ by modelling the Coulomb barrrier as a succession of thin square barriers of varying height. For a single square barrier of height $V$ and width $\Delta x$,
+\[T\approx e^{-2\kappa \Delta x}
+\qq{where} \kappa = \frac{\sqrt{2m(V-E)}}{\hbar}
+\qq{and} V<E\]
+
+for the Coulomb barrier in $\alpha$ decay,
+\[2\kappa\Delta x
+=\frac{2\sqrt{2m}}{\hbar}
+\int _R^{r_c} \sqrt{V(r) -Q}\ \dd r\]
+
+\begin{equation*}
+\begin{aligned}
+V_C(r)&=\frac{2Z_d\alpha\hbar c}{r}
+=\frac{2Z_d\alpha\hbar c}{r_c}\frac{r_c}{r}
+\\&=V_C(r_c)\frac{r_c}{r}
+\\&\approx Q\frac{r_c}{r}
+\qquad\text{(neglecting recoil of daughter nucleus)}
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+G&=\frac{2\sqrt{2mQ}}{\hbar}
+\int _R^{r_c}\sqrt{\frac{r_c}{r} -1}\ \dd r
+\qquad r=r_c\cos ^2\theta
+\\&=\frac{4Z_d\alpha c\sqrt{2m}}{\sqrt Q}
+\left(
+\cos^{-1}\pqty{\sqrt{\frac{R}{r_c}}}
+-\sqrt{\frac{R}{r_c}\pqty{1-\frac{R}{r_c}}}
+\right)
+\end{aligned}
+\end{equation*}
+
+\deff{decay constant} $\lambda$
+probability $w$ of finding an alpha particle in the nucleus times the collisiouns per unit time with the Coulomb barrier times the transmission
+
+\[\lambda = w\frac{v_\alpha}{2R}e^{-G}\]
+
+\subsection{induced fission}
+
+\deff{spontaneous fission}
+the splitting of a nucleus into two lighter nuclei (fission fragments) of similar mass numbers
+
+Fission leadxs to the emission of a small number of \emph{prompt neutrons} that are emitted almost instantaneously with high kinetic energy.
+
+\deff{induced fission}
+the fission is inititated by a neutron that is captured by the nucleus.
+
+Directly after a neutron is captured by a nucleus $(A,Z)$ to form a compound nucleus $(A+1,Z)$, the compound nucleus $(A+1,Z)$ is in an excited state. The excitation energy $\varepsilon$ equals the neutron sepration energy $S_n$ of the compound nucleus. Nuclei with even neutron number $N$ have a greater neutron separation eerngy $S_n$ than those with odd $N$. Thus, if the initial nucleus has odd $N$ so that the compound nucleus has even $N$, the excitation energy $\varepsilon =s_n$ is in general sufficient for fission (\emph{fissile} materials). If the initialnucleus has even $N$ so that the compound nucleus has odd $N$, the excitation energy $\varepsilon = s_n$ is in general not sufficient for fission unless the neutron carries additional kinetic energy with it that increases the excitation energy.
+
+\subsection{nuclear power generation}
+
+ Prompt neutrons in induced fission make a possible \emph{chain reaction}.
+
+For the simplest configuration of a sphere of pure
+$\ce{^{235}_{92}U}$ (a fission bomb), we define $q$ as the probability that a newly created neutron will induce fission. $q<1$ due to losses such as neturon escape, or for a nuclear reactor being captured by non-fissile nuclei.We assume that each fission event leads to the emission of $\nu$ prompt neutrons, and that the timescale between successive fission events is $\tau$.
+
+With these assumptions each neewly created neutron will on average lead to $\nu q-1$ additional neutrons in the time $\tau$, as one of the neutrons is used up to induce the next fission event.
+
+change in the neutron number in a time interval:
+\[\dd n=n(t+\dd t)
+-n(t) = (\nu q -1)\ n(t)\frac{\dd t}{\tau} \]
+
+\begin{equation*}
+\begin{aligned}
+\int _{n(0)}^{n(t)}\frac{\dd n}{n}
+&= \int _0^t\frac{\nu q-1}{\tau} \dd t
+\\ \ln \pqty{\frac{n(t)}{n(0)}}&=\frac{\nu q-1}{\tau}t
+\end{aligned}
+\end{equation*}
+
+\[n(t) = n(0)\ e^{\frac{\nu q -1}{\tau}t}\]
+
+\emph{Supercritical} is when $\nu q>1$, and $\emph{subcritical}$ is when $\nu q<1$.
+
+Fission bombs have $\nu q>1$ and $\tau \approx 10^{-8}\text{ s}$. In a nuclear reactor, $\tau \approx 13\text{ s}$.
+
+Fuel rods are often enriched to 2-3\% of $\ce{^{235}_{92} U}$ and the rest non-fissile $\ce{^{238}_{92}U}$.
+
+The prompt neutrons released during fission have high kinetic energy and need to be slowed down to induce further fission events, because of the cross section for induced fission in the fissile Uranium is larger for thermal neutrons than for fst neutrons, and the cross section for neutron capture of non-fissile Uranium is much smaller for thermal neutrons than fsat neutrons, whose reaction is
+$\ce{n + ^{238}_{92}U -> ^{239}_{92}U + \gamma}$
+whereas thermal neutrons tend to induce fission in $\ce{^{235}_{92}U}$.
+
+Moderators like water and heavy water $\ce{D2O}$ slow down the neutrons out of the fuel rods and diffuse them back. Deuterium has a lower neutron caputre cross section than hydrogen, so that the fuel rods do not need to be enriched in $\ce{^{235}_{92}U}$ if heavy water is used.
+
+Control rods are made of material with a very high neutron capture cross section to regulate neutron flux.
+
+\subsection{nuclear fusion}
+
+\deff{nuclear fusion}
+the process by which two light nuclei produce a compound heavier nucleus (only for light nuclei because of the $\frac{B}{A}$ curve)
+
+\emph{pp cycle}
+\begin{equation*}
+\begin{aligned}
+\ce{
+p + p &-> ^2_1d + e^+ +\nu _e
+\\ p + d &-> ^3_2He + \gamma
+\\ ^3_2He + ^3_2He &-> ^4_2He + 2p
+}
+\end{aligned}
+\end{equation*}
+
+\emph{pp cycle II}
+\begin{equation*}
+\begin{aligned}
+\ce{
+p + p &-> ^2_1d + e^+ +\nu _e
+\\ p + d &-> ^3_2He + \gamma
+\\ ^3_2He + ^4_2He &-> ^7_4Be + \gamma
+\\ e^- + ^7_4Be &-> ^7_3Li + \nu _e
+\\ p + ^7_3Li &-> ^4_2He + ^4_2He
+}
+\end{aligned}
+\end{equation*}
+
+\section{the shell model of the nucleus}
+\subsection{observational evidence}
+There are deviations from the liquid drop model.
+Nuclei with neutron or proton numbers close to 2,3,20,28,50,82, and 126 are particularly stable.
+
+Nuclei with magic neutron proton number have many more stable isotopes and isotones.
+
+The first excited state in magic nuclei lies particularly high above the ground state.
+
+Nuclei with magic neutron or proton number have particularly low neutron capture cross-sections.
+
+\subsection{central potential calculations}
+
+\deff{mean field approximation}
+each nucleon sees a potential generated by the other nucleons
+
+single nucleon waqvefunctions' form:
+\[\psi _{nlm}(r,\theta,\phi) = R_{nl}(r)
+\ Y_{lm}(\theta,\phi)\]
+
+Assuming a Woods-Saxon potential energy, once can find the solutions numerically.
+
+Eenrgy levels are degenerate in $m$, but not dgenerate in $n$ and $l$.
+
+Filling the enregy levels with nucleons, for each value of $l$, the magnetic quantum number $m$ runs from $-l$ to $l$ in integer steps, giving $2l+1R$ states in total.
+Given that echa nucleon also has spin $s=1/2$ so that $m_s$ can take the two values $\pm 1/2$, there are $2(2l+1)$ distinct combinations of quantum numbers. Thus, each energy level $(nl$ can be filled with $2(2l+1)$ neutrons and $2(2l+1)$ protons without violating the Pauli Principle.
+
+\subsection{including the spin-orbit coupling corrections}
+
+for spin angular momentum, the magnetic moment:
+\[\vec \mu _s = g_s\mu _B\vec s\]
+
+$g_s=2$ is the Lande factor and $\mu _B=-\frac{e}{2m_e}$.
+
+For orbital angular momentum, the magnetic moment:
+\[\vec \mu _l = g_l\mu _B\vec l
+\qquad g_l=1\]
+
+\deff{spin-orbital coupling}
+small interaction energy between the two magnetic moments
+\[V\propto \vec \mu _s \cdot \vec \mu _l
+\propto \vec s\cdot \vec l\]
+
+The electromagnetic interaction is very small compared to that of the nuclear force contribution.
+
+potential energy seen by a nucleon due to nuclear force:
+\[V=V_\text{central}(r) +f(r)\vec l \cdot \vec s\]
+
+The singlet and triplet states form the \emph{coupled basis}.
+
+total angular momentum operator:
+\[\hat{\vec{j}} = \hat{\vec{l}} +\hat{\vec{s}}\]
+\[\hat j^2 = \hat l^2 +\hat s^2 + 2\hat{\vec{l}}
+\cdot \hat{\vec{s}}
+\qq{\arr}
+\hat{\vec{l}}\cdot \hat{\vec{s}}=\tfrac12
+\pqty{\hat j^2-\hat l^2 - \hat s^2} \]
+
+first-order enegy correction:
+\[E_n^{(1)}
+=\mel{n^{(0)}}{\hat V}{n^{(0)}} \]
+
+energy correction due to spin-orbit coupling of the nuclear interaction:
+\begin{equation*}
+\begin{aligned}
+E^{(1)}
+&=\mel{\psi ^{(0)}}
+{f(r)\ \hat{\vec{l}} \cdot \hat{\vec{s}}}
+{\psi ^{(0)}}
+\\&=\mel{\psi ^{(0)}}
+{f(r)\tfrac12 \pqty{\hat j^2 - \hat l^2-\hat s^2}}
+{\psi ^{(0)}}
+\\&=\frac{\hbar ^2}{2}
+(j(j+1)-l(l+1) - s(s+1))\ \expval{f(r)}
+\end{aligned}
+\end{equation*}
+
+Coupling two spins with quantum numbers $s_1$ and $s_2$, the eigenkets of the Hamiltonian will have any total spin quantum number between $\abs{s_1-s_2}$ and $s_1+s_2$ in integer steps.
+
+For a single nucleon with $s=1/2$, there are thus two possible values of $j$ for a given $l$:
+\[j=l-\tfrac12 \qq{or} j=l+\tfrac12\]
+\begin{equation*}
+\begin{aligned}
+E_{l+1/2}^{(1)}
+&=\frac{\hbar^2}{2}
+\left((l+\tfrac12)(l+\tfrac32)
+-l(l+1)-\tfrac12 \tfrac32 \right) \expval{f(r)}
+\\&= \frac{\hbar^2}{2}
+\pqty{l^2+2l+\tfrac34 -l^2-l-\tfrac34}
+\expval{f(r)}
+\\&=\frac{\hbar ^2}{2}l\ \expval{f(r)}
+\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+\begin{aligned}
+E_{l-1/2}^{(1)}
+&=\frac{\hbar^2}{2}
+\left((l-\tfrac12)(l+\tfrac32)
+-l(l+1)-\tfrac12 \tfrac32 \right) \expval{f(r)}
+\\&= \frac{\hbar^2}{2}
+\pqty{l^2-\tfrac14 -l^2-l-\tfrac34}
+\expval{f(r)}
+\\&=\frac{\hbar ^2}{2}(-l-1)\ \expval{f(r)}
+\end{aligned}
+\end{equation*}
+
+\[\therefore
+\Delta E = E_{l+1/2}^{(1)}-E_{l+1/2}^{(1)}
+=\frac{\hbar ^2}{2}(2l+1)\expval{f(r)}\]
+
+From experiment $\expval{f(r)}<0$.
+
+Each energy level is now denoted by $nl_j$.
+
+One difference to the pure central potential is that magic numbers do not anymore come about every time an energy level is filed, but rather only when a level is filled for which the gap to the next level is particularly larege.
+
+Another difference is that the values of $m_s$ and $m_l$ are not anymore definite.
+
+\subsection{nucleon configurations, spin and parity}
+The notatoin for the nconfiguratoin of nucleons for a given nucleus uses $(nl_j)^k$ where the index $k$ is the occupancy.
+
+\[\hat P\ Y_{lm} (\theta , \phi)
+=(-1)^l\ Y_{lm}(\theta ,\phi) \]
+\end{document}

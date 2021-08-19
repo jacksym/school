@@ -1,0 +1,17 @@
+import numpy as np
+import matplotlib.pytplot as plt
+import pandas as pd
+
+df = pd.read_csv('tc_plot.csv')
+times = df['Time (s)']
+times = times - times[0]
+temps = df['Temperature (K)']
+
+plt.grid(True)
+plt.plot(times, temps)
+plt.xlabel = ('Time (s)')
+plt.ylabel = ('Temperature (K)')
+plt.title = ('Heater Performance')
+
+
+plt.show()

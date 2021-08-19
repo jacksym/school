@@ -1,0 +1,409 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2019/dev/Debian) (preloaded format=pdflatex 2020.8.25)  28 SEP 2020 12:59
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**hello.tex
+(./hello.tex
+LaTeX2e <2018-12-01>
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/latex/savetrees/savetrees.sty
+Package: savetrees 2016/04/13 v2.4 Pack as much text as possible onto each page
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks14
+\XKV@tempa@toks=\toks15
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))
+\XKV@depth=\count88
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+\everypar=\toks16
+)
+(/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
+\ttl@box=\box27
+\beforetitleunit=\skip43
+\aftertitleunit=\skip44
+\ttl@plus=\dimen103
+\ttl@minus=\dimen104
+\ttl@toksa=\toks17
+\titlewidth=\dimen105
+\titlewidthlast=\dimen106
+\titlewidthfirst=\dimen107
+)
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2018/04/16 v5.8 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count89
+\Gm@cntv=\count90
+\c@Gm@tempcnt=\count91
+\Gm@bindingoffset=\dimen108
+\Gm@wd@mp=\dimen109
+\Gm@odd@mp=\dimen110
+\Gm@even@mp=\dimen111
+\Gm@layoutwidth=\dimen112
+\Gm@layoutheight=\dimen113
+\Gm@layouthoffset=\dimen114
+\Gm@layoutvoffset=\dimen115
+\Gm@dimlist=\toks18
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count92
+\calc@Bcount=\count93
+\calc@Adimen=\dimen116
+\calc@Bdimen=\dimen117
+\calc@Askip=\skip45
+\calc@Bskip=\skip46
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count94
+\calc@Cskip=\skip47
+)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2019/02/28 v2.7b Micro-typographical refinements (RS)
+\MT@toks=\toks19
+\MT@count=\count95
+LaTeX Info: Redefining \textls on input line 790.
+\MT@outer@kern=\dimen118
+LaTeX Info: Redefining \textmicrotypecontext on input line 1336.
+\MT@listname@count=\count96
+
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2019/02/28 v2.7b Definitions specific to pdftex (RS)
+
+LaTeX Info: Redefining \lsstyle on input line 914.
+LaTeX Info: Redefining \lslig on input line 914.
+\MT@outer@space=\skip48
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2019/02/28 v2.7b microtype main configuration file (RS)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen119
+\Gin@req@width=\dimen120
+)
+
+LaTeX Warning: Unused global option(s):
+    [8pt].
+
+(./hello.aux)
+\openout1 = `hello.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: includefoot 
+* h-part:(L,W,R)=(42.67912pt, 512.14963pt, 42.67912pt)
+* v-part:(T,H,B)=(42.67912pt, 759.6886pt, 42.67912pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=512.14963pt
+* \textheight=751.07751pt
+* \oddsidemargin=-29.59087pt
+* \evensidemargin=-29.59087pt
+* \topmargin=-66.59087pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=8.61108pt
+* \marginparwidth=57.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Info: Redefining \microtypecontext on input line 12.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 0, shrink: 50, step: 1, non-selected.
+Package microtype Info: Using default expansion set `basictext'.
+Package microtype Info: Tracking enabled.
+Package microtype Info: Using tracking set `all'.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+)
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count97
+\scratchdimen=\dimen121
+\scratchbox=\box28
+\nofMPsegments=\count98
+\nofMParguments=\count99
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count100
+\MPscratchDim=\dimen122
+\MPnumerator=\count101
+\makeMPintoPDFobject=\count102
+\everyMPtoPDFconversion=\toks21
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 14.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 14.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+<./images/LiF1.png, id=15, 462.528pt x 346.896pt>
+File: ./images/LiF1.png Graphic file (type png)
+<use ./images/LiF1.png>
+Package pdftex.def Info: ./images/LiF1.png  used on input line 235.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+<./images/ve1.png, id=17, 462.528pt x 346.896pt>
+File: ./images/ve1.png Graphic file (type png)
+<use ./images/ve1.png>
+Package pdftex.def Info: ./images/ve1.png  used on input line 239.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./images/ve2.png, id=18, 462.528pt x 346.896pt>
+File: ./images/ve2.png Graphic file (type png)
+<use ./images/ve2.png>
+Package pdftex.def Info: ./images/ve2.png  used on input line 243.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./images/ve3.png, id=19, 462.528pt x 346.896pt>
+File: ./images/ve3.png Graphic file (type png)
+<use ./images/ve3.png>
+Package pdftex.def Info: ./images/ve3.png  used on input line 247.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./images/ve4.png, id=20, 462.528pt x 346.896pt>
+File: ./images/ve4.png Graphic file (type png)
+<use ./images/ve4.png>
+Package pdftex.def Info: ./images/ve4.png  used on input line 251.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./images/uks1.png, id=21, 462.528pt x 346.896pt>
+File: ./images/uks1.png Graphic file (type png)
+<use ./images/uks1.png>
+Package pdftex.def Info: ./images/uks1.png  used on input line 255.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./images/uks2.png, id=22, 462.528pt x 346.896pt>
+File: ./images/uks2.png Graphic file (type png)
+<use ./images/uks2.png>
+Package pdftex.def Info: ./images/uks2.png  used on input line 259.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./images/ukp1.png, id=23, 462.528pt x 346.896pt>
+File: ./images/ukp1.png Graphic file (type png)
+<use ./images/ukp1.png>
+Package pdftex.def Info: ./images/ukp1.png  used on input line 263.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./images/ukp2.png, id=24, 462.528pt x 346.896pt>
+File: ./images/ukp2.png Graphic file (type png)
+<use ./images/ukp2.png>
+Package pdftex.def Info: ./images/ukp2.png  used on input line 267.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./images/fFeZn.png, id=25, 462.528pt x 346.896pt>
+File: ./images/fFeZn.png Graphic file (type png)
+<use ./images/fFeZn.png>
+Package pdftex.def Info: ./images/fFeZn.png  used on input line 271.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./images/fbronze.png, id=26, 462.528pt x 346.896pt>
+File: ./images/fbronze.png Graphic file (type png)
+<use ./images/fbronze.png>
+Package pdftex.def Info: ./images/fbronze.png  used on input line 275.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./images/fssteel.png, id=27, 462.528pt x 346.896pt>
+File: ./images/fssteel.png Graphic file (type png)
+<use ./images/fssteel.png>
+Package pdftex.def Info: ./images/fssteel.png  used on input line 279.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./images/fCuPb.png, id=28, 462.528pt x 346.896pt>
+File: ./images/fCuPb.png Graphic file (type png)
+<use ./images/fCuPb.png>
+Package pdftex.def Info: ./images/fCuPb.png  used on input line 283.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./images/f20p.png, id=29, 462.528pt x 346.896pt>
+File: ./images/f20p.png Graphic file (type png)
+<use ./images/f20p.png>
+Package pdftex.def Info: ./images/f20p.png  used on input line 287.
+(pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[4 <./images/LiF1.png>] [5 <./images/ve1.png> <./images/ve2.png>] [6 <./images/
+ve3.png> <./images/ve4.png>] [7 <./images/uks1.png> <./images/uks2.png>]
+[8 <./images/ukp1.png> <./images/ukp2.png>] [9 <./images/fFeZn.png> <./images/f
+bronze.png>] [10 <./images/fssteel.png> <./images/fCuPb.png>] [11 <./images/f20
+p.png>] (./hello.aux) ) 
+Here is how much of TeX's memory you used:
+ 4362 strings out of 492615
+ 70517 string characters out of 6131390
+ 187418 words of memory out of 5000000
+ 8204 multiletter control sequences out of 15000+600000
+ 8779 words of font info for 36 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 43i,6n,56p,231b,301s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.
+pfb>
+Output written on hello.pdf (11 pages, 478220 bytes).
+PDF statistics:
+ 81 PDF objects out of 1000 (max. 8388607)
+ 36 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 14919 words of extra memory for PDF output out of 17280 (max. 10000000)
+
