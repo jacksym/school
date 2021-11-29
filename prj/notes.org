@@ -1,0 +1,141 @@
+* mtng2
+
+- region of bright -- long tail -- constant brightness -- distribution
+- reported uncertainties right order?
+- modification 
+- certain distributions with additional parameters
+- how does it change with the magnitude of the source
+- find something like the median scatter/how the distribution goes whether the larger deviations ovvur more or less frequently than a normal distribution would suggest
+- two ways of looking at photometric measurements: (symmetric?)
+  - times series of magnitude measurements
+  - star flux's measurements
+  - skew? -- which more closely resembles the symmetry in a normal distribution
+- sytematically?
+- using parametric models -- how many paramaters?
+- null hypothesis: photometric data -- matches normal distribution
+- different distribution?
+- data indication --> want a distribution with larger probabilities in the tail?
+  - detect small deviation -- function of measured data
+  - normal distribution --> very low probability of large deviation from center value
+  - things that pop up in the data that contradict the assumption that though you do independent measurements, they follow a Gaussian distribution
+  - there is one distribution that gives everything between normal and Gaussian distribution: Student T distribution
+- the idea is rather than looking at the origin you look at the tails
+- bending angle is twice the Schwarzchild radius divided by the impact parameter (for weak gravitational fields)
+
+
+* mtng3
+
+- divide by error bar -- match unit gaussian?
+  - distribution more tail-heavy?
+- symmetry
+  - how does distribution look like if consider uncertainty in measured magnitude
+  - flux's vs magnitude?
+- bright star vs faint star
+  - corrections to errorbars
+- correlations? ogle data vs moa data
+- cumulative distributions
+- what are the characterisics of a gaussian distribution/student t-dist
+- average the flux/magnitude for individual seasons rather than all
+  - issue with calibration (within a given year, the data offsets)
+    
+* mtng4
+
+- look at the distribution:
+  - take the measured data point - mean value / error bar
+  - sort the deviations --> correlative plotj
+
+
+* mtng5
+ps://en.wikipedia.org/wiki/Kolmogorov–Smirnov_test
+
+- you have the distribution: look at the integral over the residual distribution
+- distribution plot:
+  - take the measured magnitude
+  - subtract average
+  - divide by the quoted errorbar
+  - take the absolute value of that
+- cumulative distribution function
+- derivative of -- one is the logarithm of the other
+- roughly the errorbar in one is absolutely the errorbar in the other
+  
+- how does the cumulative distriution look for a standard gaussian/(and others)
+
+* mtng6
+
+Do you see any discrepencies between the standard dice Gaussian with respect if you take the original errorbars. And you do a KS test.
+    - fluxes and magnitude
+    - studet t-dist
+    - fit additional parameter
+    - modify the Gaussian distribution
+      - to think that the reported errorbar, but the size is not right
+    - either scale up the errorbar or add something to it
+      - make a new errorbar that is the old one squared + the correction term 
+	- (accounts for systematic error)
+    - stars with various brightness
+    - whether the correction factors can be used uniformly across magnitudes
+    - paramaterize the factors as a function of magnitude
+    - all of the statistics of the data analysis assume there is a certain probabliity for a data point to deviate
+    - 
+
+
+* todo
+
+- qq plot
+- unit freq dist
+  - student t-dist fit
+  - other dists
+- ks test
+- p value
+- error bar corecting
+- meta analysis (for all events)
+- what is errorbar correcting?
+- script that splits seasons
+
+- D'Agostino-Pearson omnibus test
+- Shapiro-Wilk test
+- Anderson - Darling test
+
+
+- script that finds dimmest and brightest stars
+- flux!
+- student t-dist
+- symmetry
+
+
+- figure out all fields?
+- HJD time
+- convert from magnitude scale
+- basic statistics -- distributions
+
+- functional version of pl.py (rather than classes)
+- functions take axis, 
+- box plot on distributions
+- other models
+- student t-dist
+- redo entire thing with flux scales
+
+* plot logistics
+#+begin_src python org_switches
+array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+print(array[1:3])
+print(array[3:])
+#+end_src
+
+* fe & be
+** fe
+summon figures
+guess variable
+function that plots data, and models it
+function that plots const_mag distribution
+function that models distribution
+* pres
+time series photometry
+Anderson Darling:
+- weaknesses of KS
+student t-dist:
+- something wrong
+- additional parameter
+cauchy
+- gamma is reinvented sigma
+- no standard deviation
+- add sytemati error in quadrature

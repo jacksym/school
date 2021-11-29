@@ -1,0 +1,237 @@
+\documentclass[10pt]{article}
+
+
+\usepackage[margin = 0.6in, bottom=0.5in]{geometry}
+\usepackage{titlesec}
+\usepackage{times}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{hyperref}
+%\usepackage{changepage}
+\usepackage{titlesec}
+\usepackage[yyyymmdd]{datetime}\renewcommand{\dateseparator}{.}
+\usepackage{setspace}\spacing{0.9}
+
+\definecolor{fade}{gray}{0.4}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+}
+
+\titleformat{\section}{\Large\scshape\center}{}{0em}{}
+[\vspace{-1.3em}\titlerule\vspace{1.5em}]
+\titlespacing{\section}{0pt}{1.5em}{5pt}
+%[\titlerule]
+%\titlespacing{\section}{0pt}{3pt}{8pt}
+
+\titleformat{\subsection}{\center \large\scshape}{}{0em}{}
+\titlespacing{\section}{0pt}{1.5em}{5pt}
+
+\newcommand\place[3]{
+\par\noindent{\large\textbf{#1}} $\ \bullet\ $ {#2} $\ \bullet\ $
+\textcolor{fade}{#3}\newline}
+
+\newcommand{\point}[1]{\textcolor{black}{\textbf{#1}}}
+%% \newcommand\pitem[1]{\item{\point{#1}}\hspace{2em}}
+\newcommand\pitem[1]{\item{\point{#1}}}
+
+\newenvironment{exper}{
+\renewcommand{\labelitemi}{$\diamond$}
+\vspace{-1.5em}\begin{itemize}
+\setlength\itemsep{-0.2em}
+}{\end{itemize}}
+
+
+\title{Jack Symonds}
+\author{Jack Symonds}
+
+\hyphenpenalty=10000
+\begin{document}
+\pagestyle{empty}
+\vspace{-0.4in}
+\noindent \textbf{\huge \textsc{Jack Symonds}}
+
+\section{Summary}
+\vspace{-1em}
+\begin{multicols}{2}
+
+Recent university graduate from a top-tier physics program,
+%Soon to be college graduate with a degree from a top-tier physics program,
+with a passion for computer programming, visual arts, and music production.
+% Strong commitment and ability to teach myself anything quickly.
+Lifelong ability to teach myself anything quickly.
+%Seeking entry level position that will ideally satisfy my lifelong love of space
+%Ready and willing to 
+%eager to learn
+%I am constantly teaching myself new techniques and technologies.
+%fle
+Seeking entry level position that can take advantage of my general flexibility and my range of skills and interests.
+
+
+\columnbreak
+
+\begin{tabular}{|lr}
+\textsc{Date of Birth} & July 13, 1999
+\\ \textsc{Address:} & 6 Spectacle Ridge Road
+\\& South Kent, CT, 06785
+\\ \textsc{Dual Citizen:} & U.S.A \& U.K.
+\\ \textsc{email:} & jacksymonds.js@gmail.com
+\\ \textsc{LinkedIn:} & \urlstyle{rm}\url{www.linkedin.com/in/jacksymonds/}
+\end{tabular}
+
+%\begin{tabularx}{10cm}{@{\makebox[2em][r]}  X<{\dotfill} @{}r}
+%\textsc{Date of Birth} & July 13, 1999 \\
+%\textsc{Address:} & South Kent, CT, 06785 \\
+%\textsc{email:} & jacksymonds.js@gmail.com
+%\end{tabularx}
+
+\end{multicols}
+
+\section{Work Experience}
+\place{Lake Waramaug Country Club}{New Preston, CT}{Summer \& Fall 2021}
+\begin{exper}
+\item assistant tennis instructor and coach for all ages
+\item ran the Junior Development Program
+\item administrative scheduling and clay court maintenance
+\end{exper}
+
+%\vspace{1em}
+\place{Slooh}{Washington Depot, CT}{Summer 2019}
+%\begin{adjustwidth}{3em}{3em}
+%\hspace{2em} \href{https://slooh.com/landingPage}{Slooh} is a website that provides to users remote access to large telescopes in the Canary Islands and Chile. As an intern, I assisted in the writing of the educational content, and testing its effectivity with its targeted demographics.
+%I also assisted with account payment management and customer service, as well as administritive database handling.
+%I also assisted with administitive database management regarding account payment and customer service.
+%\end{adjustwidth}
+\begin{exper}
+% \item internship for \href{https://slooh.com/landingPage}{Slooh}, a website that provides users with remote access to large telescopes in the Canary Islands and Chile. 
+\item \href{https://slooh.com/landingPage}{website} that provides users with astronomical experience via remote access to large telescopes in the Canary Islands and Chile. 
+\item wrote educational content and tested its effectiveness with targeted demographics
+\item account payment management and customer service
+\item administrative database handling
+\end{exper}
+\place{Everyartist}{West Cornwall, CT}{Summer 2017, 2018}
+
+%\begin{adjustwidth}{3em}{3em}
+%%\hspace{2em} I interned with \href{http://www.brendanoconnell.com/every-artist}{Everyartist's} founder, Brendan O'Connell as a personal assisstant. I helped renovate and maintain his gallery and would paint with him in the late afternoons.
+%\end{adjustwidth}
+\begin{exper}
+% \item personal assistant duties to \href{http://www.brendanoconnell.com/every-artist}{Everyartist's} founder
+\item apprenticeship with \href{http://www.brendanoconnell.com/every-artist}{Everyartist's} founder
+ -- study of painting and drawing technique
+\item gallery renovation and maintenance; gallery tours
+% \item gallery tours
+\end{exper}
+
+
+\section{Education}
+% \place{St. Hildas \& St. Hughes School}{Manhattan, NY}{2002--2013}
+%\vspace{-1em}
+
+\place{University of St. Andrews}{Fife, Scotland}{2017--2021}
+\textbf{BSc Physics (Honours)}\newline
+\begin{exper}
+\item extensive lab experience: circuit-soldering, liquid helium cooling, spectroscopy, x-ray, and up to Class 3B laser experiments.
+% \item transferable physics skills including: science communication, research, and article writing
+\item physics-focused science communication, research, and article writing
+%\item programming experience: astronomical data science and a physics-focused computation course
+\item programming experience with astronomical data science and a full, computational physics course
+\item avid member of the ultimate frisbee, tennis, rugby, and surfing clubs
+\end{exper}
+
+\place{Middlesex School}{Concord, MA}{2013-2017}
+\begin{exper}
+\item honors graduate with ambitous academics: AP Physics C (Mechanics and E\&M), AP Calculus BC, AP Studio Art (college-level painting \& drawing), AP English, and advanced Mandarin Chinese
+\item numerous extracurriculars: varsity crew, tennis, cross country, wrestling, as well as membership in the Small Chorus.
+\end{exper}
+
+
+\newenvironment{brag}{
+\renewcommand{\labelitemi}{\color{black}$\diamond$}
+\vspace{-0.5em}
+\begin{itemize}\color{fade}
+\setlength\itemsep{0em}
+}{\end{itemize}}
+
+
+\section{Computer Skills}
+\vspace{-1.7em}
+\begin{multicols}{2}
+\subsection{Languages}
+\begin{brag}
+\pitem{Python}
+% is my tool for all things numeric. Naturally, my specialty is \texttt{matplotlib}, \texttt{numpy}, and \texttt{pandas}.
+\hspace{0.5em}
+(\texttt{matplotlib}, \texttt{numpy}, and \texttt{pandas})
+\pitem{C/C++}
+% self-taught with a particular interest in graphics programming, so I have also been teaching myself the workings of \point{OpenGL}.
+%% graphics programming with OpenGL
+\hspace{0.5em} (\& OpenGL)
+\pitem{Lisp}
+% self-taught for the sole purpose of having a fundamental understanding of \point{eLisp}, which I use every day.
+% self-taught and use \textbf{eLisp} every day
+%% familiar and use \textbf{eLisp} every day
+\pitem{Wolfram}
+% The Wolfram language was the programming language of choice for the Computational Physics module at school.
+%the programming language of choice for the Computational Physics module at university.
+%% \textit{Mathematica} but also \textit{Maple}, \textit{LabVIEW}, and \textit{Jupyter Notebooks}.
+\pitem{SQL}
+%Writing and checking SQL queries were a minute-by-minute task in many aspects of managing the Slooh back-end, including handling databases and debugging \point{PHP} scripts \textit{etc.}
+%lived and breathed SQL queries at Slooh to handle databases and debug \point{PHP} scripts
+%% wrote queries routinely at Slooh to handle databases and debug \textbf{PHP} scripts
+% to handle databases and debug \point{PHP} scripts
+
+\pitem{\LaTeX}
+% I have used \LaTeX exclusively for all of my document-creating tasks from notetaking to full reports, presentations (using \texttt{beamer}) and of course, this document.
+%% exclusive tool for all of my document-creating tasks from notetaking to full reports, presentations (using \texttt{beamer}) and of course, this document 
+%% (no templates)
+\end{brag}
+% \pitem{HTML}
+\columnbreak
+\subsection{Software Tools}
+\begin{brag}
+\pitem{Debian GNU/Linux}
+%minimal install that requires an intimate knowledge of  the inner workings of a \point{UNIX}-like operating system
+%a minimal install is my OS of choice, so I know a fair amount about the UNIX-like system.
+%years with a minimalistic install has given me an intimate knowledge of the utility of \point{UNIX}
+%% minimal install; essentially custom-assembled OS
+\pitem{Emacs \& Vim}
+%I have followed the beaten path of being a Vim power user for two years, then to be allured by the features of Emacs.
+%Configuring both of these editors is not only a way for me to optimize my workflow (on a \textit{Debian GNU/Linux System}), but a way for me to distract myself as well.
+%% power-user of both
+\pitem{git}
+%familiar and use it as a secondary `cloud storage device' for my configuration files
+%% familiar
+
+\pitem{Blender}
+% casual user mainly for video game design
+%% familiar
+\pitem{GIMP}
+% casual user for digital art
+%% hobbyist for digital art
+\pitem{Cockos Reaper \& Apple Logic Pro}
+%I use either for recording guitar and configuring synthesizers.
+%long-time user for recording guitar/bass/piano and song-writing
+%% long-time user of both for song-writing and recording
+\end{brag}
+\end{multicols}
+\vspace{-3em}
+
+
+\section{Hobbies and Interests}
+\vspace{1em}
+\begin{exper}
+\item \textsc{music:} dedicated electric guitarist, lifelong pianist (and teacher), casual bassist \& drummer, and a prolific, terrible song-writer
+\item \textsc{sports:} tennis, table tennis, golf, ultimate frisbee, surfing, snowboarding, and longboarding
+% \item \textsc{other:} can identify any Pink Floyd song within 5 seconds post-1971
+% \item \textsc{other:} painter/drawer, chess enthusiast, and the self-declared, undisputed champion of \textit{Axis \& Allies: Global 1940}
+\item \textsc{other:} painting, drawing, computer graphics, and chess
+\end{exper}
+
+
+%\hfill \textcolor{fade}{\small{v. \today}}
+ \vspace{\fill} \textcolor{fade}{\small{\hfill v. \today}}
+% \makebox[br]{\textcolor{fade}{\small{\hfill v. \today}}}
+\end{document}

@@ -1,0 +1,159 @@
+%St Andrews Notes Template
+\documentclass[12pt, a4paper, twocolumn]{article}
+
+%Formatting Packages
+\usepackage[a4paper, margin=0.5in]{geometry}
+%\usepackage[extreme]{savetrees}
+\usepackage{times}
+%\usepackage{cite}
+
+%Math Packages
+\usepackage{xparse}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{esint}
+\usepackage{physics}
+
+\author{}
+\title{The Statistics of Gravitational Microlensing Photometry Review}
+\date{}
+
+\newcommand{\arr}{\ensuremath{\longrightarrow\ }}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+A star's gravity can bend the light of another more distant, background star around it.
+Hence, the foreground star's semi-lens-like behavior is that of gravitational microlensing.
+It is called microlensing because the undectectable separation between the two images is of order of a micro-arcsec for a solar mass positioned at cosmological distances.
+The idea of gravity bending light is as old as Sir Isaac Newton,
+and the idea that a star could act as a lens for a background star was imagined by Albert Einstein in 1936.
+\cite{gaudi}
+If only he could have observed it, but the probability that two stars arrange themselves at any time for the observer to see noticeable effects is on the order of $10^{-6}$ (toward the Galactic bulge)\cite{gaudi}. 
+However, in the last few decades with dedicated surveys using networks of telescopes, thousands of microlensing events have been observed.
+These events are signified by a strong magnification spike of the background star as the two stars' angular separation minimizes over time.
+Perhaps the motivation for ever-increasing efforts to find microlensing events is that
+this phenomenon can be utilized as a tool for discovering extra-solar planets.
+When there is a planet orbiting the lens star, if it is positioned correctly, it can further amplify the light-bending
+, thereby yielding a spike in the magnification curve.
+The reliability of this method for discovering exoplanets will be the subject of this paper,
+and gravitational microlensing will be discussed purely as this use, though gravitational lensing is a much wider subject area in astronomy and astrophysics.
+
+Gravitational microlensing for discovering exoplanets is unlike the other methods for exoplanet detection in many ways.
+Neither the lens star nor the planet have to be visible to witness the microlensing effects, so there is no need to search for events only in our local stellar neighborhood.
+Microlensing can peer into the planet populations of distant stellar neighborhoods as well as those of other galaxy's.
+\cite{martin}
+Microlensing relies on the convenient orbital positioning of the planet for its detection, not its orbital motion.
+Therefore, it can discover planets with orbital periods much longer than those discovered by something like transits or Doppler-wobbles.
+
+However, as exciting as gravitational microlensing is, it shares the core of the other three indirect methods (Doppler-wobbles, transits, and astrometric-wobbles) for finding exoplanets.
+Namely, just as transits are based on deviations in star luminosity,
+microlensing is based on a curious-enough deviation from an expected magnification curve.
+Therefore, the reliablity of of exoplanet detection with gravitational microlensing is built on both a precise photometry of the magnification curve and a thorough understanding of the model magnification curve.
+
+\section{The Model}
+
+The following is a brief tour through the physics of gravitational microlensing.
+While arduous, it will eventually illustrate the myriad of magnification curves that can exist, which will be relevant in the discussion of the precision of the photometry.
+
+Gravitational microlensing consists of three objects: the lens mass at the origin of a cylindrical coordinate system;
+an observer at $(0,0,D_l)$; and the light source at $(R_S,0,D_s)$.
+
+Unfortunately, in a discussion about precision, we hit the ground running with approximations.
+Obviously  relativity takes authority over Newton when discussing how gravity affects light, but an in-depth discussion of general relativity is beyond the scope of this paper.
+Instead I will posit that for a point lens (an approximation of the star's finite but spherical symmetric size) the deflection angle is given by:
+\[\hat \alpha _d = \frac{4GM}{c^2D_l\theta}\]
+Where $M$ is the mass of the lens, and $\theta$ is the angular separation of the images of the source and the lens on the sky.\cite{gl_princ, gaudi}
+
+The angular separation of the unlensed source and the lens $\beta$ is the angular separation between the image and the lens $\theta$ minus the angular separation of the image and the unlensed source $\alpha _d$. Further, with another approximation, $\hat \alpha _d(D_s-D_l)= \alpha _d D_s$. Therefore:
+\[\label{eq1} \beta = \theta-\frac{4GM}{c^2\theta}\frac{D_s-D_l}{D_sD_l}\]
+
+When the source is directly behind the lens ($\beta =0$), the source is imaged into an 'Einstein Ring'
+\cite{gaudi}
+with an angular radius:
+\[\theta _\mathrm E =
+\sqrt{\frac{4GM}{c^2}\frac{D_s-D_l}{D_sD_l}}
+\]
+\begin{equation}\label{eq1r}
+\qq{\arr} \beta = \theta - \frac{\theta _\mathrm E^2}{\theta}
+\end{equation}
+
+Next, we normalize all of the angles in terms of Einstein radii -- i.e. dividing both sides of \ref{eq1r} by $\theta _\mathrm E$
+and defining 
+$u=\beta /\theta _\mathrm E$ (describing the position of the source)
+and $y=\theta /\theta _\mathrm E$ (describing the image(s) of the source)
+This yields
+$u=y-y^{-1}$
+, which is equivalent to to the quadratic equation of
+$y^2-uy-1=0$.
+Therefore when the foreground star does not perfectly eclipse the background star ($u\neq 0$),
+\[y_\pm = \pm \frac12\pqty{\sqrt{u^2+4}\pm u}\]
+Thus, two images of the source are created that are typically stretched tangentially and compressed radially
+\cite{gaudi} in terms of the Einstein circle.
+
+In the plane of sky, the infinitisimal area of a source (imagined as a slice of a ring) is $\beta \ \mathrm d \beta \ \mathrm d \phi$ or $u \ \mathrm d u \ \mathrm d \phi$.
+The area of the images is $\theta _\pm \ \mathrm d \theta _\pm \ \mathrm d \phi$ or $y \ \mathrm d y \ \mathrm d \phi$
+for the same $ \ \mathrm d \phi$.\cite{gl_princ}
+Thus the ratio between the area of the image to the area of the source, the magnification (because surface brightness is conserved)
+is:
+\[A_\pm = \abs{\frac{y_\pm}{u}\dv{y_\pm}{u}}
+=\frac12\bqty{\frac{u^2+2}{u\sqrt{u^2+4}}}\]
+And the total magnification considering both images is:
+\[A(u)=\frac{u^2+2}{u\sqrt{u^2+4}}\]
+
+Introducing parameterized equation of the relative lens-source motion:
+\[u(t)=\sqrt{u_0^2+\pqty{\frac{t-t_0}{t_\mathrm E}}^2}\]
+where $u_0$ is the minimum separation between the lens and source, $t_0$ is the time of maximum magnification, and $t_\mathrm E$ is the timescale to cross the angular Einstein ring radius.
+
+With this magnification in terms of the source motion, we have finally arrived at the simplest case of a microlensing event, also known as a Paczynski curve.\cite{gaudi}
+
+Unfortunately, adding one more light deflector into this system like a planet dramatically increases the complexity of its optics -- so much so that the magnification curve is better looked at numerically and qualitatively rather than analytically. However, one can see that if a planet were to eclipse one of these images, it would yield a spike in the magnification curve.
+
+A multiple-lens system brings about magnification patterns that can't easily be described as images, or caustics, at certain source positions.
+They are paramaterized by the mass ratio $q$ of the lenses and their separation $d$.
+They are defined the set of source positions for which the magnification of a ponit source is formally infinite.
+The bell-shaped prestinity of the Paczynski curve falls apart.
+
+\section{The Photometry}
+
+Gravitational microlensing is a demanding task. It both requires a long, wide survey as to allow for the low probability of microlensing events to occur, and it requires precise photometry of the events when they happen. So just like every other desire in astronomy, there are two goals to advance the power of gravitational microlensing: to increase sampling rates and signal-to-noise ratios.
+
+What is observed by the surveys searching for microlensing events in dense stellar fields is the flux of a photometered source as a function of time:
+\[F(t)=F_sA(t)+F_b\]
+where $F_s$ is the flux of the source star, and $F_b$ is the flux from all of the light that is not being lensed.
+
+So, $F(t)$ can be fit by five parameters: $t_0,u_0,t_\mathrm E,F_s,F_b$ which are highly correlated to eachother and only multiply when more lenses incorporate themselves into the picture.
+
+The scientific value of an exoplanet detection is severely degraded by an uncertainty in mass ratio and planet-star separation. Therefore, the problems of planet detection and parameter measurement are intimately connected. \cite{gaudi_parameters}.
+
+\section{Conclusion}
+
+With gravitational microlensing, one likely gets just one chance to utilize it on a particular system. You get one magnification curve to analyze and that's it as the source star and lens star separate away. As a method for detecting exoplanets, it requires significant sensitivity. So it is essential that microlensing efforts balance both ambition and humility to properly find and analyze events
+-- humility in recognizing the error that could crowd the planetary deviations and ambition in squashing the noise and sample gaps in the photometry.
+
+\section{Literature}
+
+The priority of this project is to analyze the error bars associated with gravitational microlensing detection.
+As stated before, an understanding of the model magnification curves is essential, but the mechanisms of general relativity need not be completely detailed.
+Arthur B. Congdon and Charles R. Keeton's \emph{Principles of Gravitational Lensing: Light Deflection as a Probe of Astrophysics and Cosmology} \cite{gl_princ} is a general explanation for the concepts of gravitational lensing of all types.
+
+As recounted earlier the lucrativity of gravitational microlensing exploded with Bohdad Paczynski's \emph{Gravitational Microlensing in the Local Group} \cite{paczynski} article, though exoplanetary discovery is a mere single aspect of the article.
+Andrew Gould and Abraham Loeb's \emph{Discovering Planetary Systems Through Gravitational Microlenses} \cite{gould_discovering} explain and focus on gravitational lensing's power to detect exoplanets.
+
+B. Scott Gaudi in \emph{Exoplanetary Microlensing} \cite{gaudi} and Martin Dominik in \emph{Studyin planet populations by gravitational microlensing} also provide more current, comprehensive views on the status of gravitational microlensing for discovering exoplanets.
+
+Gaudi delves deeper into the observational side of exoplanet detection in \emph{Planet Parameters in Microlensing Events} \cite{gaudi_parameters}.
+
+
+These articles as well as Hans J. Witt and Shude Mao's \emph{On the Minimum Magnification Between Caustic Crossings for Microlensing By Binary and Multiple Stars} \cite{witt_mag} give more insight into the more complicated lens formations.
+
+In actually examining the systematic strengths and errors of applied microlensing, the 1998 report of \emph{The 1995 Pilot Campaign of Planet: Searching for Microlensing Anomalies through Precise, Rapid, Round-the-Clock Monitoring} \cite{PLANET} provides a detailed supply of the concerns about how to tackle the problem that microlensing requires both vastness in data-acquisition and precision.
+
+Lastly and most importantly for the future of this investigation, a more thorough delve into the OGLE-IV data \cite{ogle}  will be necessary to acquire an understanding of thousands of microlensing events recorded.
+
+
+\bibliographystyle{unsrt}
+\bibliography{prj}
+\end{document}

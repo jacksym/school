@@ -1,0 +1,1 @@
+rsync -avs --timeout=240 sirius.astrouw.edu.pl::ews/2019 . 2020

@@ -1,0 +1,599 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.3.2)  28 APR 2021 06:25
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**project.tex
+(./project.tex
+LaTeX2e <2020-02-02> patch level 2
+L3 programming layer <2020-02-14>
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+)
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2019/11/07 v1.0c TeX engine tests
+))
+\Gm@cnth=\count175
+\Gm@cntv=\count176
+\c@Gm@tempcnt=\count177
+\Gm@bindingoffset=\dimen135
+\Gm@wd@mp=\dimen136
+\Gm@odd@mp=\dimen137
+\Gm@even@mp=\dimen138
+\Gm@layoutwidth=\dimen139
+\Gm@layoutheight=\dimen140
+\Gm@layouthoffset=\dimen141
+\Gm@layoutvoffset=\dimen142
+\Gm@dimlist=\toks15
+)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2019/10/16 v2.13 Sectioning titles
+\ttl@box=\box45
+\beforetitleunit=\skip49
+\aftertitleunit=\skip50
+\ttl@plus=\dimen143
+\ttl@minus=\dimen144
+\ttl@toksa=\toks16
+\titlewidth=\dimen145
+\titlewidthlast=\dimen146
+\titlewidthfirst=\dimen147
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count178
+\float@exts=\toks17
+\float@box=\box46
+\@float@everytoks=\toks18
+\@floatcapt=\box47
+)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2020-02-14 L3 programming layer (loader) 
+
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count179
+\l__pdf_internal_box=\box48
+))
+Package: xparse 2020-02-14 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count180
+\g__xparse_grabber_int=\count181
+\l__xparse_m_args_int=\count182
+\l__xparse_v_nesting_int=\count183
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks19
+\ex@=\dimen148
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen149
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count184
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count185
+\leftroot@=\count186
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count187
+\DOTSCASE@=\count188
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box49
+\strutbox@=\box50
+\big@size=\dimen150
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count189
+\c@MaxMatrixCols=\count190
+\dotsspace@=\muskip17
+\c@parentequation=\count191
+\dspbrk@lvl=\count192
+\tag@help=\toks20
+\row@=\count193
+\column@=\count194
+\maxfields@=\count195
+\andhelp@=\toks21
+\eqnshift@=\dimen151
+\alignsep@=\dimen152
+\tagshift@=\dimen153
+\tagwidth@=\dimen154
+\totwidth@=\dimen155
+\lineht@=\dimen156
+\@envbody=\toks22
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/esint/esint.sty
+Package: esint 
+\symlargesymbolsA=\mathgroup6
+)
+(/usr/share/texlive/texmf-dist/tex/latex/physics/physics.sty
+Package: physics 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen157
+\Gin@req@width=\dimen158
+)
+(./project.aux)
+\openout1 = `project.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 3
+5.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=702.78308pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-38.1381pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count196
+\scratchdimen=\dimen159
+\scratchbox=\box51
+\nofMPsegments=\count197
+\nofMParguments=\count198
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count199
+\MPscratchDim=\dimen160
+\MPnumerator=\count266
+\makeMPintoPDFobject=\count267
+\everyMPtoPDFconversion=\toks25
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+esint on input line 3
+6.
+
+(/usr/share/texlive/texmf-dist/tex/latex/esint/uesint.fd
+File: uesint.fd 
+)
+
+./project.tex:45: Package titlesec Error: Entered in horizontal mode.
+
+See the titlesec package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.45 \section{Introduction}
+                           
+The <format> argument cannot contain horizontal material
+such as text, \noindent, \makebox, etc.
+
+<./images/intro.png, id=1, 476.53032pt x 103.13531pt>
+File: ./images/intro.png Graphic file (type png)
+<use ./images/intro.png>
+Package pdftex.def Info: ./images/intro.png  used on input line 52.
+(pdftex.def)             Requested size: 341.43306pt x 73.90012pt.
+
+./project.tex:83: Package titlesec Error: Entered in horizontal mode.
+
+See the titlesec package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.83 \section{The Model}
+                        
+The <format> argument cannot contain horizontal material
+such as text, \noindent, \makebox, etc.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/intro.png>]
+<./images/symb_mic.png, id=14, 1285.80376pt x 678.535pt>
+File: ./images/symb_mic.png Graphic file (type png)
+<use ./images/symb_mic.png>
+Package pdftex.def Info: ./images/symb_mic.png  used on input line 92.
+(pdftex.def)             Requested size: 426.79134pt x 225.22179pt.
+
+[2 <./images/symb_mic.png>]
+
+LaTeX Warning: Reference `eq1r' on page 3 undefined on input line 122.
+
+<./images/symb_mag.png, id=22, 1059.96pt x 860.21375pt>
+File: ./images/symb_mag.png Graphic file (type png)
+<use ./images/symb_mag.png>
+Package pdftex.def Info: ./images/symb_mag.png  used on input line 142.
+(pdftex.def)             Requested size: 341.43306pt x 277.08537pt.
+[3 <./images/symb_mag.png>]
+
+./project.tex:177: Package titlesec Error: Entered in horizontal mode.
+
+See the titlesec package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.177 ...metry Data Modeled with Paczynski Curves}
+                                                  
+The <format> argument cannot contain horizontal material
+such as text, \noindent, \makebox, etc.
+
+<./images/phot_dat.png, id=28, 462.528pt x 317.988pt>
+File: ./images/phot_dat.png Graphic file (type png)
+<use ./images/phot_dat.png>
+Package pdftex.def Info: ./images/phot_dat.png  used on input line 196.
+(pdftex.def)             Requested size: 455.24411pt x 312.9944pt.
+[4]
+
+./project.tex:206: Package titlesec Error: Entered in horizontal mode.
+
+See the titlesec package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.206 ...Data Distribution at Constant Brightness}
+                                                  
+The <format> argument cannot contain horizontal material
+such as text, \noindent, \makebox, etc.
+
+<./images/freq_dist.png, id=32, 462.528pt x 317.988pt>
+File: ./images/freq_dist.png Graphic file (type png)
+<use ./images/freq_dist.png>
+Package pdftex.def Info: ./images/freq_dist.png  used on input line 214.
+(pdftex.def)             Requested size: 455.24411pt x 312.9944pt.
+[5 <./images/phot_dat.png>] [6 <./images/freq_dist.png>]
+<./images/cumu_dist.png, id=45, 462.528pt x 317.988pt>
+File: ./images/cumu_dist.png Graphic file (type png)
+<use ./images/cumu_dist.png>
+Package pdftex.def Info: ./images/cumu_dist.png  used on input line 271.
+(pdftex.def)             Requested size: 455.24411pt x 312.9944pt.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 2
+78.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+) [7 <./images/cumu_dist.png>]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 3
+09.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+
+./project.tex:314: Package titlesec Error: Entered in horizontal mode.
+
+See the titlesec package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.314 \section{Heavy-Tailed Distributions}
+                                          
+The <format> argument cannot contain horizontal material
+such as text, \noindent, \makebox, etc.
+
+
+Overfull \hbox (1.90694pt too wide) in paragraph at lines 316--318
+[]\OT1/ptm/m/n/12 The choice heavy-tailed dis-tri-bu-tions to add to this pic-t
+ure in-clude the \OT1/ptm/b/n/12 stu-dent $\OML/cmm/m/it/12 t$\OT1/ptm/b/n/12 -
+distribution
+ []
+
+
+./project.tex:319: Package titlesec Error: Entered in horizontal mode.
+
+See the titlesec package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.319 \subsection{Student's $t$-distribution}
+                                             
+The <format> argument cannot contain horizontal material
+such as text, \noindent, \makebox, etc.
+
+<./images/t_dist.png, id=53, 462.528pt x 317.988pt>
+File: ./images/t_dist.png Graphic file (type png)
+<use ./images/t_dist.png>
+Package pdftex.def Info: ./images/t_dist.png  used on input line 336.
+(pdftex.def)             Requested size: 227.62204pt x 156.48991pt.
+[8]
+<./images/t_cdf.png, id=57, 462.528pt x 317.988pt>
+File: ./images/t_cdf.png Graphic file (type png)
+<use ./images/t_cdf.png>
+Package pdftex.def Info: ./images/t_cdf.png  used on input line 360.
+(pdftex.def)             Requested size: 455.24411pt x 312.9944pt.
+ [9 <./images/t_dist.png>]
+
+./project.tex:367: Package titlesec Error: Entered in horizontal mode.
+
+See the titlesec package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.367 \subsection{Cauchy distribution}
+                                      
+The <format> argument cannot contain horizontal material
+such as text, \noindent, \makebox, etc.
+
+<./images/lo_dist.png, id=62, 462.528pt x 317.988pt>
+File: ./images/lo_dist.png Graphic file (type png)
+<use ./images/lo_dist.png>
+Package pdftex.def Info: ./images/lo_dist.png  used on input line 382.
+(pdftex.def)             Requested size: 227.62204pt x 156.48991pt.
+./project.tex:383: Missing } inserted.
+<inserted text> 
+                }
+l.383 ...th increasing $ \mathrm{FWHM = 2\gamma$}}
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./project.tex:383: Extra }, or forgotten \endgroup.
+\sbox  ...box {\color@setgroup #2\color@endgroup }
+                                                  
+l.383 ...th increasing $ \mathrm{FWHM = 2\gamma$}}
+                                                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+./project.tex:383: Missing } inserted.
+<inserted text> 
+                }
+l.383 ...th increasing $ \mathrm{FWHM = 2\gamma$}}
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./project.tex:383: Extra }, or forgotten \endgroup.
+\math@egroup #1->#1\egroup 
+                           
+l.383 ...th increasing $ \mathrm{FWHM = 2\gamma$}}
+                                                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+[10 <./images/t_cdf.png>]
+<./images/cauchy_cdf.png, id=67, 462.528pt x 317.988pt>
+File: ./images/cauchy_cdf.png Graphic file (type png)
+<use ./images/cauchy_cdf.png>
+Package pdftex.def Info: ./images/cauchy_cdf.png  used on input line 402.
+(pdftex.def)             Requested size: 455.24411pt x 312.9944pt.
+ [11 <./images/lo_dist.png>]
+
+./project.tex:414: Package titlesec Error: Entered in horizontal mode.
+
+See the titlesec package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.414 \section{Error Correcting}
+                                
+The <format> argument cannot contain horizontal material
+such as text, \noindent, \makebox, etc.
+
+<./images/err_cor1.png, id=72, 462.528pt x 317.988pt>
+File: ./images/err_cor1.png Graphic file (type png)
+<use ./images/err_cor1.png>
+Package pdftex.def Info: ./images/err_cor1.png  used on input line 432.
+(pdftex.def)             Requested size: 455.24411pt x 312.9944pt.
+[12 <./images/cauchy_cdf.png>]
+<./images/gauss_ec.png, id=77, 462.528pt x 317.988pt>
+File: ./images/gauss_ec.png Graphic file (type png)
+<use ./images/gauss_ec.png>
+Package pdftex.def Info: ./images/gauss_ec.png  used on input line 459.
+(pdftex.def)             Requested size: 455.24411pt x 312.9944pt.
+ [13 <./images/err_cor1.png>]
+
+./project.tex:468: Package titlesec Error: Entered in horizontal mode.
+
+See the titlesec package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.468 ...tion{Correcting for Each Mean Brightness}
+                                                  
+The <format> argument cannot contain horizontal material
+such as text, \noindent, \makebox, etc.
+
+<./images/final.png, id=83, 462.528pt x 317.988pt>
+File: ./images/final.png Graphic file (type png)
+<use ./images/final.png>
+Package pdftex.def Info: ./images/final.png  used on input line 485.
+(pdftex.def)             Requested size: 455.24411pt x 312.9944pt.
+[14 <./images/gauss_ec.png>]
+
+./project.tex:495: Package titlesec Error: Entered in horizontal mode.
+
+See the titlesec package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.495 \section{Conclusion}
+                          
+The <format> argument cannot contain horizontal material
+such as text, \noindent, \makebox, etc.
+
+[15 <./images/final.png>] (./project.bbl
+
+./project.bbl:1: Package titlesec Error: Entered in horizontal mode.
+
+See the titlesec package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \begin{thebibliography}{1}
+                              
+The <format> argument cannot contain horizontal material
+such as text, \noindent, \makebox, etc.
+
+) [16] (./project.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 4499 strings out of 483107
+ 63529 string characters out of 5964631
+ 308378 words of memory out of 5000000
+ 19456 multiletter control sequences out of 15000+600000
+ 556496 words of font info for 86 fonts, out of 8000000 for 9000
+ 59 hyphenation exceptions out of 8191
+ 35i,10n,42p,696b,287s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/esint-type1/esint10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utm
+ri8a.pfb>
+Output written on project.pdf (16 pages, 1460189 bytes).
+PDF statistics:
+ 144 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+

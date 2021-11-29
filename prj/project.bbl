@@ -1,0 +1,45 @@
+\begin{thebibliography}{1}
+
+\bibitem{gaudi}
+B.~Scott Gaudi.
+\newblock Exoplanetary microlensing, 2010.
+
+\bibitem{gl_princ}
+Arthur~B. Congdon and Charles~R. Keeton.
+\newblock {\em Principles of Gravitational Lensing: Light Deflection as a Probe
+  of Astrophysics and Cosmology}.
+\newblock Springer Nature Switzerland, Cham, Switzerland, 2018.
+
+\bibitem{ogle}
+Ogle project.
+\newblock \url{http://ogle.astrouw.edu.pl/}.
+\newblock Accessed: 2020-2021.
+
+\bibitem{martin}
+Martin Dominik.
+\newblock Studying planet populations by gravitational microlensing.
+\newblock {\em Gen Relativ Gravit}, 42:2075--2100, 2010.
+
+\bibitem{paczynski}
+Bohdan Paczynski.
+\newblock Gravitational microlensing in the local group.
+\newblock {\em Annual Review of Astronomy and Astrophysics}, 34:419--459, Sep
+  1996.
+
+\bibitem{gould_discovering}
+Andrew Gould and Abraham Loeb.
+\newblock Discovering planetary systems through gravitational microlenses.
+\newblock {\em The Astrophysical Journal}, 396:104--114, Sep 1992.
+
+\bibitem{gaudi_parameters}
+B.~Scott Gaudi and Andrew Gould.
+\newblock Planet parameters in microlensing events.
+\newblock {\em The Astrophysical Journal}, 486:85--99, Sep 1997.
+
+\bibitem{PLANET}
+Michael~D. Albrow et~al.
+\newblock {The 1995 Pilot campaign of PLANET: Searching for Microlensing
+  Anomalies through Precise, Rapid, Round-the-Clock Monitoring}.
+\newblock {\em Astrophys. J.}, 509:687, 1998.
+
+\end{thebibliography}

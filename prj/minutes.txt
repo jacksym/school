@@ -1,0 +1,22 @@
+
+Standard model for astronometric microlensing
+
+motion of starts and motion of lens is not a straight line
+account for parallax
+
+Ammar Abdulla:
+Studying the start motion in relation to the lens. Visualizing the wobble of the star on its own without the microlensing event. Looking into how to use the positional measurement on their own without any microlensing parameters working with that wobble to get the properties of the lens. There are many ways to get those properties, but they have different errors and uncertainties. Also working to get some error analysis in the parallax, and to accelerate my writing.
+
+
+Aaron Fraser:
+Simulating the parametric motion of stars around two supermassive black holes, and trying to vary the initial parameters of the stars and the black holes to see whether the black holes can grow just by stellar capture rather than needing an accretion disk. Accounting for two black holes increases the chance that a stellar capture will occur. Also working to 'launch stars' out from the black hole with an escape velocity and see where they go, and can go further by varying the initial position of the stars.
+
+Constantly making corrections and am in a constant discussion with my supervisor, so the main tasks and uncertainties come from proofreading equations and code.
+
+Ryan Lunney:
+
+Finished the script that does all of the fitting and models to my data. Plotted all of the parameters that it has fitted.
+Commenting on why outliers exist. Calculating optimum averages. Proprietary code forcing a reverse engineer a T test to calculate variances. Looking through the spectrums for the K emmision line. Using Spearman-Rag tests to see how to move parameters in the large plot. Need to find out what each of the physical meanings are to the parameters, and need to clarify certain tests.
+
+Jack Symonds:
+Finishing up distribution models. More importantly, working with emprical and cumulative distributions to explore the characteristics of the constant-magnitude distribution itself. Working with a Kolgomorov-Smirnov test to question how well certain distribution models fit to the distribution. Would like to move toward applying conclusions drawn from distribution investigation toward other areas of microlensing events or other datasets.
